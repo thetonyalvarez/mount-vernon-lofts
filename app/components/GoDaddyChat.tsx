@@ -50,27 +50,27 @@ export function GoDaddyChat() {
     // Initialize the _support object
     if (typeof window !== 'undefined') {
       window._support = window._support || { ui: {}, user: {} }
-      window._support.account = '67c7812f-ccec-465f-98e1-cf37180d9a4a'
+      window._support.account = '73853174-d077-4979-9ac2-eb90bb803ed9'
       window._support.ui = window._support.ui || {}
       window._support.ui.contactMode = 'mixed'
       window._support.ui.enableKb = 'true'
-      window._support.ui.mailbox = '3295764'
+      window._support.ui.mailbox = '76787345'
       window._support.ui.styles = {
-        widgetColor: 'rgba(224, 122, 95, 1)', // Using MVL Coral color
+        widgetColor: '#fffcf7', // MVL Cream
         gradient: true,
       }
       window._support.ui.shoutboxFacesMode = ''
       window._support.ui.widget = {
         allowBotProcessing: 'false',
-        slug: 'mount-vernon-lofts',
+        slug: 'mount-vernon-website',
         label: {
-          text: 'Let us know if you have any questions about Mount Vernon Lofts!',
+          text: 'Hi, how can we help?',
           mode: 'notification',
           delay: 3,
           duration: 30,
           primary: '',
           secondary: '',
-          sound: false, // Changed to false to be less intrusive
+          sound: true,
         },
         position: 'bottom-right'
       }

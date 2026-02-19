@@ -7,6 +7,7 @@ import { ContactModalProvider } from "@/lib/contact-modal-context";
 import { ContactModal } from "@/components/ContactModal";
 import { GoogleTagManager, GTMDebugInfo } from "@/app/components/analytics";
 import { EnhancedMetadata } from "@/app/components/metadata/EnhancedMetadata";
+import { DeferredScripts } from "@/components/DeferredScripts";
 import "./globals.css";
 
 // Define the Montserrat font for headings
@@ -231,6 +232,7 @@ export default async function RootLayout({
           <ContactModal />
         </ContactModalProvider>
         <GoogleTagManager />
+        <DeferredScripts />
         {process.env.NODE_ENV === 'development' && <GTMDebugInfo />}
       </body>
     </html>
