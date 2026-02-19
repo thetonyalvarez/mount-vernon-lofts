@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 import Image from "@/components/ui/image"
 import Link from "next/link"
@@ -10,9 +11,21 @@ import type { NavigationProps } from "../../types"
 import { useContactModal } from "@/lib/contact-modal-context"
 import { trackNavigation } from "@/app/components/analytics"
 
+/** Routes without dark hero sections that need the dark navbar immediately */
+const LIGHT_BACKGROUND_ROUTES = [
+  '/floor-plans',
+  '/thank-you',
+  '/thank-you-floor-plans',
+  '/thank-you-brochure',
+]
+
 export default function Navigation({ onMenuToggle }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const { openModal } = useContactModal()
+  const pathname = usePathname()
+
+  const needsDarkNav = LIGHT_BACKGROUND_ROUTES.some(route => pathname === route)
+  const showDarkNav = isScrolled || needsDarkNav
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +49,7 @@ export default function Navigation({ onMenuToggle }: NavigationProps) {
       className={clsx(
         "fixed top-0 left-0 right-0 w-full flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 md:py-6 z-40",
         "transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        showDarkNav ? "bg-white shadow-md" : "bg-transparent"
       )}
     >
       {/* Left: Menu Button */}
@@ -48,7 +61,7 @@ export default function Navigation({ onMenuToggle }: NavigationProps) {
           }}
           className={clsx(
             "flex items-center gap-3 hover:opacity-80 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
-            isScrolled ? "text-mvl-espresso" : "text-white"
+            showDarkNav ? "text-mvl-espresso" : "text-white"
           )}
         >
           <Menu className="w-7 h-7" />
@@ -64,7 +77,7 @@ export default function Navigation({ onMenuToggle }: NavigationProps) {
           onClick={() => trackNavigation('header', 'Logo', '/')}
         >
           <Image
-            src={isScrolled ? "/logos/logo_h_black.svg" : "/logos/logo_h_white.svg"}
+            src={showDarkNav ? "/logos/logo_h_black.svg" : "/logos/logo_h_white.svg"}
             alt="Mount Vernon Lofts"
             width={180}
             height={60}
@@ -85,7 +98,7 @@ export default function Navigation({ onMenuToggle }: NavigationProps) {
           className={clsx(
             "border-2 bg-transparent px-3 sm:px-6 py-1.5 sm:py-2 rounded-none text-sm sm:text-base font-semibold uppercase tracking-wide",
             "transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
-            isScrolled
+            showDarkNav
               ? "border-mvl-espresso text-mvl-espresso hover:bg-mvl-espresso hover:text-white"
               : "border-white text-white hover:bg-white hover:text-black"
           )}
