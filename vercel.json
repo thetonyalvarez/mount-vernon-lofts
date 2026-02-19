@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://vercel.live https://cdn.reamaze.com http://cdn.reamaze.com https://*.reamaze.com http://*.reamaze.com https://*.reamaze.io http://*.reamaze.io https://cdnjs.cloudflare.com https://connect.facebook.net https://*.facebook.com https://*.fbcdn.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.reamaze.com https://*.reamaze.com https://*.reamaze.io; font-src 'self' https://fonts.gstatic.com https://cdn.reamaze.com https://*.reamaze.com https://*.reamaze.io; img-src 'self' data: https: blob:; media-src 'self' https://cdn.reamaze.com https://*.reamaze.com https://*.reamaze.io; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.s3.amazonaws.com https://vercel.live https://*.reamaze.com http://*.reamaze.com https://*.reamaze.io http://*.reamaze.io wss://*.reamaze.com ws://*.reamaze.com wss://*.reamaze.io ws://*.reamaze.io https://*.pusher.com wss://*.pusher.com https://connect.facebook.net https://*.facebook.com https://*.fbcdn.net https://graph.facebook.com; frame-src 'self' https://www.googletagmanager.com https://www.google.com https://*.google.com https://maps.google.com https://vercel.live https://*.reamaze.com https://*.reamaze.io;"
+        }
+      ]
+    }
+  ]
+}

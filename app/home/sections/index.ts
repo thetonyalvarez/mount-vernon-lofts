@@ -1,0 +1,7 @@
+export { HeroSection } from './HeroSection'
+export { ExclusivitySection } from './ExclusivitySection'
+export { ContactFormSection } from './ContactFormSection'
+export { AmenitiesSection } from './AmenitiesSection'
+export { ArchitectureSection } from './ArchitectureSection'
+export { LifestyleSection } from './LifestyleSection'
+export { Footer } from './Footer'

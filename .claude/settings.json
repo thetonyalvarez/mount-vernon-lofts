@@ -1,0 +1,27 @@
+{
+  "project": {
+    "name": "Mount Vernon Lofts",
+    "type": "Next.js React Website",
+    "description": "Real estate website for attainable urban condos in Montrose, Houston — targeting first-time buyers and young professionals"
+  },
+  "preferences": {
+    "codeStyle": {
+      "indentation": 2,
+      "quotes": "double",
+      "semicolons": false,
+      "trailingComma": "es5"
+    },
+    "componentNaming": "PascalCase",
+    "functionNaming": "camelCase",
+    "fileNaming": "kebab-case"
+  },
+  "tools": {
+    "linter": "eslint",
+    "formatter": "prettier",
+    "packageManager": "npm"
+  },
+  "testing": {
+    "framework": "jest",
+    "e2e": "cypress"
+  }
+}
