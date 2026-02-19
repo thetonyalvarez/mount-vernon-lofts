@@ -65,8 +65,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         }`}
       >
         <Image
-          src="images/middle-section-expanded.jpg"
-          alt="Modern interior"
+          src="/images/unit-9_1-bed/9-3.jpg"
+          alt="Modern condo kitchen at Mount Vernon Lofts"
           fill
           className="object-cover"
           sizes="40vw"
