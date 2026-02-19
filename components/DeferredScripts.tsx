@@ -6,8 +6,8 @@ import dynamic from 'next/dynamic'
 // Dynamically import deferred components
 // NOTE: GTM (script + noscript + debug) is mounted directly in app/layout.tsx
 // so it loads as early as possible. Do NOT add it here to avoid duplicate mounts.
-const GoDaddyChat = dynamic(() =>
-  import('@/app/components/GoDaddyChat').then(mod => ({ default: mod.GoDaddyChat })),
+const TawkChat = dynamic(() =>
+  import('@/app/components/TawkChat').then(mod => ({ default: mod.TawkChat })),
   { ssr: false }
 )
 
@@ -65,8 +65,8 @@ export function DeferredScripts() {
 
   return (
     <>
-      {/* Skip GoDaddy chat on mobile to reduce JS blocking */}
-      {!isMobile && <GoDaddyChat />}
+      {/* Tawk.to live chat — loads on all devices including mobile */}
+      <TawkChat />
     </>
   )
 }
