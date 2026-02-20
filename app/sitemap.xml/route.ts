@@ -27,6 +27,12 @@ export async function GET() {
       priority: 0.9
     },
     {
+      url: `${baseUrl}/brochure`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8
+    },
+    {
       url: `${baseUrl}/gallery`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
@@ -37,6 +43,24 @@ export async function GET() {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7
+    },
+    {
+      url: `${baseUrl}/amenities`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6
+    },
+    {
+      url: `${baseUrl}/architecture`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6
+    },
+    {
+      url: `${baseUrl}/team`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.5
     },
   ];
 

@@ -15,8 +15,12 @@ Allow: /
 # High-priority pages
 Allow: /residences
 Allow: /floor-plans
+Allow: /brochure
 Allow: /neighborhood
 Allow: /gallery
+Allow: /amenities
+Allow: /architecture
+Allow: /team
 
 # Block query parameters that cause duplicate content
 Disallow: /*?index=*
@@ -30,6 +34,7 @@ Disallow: /*?source=*
 Disallow: /api/
 Disallow: /.well-known/
 Disallow: /thank-you
+Disallow: /maintenance
 Disallow: /_next/
 Disallow: /admin/
 
