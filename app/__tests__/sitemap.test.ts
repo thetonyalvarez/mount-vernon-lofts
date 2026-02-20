@@ -66,6 +66,14 @@ describe('Sitemap', () => {
     const urlEntries = (source.match(/url:\s*[`'"]?\$?\{?baseUrl/g) ?? []).length
     expect(urlEntries).toBe(9)
   })
+
+  it('exports dynamic = force-dynamic to prevent static pre-rendering', () => {
+    expect(source).toMatch(/export\s+const\s+dynamic\s*=\s*['"]force-dynamic['"]/)
+  })
+
+  it('returns Content-Type application/xml', () => {
+    expect(source).toContain("'Content-Type': 'application/xml'")
+  })
 })
 
 describe('Robots.txt', () => {
@@ -93,5 +101,13 @@ describe('Robots.txt', () => {
     for (const page of publicPages) {
       expect(source, `Missing Allow for ${page}`).toContain(`Allow: ${page}`)
     }
+  })
+
+  it('exports dynamic = force-dynamic to prevent static pre-rendering', () => {
+    expect(source).toMatch(/export\s+const\s+dynamic\s*=\s*['"]force-dynamic['"]/)
+  })
+
+  it('returns Content-Type text/plain', () => {
+    expect(source).toContain("'Content-Type': 'text/plain'")
   })
 })
