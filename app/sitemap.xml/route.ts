@@ -3,6 +3,8 @@
  * Ensures all URLs use canonical https://mtvernonlofts.com domain
  */
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const baseUrl = 'https://mtvernonlofts.com';
   const currentDate = new Date().toISOString();

@@ -3,6 +3,8 @@
  * Reinforces canonical domain preference and handles indexing parameters
  */
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const baseUrl = 'https://mtvernonlofts.com';
 
