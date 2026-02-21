@@ -58,10 +58,14 @@ describe("Open house page has a hero image", () => {
     expect(source).toMatch(/Image|bg-\[url|background-image|fallbackImage/)
   })
 
-  it("open house page references an exterior or property photo", () => {
+  it("open house page hero image exists locally in public/", () => {
     const source = readFile("app/open-house/page.tsx")
-    // Should use the exterior building photo for the hero
-    expect(source).toMatch(/exterior|gallery|images\//)
+    // Extract the image src from the hero Image component
+    const srcMatch = source.match(/src="(images\/[^"]+)"/)
+    expect(srcMatch).not.toBeNull()
+    // The image must actually exist in public/ so it loads in dev and production
+    const imagePath = path.join(process.cwd(), "public", srcMatch![1])
+    expect(fs.existsSync(imagePath)).toBe(true)
   })
 
   it("open house page hero has sufficient height for visual impact", () => {
