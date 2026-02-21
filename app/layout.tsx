@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { headers } from "next/headers";
-import { NavigationWrapper } from "./components/navigation/NavigationWrapper";
 import { Footer } from "./components/Footer";
 import { ContactModalProvider } from "@/lib/contact-modal-context";
 import { ContactModal } from "@/components/ContactModal";
 import { GoogleTagManager, GTMDebugInfo } from "@/app/components/analytics";
 import { EnhancedMetadata } from "@/app/components/metadata/EnhancedMetadata";
-import { OpenHouseBanner } from "@/components/OpenHouseBanner";
+import { OpenHouseBannerWrapper } from "@/components/OpenHouseBannerWrapper";
 import { DeferredScripts } from "@/components/DeferredScripts";
 import "./globals.css";
 
@@ -225,8 +224,7 @@ export default async function RootLayout({
           >
             Skip to main content
           </a>
-          <OpenHouseBanner />
-          <NavigationWrapper />
+          <OpenHouseBannerWrapper />
           <main id="main-content">
             {children}
           </main>

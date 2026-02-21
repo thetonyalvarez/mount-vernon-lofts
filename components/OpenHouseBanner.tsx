@@ -7,7 +7,11 @@ import { getNextEvent, hasUpcomingEvents } from "@/app/config/open-house-data";
 
 const BANNER_STORAGE_KEY = "mvl-open-house-banner-dismissed";
 
-export function OpenHouseBanner() {
+interface OpenHouseBannerProps {
+  readonly onVisibilityChange?: (visible: boolean) => void;
+}
+
+export function OpenHouseBanner({ onVisibilityChange }: OpenHouseBannerProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -16,6 +20,7 @@ export function OpenHouseBanner() {
     if (!hasUpcomingEvents()) {
       setIsVisible(false);
       setIsLoaded(true);
+      onVisibilityChange?.(false);
       // Clean up localStorage if no active events
       localStorage.removeItem(BANNER_STORAGE_KEY);
       return;
@@ -26,13 +31,17 @@ export function OpenHouseBanner() {
 
     if (!dismissed) {
       setIsVisible(true);
+      onVisibilityChange?.(true);
+    } else {
+      onVisibilityChange?.(false);
     }
 
     setIsLoaded(true);
-  }, []);
+  }, [onVisibilityChange]);
 
   const handleDismiss = () => {
     setIsVisible(false);
+    onVisibilityChange?.(false);
     // Store dismissal in localStorage - will reappear on next visit until event expires
     localStorage.setItem(BANNER_STORAGE_KEY, new Date().toISOString());
   };
@@ -58,9 +67,9 @@ export function OpenHouseBanner() {
             href="/open-house"
             className="flex-1 flex items-center justify-center gap-2 md:gap-3 hover:opacity-90 transition-opacity group text-center"
           >
-            {/* Mobile Layout */}
+            {/* Mobile Layout — short title (before "at") to fit small screens */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 md:hidden text-center">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">OPEN HOUSE</span>
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">{nextEvent.title.split(" at ")[0].toUpperCase()}</span>
               <span className="hidden sm:inline text-white/60">|</span>
               <span className="text-xs sm:text-sm font-light">
                 {nextEvent.date.replace(/,?\s*\d{4}/, "")} • {nextEvent.startTime.replace(/:00/, "")}-{nextEvent.endTime.replace(/:00/, "")}
@@ -69,7 +78,7 @@ export function OpenHouseBanner() {
 
             {/* Desktop Layout */}
             <div className="hidden md:flex md:items-center md:gap-3">
-              <span className="text-sm font-bold uppercase tracking-wider">OPEN HOUSE</span>
+              <span className="text-sm font-bold uppercase tracking-wider">{nextEvent.title.toUpperCase()}</span>
               <span className="text-white/60">|</span>
               <span className="text-sm font-light">{nextEvent.date}</span>
               <span className="text-white/60">•</span>

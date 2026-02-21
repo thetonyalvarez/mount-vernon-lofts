@@ -4,7 +4,11 @@ import { useState } from "react"
 import Navigation from "./Navigation"
 import { MobileMenu } from "./MobileMenu"
 
-export function NavigationWrapper() {
+interface NavigationWrapperProps {
+  readonly bannerVisible?: boolean;
+}
+
+export function NavigationWrapper({ bannerVisible = false }: NavigationWrapperProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleMenuToggle = () => {
@@ -17,7 +21,7 @@ export function NavigationWrapper() {
 
   return (
     <>
-      <Navigation isMenuOpen={isMenuOpen} onMenuToggle={handleMenuToggle} />
+      <Navigation isMenuOpen={isMenuOpen} onMenuToggle={handleMenuToggle} bannerVisible={bannerVisible} />
       <MobileMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
     </>
   )

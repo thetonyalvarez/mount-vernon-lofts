@@ -14,12 +14,13 @@ import { trackNavigation } from "@/app/components/analytics"
 /** Routes without dark hero sections that need the dark navbar immediately */
 const LIGHT_BACKGROUND_ROUTES = [
   '/floor-plans',
+  '/open-house',
   '/thank-you',
   '/thank-you-floor-plans',
   '/thank-you-brochure',
 ]
 
-export default function Navigation({ onMenuToggle }: NavigationProps) {
+export default function Navigation({ onMenuToggle, bannerVisible = false }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const { openModal } = useContactModal()
   const pathname = usePathname()
@@ -47,8 +48,9 @@ export default function Navigation({ onMenuToggle }: NavigationProps) {
     <nav
       id="navigation"
       className={clsx(
-        "fixed top-0 left-0 right-0 w-full flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 md:py-6 z-40",
+        "fixed left-0 right-0 w-full flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 md:py-6 z-40",
         "transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
+        bannerVisible ? "top-[44px]" : "top-0",
         showDarkNav ? "bg-white shadow-md" : "bg-transparent"
       )}
     >

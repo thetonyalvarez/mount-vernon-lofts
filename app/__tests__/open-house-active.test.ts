@@ -30,16 +30,16 @@ describe("Open House event data — Broker Open House Feb 26", () => {
   })
 })
 
-describe("OpenHouseBanner is mounted in layout", () => {
-  it("layout.tsx imports OpenHouseBanner", () => {
+describe("OpenHouseBanner is mounted in layout via wrapper", () => {
+  it("layout.tsx imports OpenHouseBannerWrapper", () => {
     const source = readFile("app/layout.tsx")
-    expect(source).toContain("OpenHouseBanner")
-    expect(source).toMatch(/import.*OpenHouseBanner/)
+    expect(source).toContain("OpenHouseBannerWrapper")
+    expect(source).toMatch(/import.*OpenHouseBannerWrapper/)
   })
 
-  it("layout.tsx renders <OpenHouseBanner", () => {
+  it("layout.tsx renders <OpenHouseBannerWrapper", () => {
     const source = readFile("app/layout.tsx")
-    expect(source).toContain("<OpenHouseBanner")
+    expect(source).toContain("<OpenHouseBannerWrapper")
   })
 })
 

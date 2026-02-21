@@ -38,6 +38,7 @@ export interface EnhancedBrochureFormData extends BrochureFormData {
 export interface NavigationProps {
   readonly isMenuOpen: boolean
   readonly onMenuToggle: () => void
+  readonly bannerVisible?: boolean
 }
 
 export interface MobileMenuProps {
