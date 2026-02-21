@@ -23,8 +23,9 @@ class MetadataCollector {
   constructor() {
     this.sessionId = this.generateSessionId()
     this.landingPage = typeof window !== 'undefined' ? window.location.href : ''
-    
+
     if (typeof window !== 'undefined') {
+      this.persistUTMParameters()
       this.initializeSessionTracking()
     }
   }
@@ -64,18 +65,46 @@ class MetadataCollector {
   }
 
   /**
-   * Extract UTM parameters from URL
+   * Persist UTM parameters from the landing page URL to sessionStorage.
+   * Only writes on first visit (first landing page wins) so that navigating
+   * between pages doesn't lose the original Facebook ad UTMs.
+   */
+  private persistUTMParameters(): void {
+    if (typeof window === 'undefined' || !window.sessionStorage) return
+
+    // Only persist if not already stored (first landing page wins)
+    if (sessionStorage.getItem('mvl_utm_source')) return
+
+    const urlParams = new URLSearchParams(window.location.search)
+    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+
+    for (const key of utmKeys) {
+      const value = urlParams.get(key)
+      if (value) {
+        sessionStorage.setItem(`mvl_${key}`, value)
+      }
+    }
+  }
+
+  /**
+   * Extract UTM parameters — reads from sessionStorage first (persisted
+   * from landing page), then falls back to current URL query params.
    */
   private extractUTMParameters(): UTMParameters {
     if (typeof window === 'undefined') return {}
 
-    const urlParams = new URLSearchParams(window.location.search)
+    const getParam = (key: string): string | undefined => {
+      const stored = sessionStorage.getItem(`mvl_${key}`)
+      if (stored) return stored
+      return new URLSearchParams(window.location.search).get(key) ?? undefined
+    }
+
     return {
-      utm_source: urlParams.get('utm_source') || undefined,
-      utm_medium: urlParams.get('utm_medium') || undefined,
-      utm_campaign: urlParams.get('utm_campaign') || undefined,
-      utm_term: urlParams.get('utm_term') || undefined,
-      utm_content: urlParams.get('utm_content') || undefined,
+      utm_source: getParam('utm_source'),
+      utm_medium: getParam('utm_medium'),
+      utm_campaign: getParam('utm_campaign'),
+      utm_term: getParam('utm_term'),
+      utm_content: getParam('utm_content'),
     }
   }
 
