@@ -14,12 +14,18 @@ export default function ThankYouPage() {
   const router = useRouter()
 
   useEffect(() => {
-    // Track thank you page view for analytics
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'contact_form_completion', {
-        event_category: 'Form',
-        event_label: 'Thank You Page View'
-      })
+    if (typeof window !== 'undefined') {
+      // Track thank you page view for analytics
+      if (window.gtag) {
+        window.gtag('event', 'contact_form_completion', {
+          event_category: 'Form',
+          event_label: 'Thank You Page View'
+        })
+      }
+
+      // Push lead_conversion event for GTM → Meta Pixel (Lead)
+      window.dataLayer = window.dataLayer ?? []
+      window.dataLayer.push({ event: 'lead_conversion', conversion_type: 'contact_form' })
     }
   }, [])
 

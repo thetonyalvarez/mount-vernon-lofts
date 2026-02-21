@@ -3,6 +3,7 @@ import { CheckCircle, Download, Mail, Phone, Calendar, ArrowLeft } from "lucide-
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations"
+import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { CONTACT_CONFIG } from "@/app/config/contact"
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function ThankYouBrochurePage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
+      <DataLayerEvent event="brochure_conversion" data={{ conversion_type: 'brochure_download' }} />
       <div className="w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-32">
         <ScrollReveal>
           <StaggerContainer>

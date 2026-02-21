@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { FloorPlanOverview } from "./components/FloorPlanOverview"
 import { FloorPlanSelector } from "./components/FloorPlanSelector"
 import { FloorPlanForm } from "./components/FloorPlanForm"
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 export default function FloorPlansPage() {
   return (
     <main>
+      <DataLayerEvent event="view_content" data={{ content_type: 'floor_plans', content_name: 'Floor Plans' }} />
       <FloorPlanOverview />
       <FloorPlanSelector />
       <FloorPlanForm />

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { HeroSection } from '@/app/components/HeroSection'
+import { DataLayerEvent } from '@/app/components/analytics/DataLayerEvent'
 import { GalleryHeroSection, GalleryGrid } from './sections'
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <main>
+      <DataLayerEvent event="view_content" data={{ content_type: 'gallery', content_name: 'Gallery' }} />
       <HeroSection
         title="GALLERY"
         subtitle="Real photos of studios and 1-bedrooms at Mount Vernon Lofts"

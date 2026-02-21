@@ -43,7 +43,7 @@ export function ContactModal() {
   const [queueStats, setQueueStats] = useState<QueueStats>({ total: 0, pending: 0, retrying: 0, failed: 0, succeeded: 0 })
   const [showQueueStatus, setShowQueueStatus] = useState(false)
 
-  // Generate unique submission ID
+  // Generate unique submission ID and track contact intent
   useEffect(() => {
     if (isOpen && !submissionId) {
       const id = `submission_${uniqueId.replace(/:/g, '_')}_${Date.now()}`
@@ -51,8 +51,12 @@ export function ContactModal() {
 
       // Start form tracking when modal opens
       metadataCollector.startFormTracking(modalId)
+
+      // Push contact_intent event for GTM → Meta Pixel (Contact)
+      window.dataLayer = window.dataLayer ?? []
+      window.dataLayer.push({ event: 'contact_intent', contact_source: triggerSource })
     }
-  }, [isOpen, modalId, uniqueId, submissionId])
+  }, [isOpen, modalId, uniqueId, submissionId, triggerSource])
 
   const handleFormChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))

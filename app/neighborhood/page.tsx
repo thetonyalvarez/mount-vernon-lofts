@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { HeroSection } from "@/app/components/HeroSection"
+import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import {
   NeighborhoodIntroSection,
   DayInMontroseSection,
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 export default function NeighborhoodPage() {
   return (
     <main>
+      <DataLayerEvent event="view_content" data={{ content_type: 'neighborhood', content_name: 'Neighborhood' }} />
       <HeroSection
         title="LIFE IN MONTROSE"
         subtitle="Houston's Most Walkable Neighborhood"

@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import { HeroSection } from "@/app/components/HeroSection"
-import { 
-  TheExperienceSection, 
+import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
+import {
+  TheExperienceSection,
   FeaturesFinishesSection,
   PanoramicPerspectivesSection,
   HandcraftedLegacySection
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 export default function ResidencesPage() {
   return (
     <main>
+      <DataLayerEvent event="view_content" data={{ content_type: 'residences', content_name: 'Residences' }} />
       <HeroSection
         title="MODERN MONTROSE RESIDENCES"
         subtitle="Studios and 1-bedrooms in one of Houston's most walkable neighborhoods"
