@@ -1,10 +1,12 @@
 import { Metadata } from "next"
+import { redirect } from "next/navigation"
 import { Calendar, MapPin, Phone, Mail, Clock, ArrowLeft, Home, Car, DollarSign, Shield, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations"
 import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { CONTACT_CONFIG } from "@/app/config/contact"
+import { hasActiveEvents } from "@/app/config/open-house-data"
 
 export const metadata: Metadata = {
   title: "Broker Open House | Mount Vernon Lofts — Montrose Condos",
@@ -13,6 +15,10 @@ export const metadata: Metadata = {
 }
 
 export default function OpenHousePage() {
+  // After the event expires, redirect to homepage
+  if (!hasActiveEvents()) {
+    redirect("/")
+  }
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
       <DataLayerEvent event="open_house_view" data={{ content_type: 'broker_open_house', content_name: 'Broker Open House Feb 2026' }} />

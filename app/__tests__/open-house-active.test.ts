@@ -44,10 +44,13 @@ describe("OpenHouseBanner is mounted in layout", () => {
 })
 
 describe("Open House page — broker content", () => {
-  it("does NOT redirect to homepage", () => {
+  it("uses hasActiveEvents guard instead of unconditional redirect", () => {
     const source = readFile("app/open-house/page.tsx")
-    expect(source).not.toContain('redirect("/")')
-    expect(source).not.toContain("redirect('/')")
+    // Page should conditionally redirect only when no active events
+    expect(source).toContain("hasActiveEvents")
+    expect(source).toContain('redirect("/")')
+    // Should NOT be an unconditional redirect-only page (must have real content)
+    expect(source).toContain("Broker Open House")
   })
 
   it("contains Broker Open House title", () => {
