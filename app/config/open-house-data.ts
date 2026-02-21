@@ -32,10 +32,10 @@ export interface OpenHouseEvent {
  */
 export const OPEN_HOUSE_EVENTS: ReadonlyArray<OpenHouseEvent> = [
   {
-    id: "spring-2026",
-    title: "Open House at Mount Vernon Lofts",
-    date: "Saturday, March 7th, 2026",
-    startTime: "11:00 AM",
+    id: "broker-feb-2026",
+    title: "Broker Open House at Mount Vernon Lofts",
+    date: "Thursday, February 26th, 2026",
+    startTime: "12:00 PM",
     endTime: "2:00 PM",
     location: {
       name: "Mount Vernon Lofts",
@@ -49,9 +49,9 @@ export const OPEN_HOUSE_EVENTS: ReadonlyArray<OpenHouseEvent> = [
         lng: -95.3920,
       },
     },
-    startsAt: "2026-03-07T11:00:00-06:00",
-    expiresAt: "2026-03-07T14:00:00-06:00",
-    description: "Tour Mount Vernon Lofts and see why first-time buyers are choosing Montrose. Walk through available studios and 1-bedrooms, meet our team, and learn about ownership starting in the $215Ks in one of Houston's most walkable neighborhoods.",
+    startsAt: "2026-02-26T12:00:00-06:00",
+    expiresAt: "2026-02-26T14:00:00-06:00",
+    description: "Broker Open House with 4% buy-side commission on all contracts through March 15, 2026. 42 condos — studios from $215K, 1-bedrooms from $252K. Food & refreshments provided. No RSVP needed.",
   },
   // Add future events here
 ] as const;

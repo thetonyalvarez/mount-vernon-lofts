@@ -7,6 +7,7 @@ import { ContactModalProvider } from "@/lib/contact-modal-context";
 import { ContactModal } from "@/components/ContactModal";
 import { GoogleTagManager, GTMDebugInfo } from "@/app/components/analytics";
 import { EnhancedMetadata } from "@/app/components/metadata/EnhancedMetadata";
+import { OpenHouseBanner } from "@/components/OpenHouseBanner";
 import { DeferredScripts } from "@/components/DeferredScripts";
 import "./globals.css";
 
@@ -224,6 +225,7 @@ export default async function RootLayout({
           >
             Skip to main content
           </a>
+          <OpenHouseBanner />
           <NavigationWrapper />
           <main id="main-content">
             {children}
