@@ -8,7 +8,6 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animat
 import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { CONTACT_CONFIG } from "@/app/config/contact"
 import { hasActiveEvents } from "@/app/config/open-house-data"
-import { getImageUrl } from "@/lib/get-image-url"
 
 export const metadata: Metadata = {
   title: "Broker Open House | Mount Vernon Lofts — Montrose Condos",
@@ -28,8 +27,8 @@ export default function OpenHousePage() {
       {/* Hero Image Section */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <Image
-          src={getImageUrl("images/gallery/exteriors/exterior-1.jpg")}
-          alt="Mount Vernon Lofts exterior — 4509 Mount Vernon, Houston TX 77006"
+          src="images/unit-9_1-bed/9-4.jpg"
+          alt="Mount Vernon Lofts 1-bedroom living area — modern condo interior in Montrose"
           fill
           className="object-cover"
           priority
