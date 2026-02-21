@@ -20,7 +20,7 @@ const LIGHT_BACKGROUND_ROUTES = [
   '/thank-you-brochure',
 ]
 
-export default function Navigation({ onMenuToggle, bannerVisible = false }: NavigationProps) {
+export default function Navigation({ onMenuToggle, bannerVisible: _bannerVisible = false, bannerInView = false }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const { openModal } = useContactModal()
   const pathname = usePathname()
@@ -50,7 +50,7 @@ export default function Navigation({ onMenuToggle, bannerVisible = false }: Navi
       className={clsx(
         "fixed left-0 right-0 w-full flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 md:py-6 z-40",
         "transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
-        bannerVisible ? "top-[44px]" : "top-0",
+        bannerInView ? "top-[44px]" : "top-0",
         showDarkNav ? "bg-white shadow-md" : "bg-transparent"
       )}
     >

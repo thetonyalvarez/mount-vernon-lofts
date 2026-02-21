@@ -44,8 +44,8 @@ describe("Navigation accounts for banner height", () => {
 
   it("Navigation adjusts top position based on banner visibility", () => {
     const source = readFile("app/components/navigation/Navigation.tsx")
-    // Should have conditional top offset when banner is visible
-    expect(source).toMatch(/bannerVisible.*top-/)
+    // Should have conditional top offset when banner is in view
+    expect(source).toMatch(/bannerInView.*top-/)
   })
 
   it("NavigationWrapper passes banner state to Navigation", () => {

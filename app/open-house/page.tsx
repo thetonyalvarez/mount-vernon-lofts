@@ -2,11 +2,13 @@ import { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { Calendar, MapPin, Phone, Mail, Clock, ArrowLeft, Home, Car, DollarSign, Shield, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "@/components/ui/image"
 import Link from "next/link"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations"
 import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { CONTACT_CONFIG } from "@/app/config/contact"
 import { hasActiveEvents } from "@/app/config/open-house-data"
+import { getImageUrl } from "@/lib/get-image-url"
 
 export const metadata: Metadata = {
   title: "Broker Open House | Mount Vernon Lofts — Montrose Condos",
@@ -22,29 +24,43 @@ export default function OpenHousePage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
       <DataLayerEvent event="open_house_view" data={{ content_type: 'broker_open_house', content_name: 'Broker Open House Feb 2026' }} />
-      <div className="w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-32">
+
+      {/* Hero Image Section */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <Image
+          src={getImageUrl("images/gallery/exteriors/exterior-1.jpg")}
+          alt="Mount Vernon Lofts exterior — 4509 Mount Vernon, Houston TX 77006"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+
+        {/* Hero text overlay */}
+        <div className="absolute inset-0 flex flex-col justify-end items-center z-10 px-4 pb-10 md:pb-14">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-mvl-coral px-4 py-2 rounded-md mb-4">
+              <Calendar className="w-4 h-4 text-white" />
+              <span className="text-sm font-medium uppercase tracking-wider text-white">Broker Open House</span>
+            </div>
+            <h1 className="font-montserrat text-white text-4xl sm:text-5xl md:text-6xl font-light leading-tight tracking-wide mb-3 drop-shadow-xl">
+              Broker Open House
+            </h1>
+            <p className="text-white/90 text-lg md:text-xl font-light mb-1 drop-shadow-lg">
+              Mount Vernon Lofts
+            </p>
+            <p className="text-white text-lg md:text-xl font-medium drop-shadow-lg">
+              Thursday, February 26, 2026 | 12:00 - 2:00 PM
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-12 md:py-20">
         <ScrollReveal>
           <StaggerContainer>
             <div className="max-w-4xl mx-auto">
-              {/* Hero Section */}
-              <StaggerItem>
-                <div className="text-center mb-12">
-                  <div className="inline-flex items-center gap-2 bg-mvl-coral/10 text-mvl-coral px-4 py-2 rounded-md mb-6">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-sm font-medium uppercase tracking-wider">Broker Open House</span>
-                  </div>
-                  <h1 className="font-montserrat text-mvl-espresso text-4xl sm:text-5xl md:text-6xl font-light leading-tight tracking-wide mb-4">
-                    Broker Open House
-                  </h1>
-                  <p className="text-mvl-espresso/80 text-xl md:text-2xl font-light mb-2">
-                    Mount Vernon Lofts
-                  </p>
-                  <p className="text-mvl-coral text-lg md:text-xl font-medium">
-                    Thursday, February 26, 2026 | 12:00 - 2:00 PM
-                  </p>
-                </div>
-              </StaggerItem>
-
               {/* Commission Banner */}
               <StaggerItem>
                 <div className="bg-mvl-espresso text-white rounded-lg p-8 mb-8 text-center">

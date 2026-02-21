@@ -6,9 +6,10 @@ import { MobileMenu } from "./MobileMenu"
 
 interface NavigationWrapperProps {
   readonly bannerVisible?: boolean;
+  readonly bannerInView?: boolean;
 }
 
-export function NavigationWrapper({ bannerVisible = false }: NavigationWrapperProps) {
+export function NavigationWrapper({ bannerVisible = false, bannerInView = false }: NavigationWrapperProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleMenuToggle = () => {
@@ -21,7 +22,7 @@ export function NavigationWrapper({ bannerVisible = false }: NavigationWrapperPr
 
   return (
     <>
-      <Navigation isMenuOpen={isMenuOpen} onMenuToggle={handleMenuToggle} bannerVisible={bannerVisible} />
+      <Navigation isMenuOpen={isMenuOpen} onMenuToggle={handleMenuToggle} bannerVisible={bannerVisible} bannerInView={bannerInView} />
       <MobileMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
     </>
   )

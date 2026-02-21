@@ -39,6 +39,7 @@ export interface NavigationProps {
   readonly isMenuOpen: boolean
   readonly onMenuToggle: () => void
   readonly bannerVisible?: boolean
+  readonly bannerInView?: boolean
 }
 
 export interface MobileMenuProps {
