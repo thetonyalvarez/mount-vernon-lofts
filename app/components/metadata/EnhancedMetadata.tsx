@@ -8,7 +8,7 @@ interface EnhancedMetadataProps {
   readonly description?: string;
   readonly canonicalUrl?: string;
   readonly imageUrl?: string;
-  readonly pageType?: 'homepage' | 'residences' | 'gallery' | 'contact' | 'neighborhood' | 'floor-plans';
+  readonly pageType?: 'homepage' | 'residences' | 'gallery' | 'contact' | 'neighborhood' | 'floor-plans' | 'open-house';
 }
 
 export function EnhancedMetadata({
@@ -62,8 +62,7 @@ export function EnhancedMetadata({
           "addressLocality": "Houston",
           "addressRegion": "TX",
           "postalCode": "77006",
-          "addressCountry": "US",
-          "neighborhood": "Montrose"
+          "addressCountry": "US"
         },
         "geo": {
           "@type": "GeoCoordinates",
@@ -73,6 +72,8 @@ export function EnhancedMetadata({
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "sales",
+          "telephone": "+1-713-986-9929",
+          "email": "info@mtvernonlofts.com",
           "areaServed": "Houston",
           "availableLanguage": "English"
         }
@@ -100,7 +101,7 @@ export function EnhancedMetadata({
         "@type": "RealEstateListing",
         "@id": `${baseUrl}/#listing`,
         "mainEntity": {
-          "@type": "Residence",
+          "@type": "ApartmentComplex",
           "name": "Mount Vernon Lofts",
           "description": "42 modern condos in Houston's Montrose neighborhood starting in the $215Ks.",
           "url": baseUrl,
@@ -110,16 +111,17 @@ export function EnhancedMetadata({
             "addressLocality": "Houston",
             "addressRegion": "TX",
             "postalCode": "77006",
-            "addressCountry": "US",
-            "neighborhood": "Montrose"
+            "addressCountry": "US"
           },
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": "29.7560",
             "longitude": "-95.3920"
           },
-          "numberOfRooms": 42,
+          "numberOfAccommodationUnits": 42,
+          "numberOfBedrooms": 1,
           "petsAllowed": true,
+          "tourBookingPage": `${baseUrl}/#contact`,
           "amenityFeature": [
             {
               "@type": "LocationFeatureSpecification",
@@ -138,11 +140,10 @@ export function EnhancedMetadata({
             },
             {
               "@type": "LocationFeatureSpecification",
-              "name": "Pet-Friendly (Up to 2 Dogs Per Handler, Registration Required)",
+              "name": "Pet-Friendly",
               "value": true
             }
-          ],
-          "priceRange": "$$$"
+          ]
         },
         "offers": {
           "@type": "Offer",
@@ -157,29 +158,38 @@ export function EnhancedMetadata({
     ]
   };
 
+  const pageTitles: Record<string, string> = {
+    homepage: "Home",
+    residences: "Residences",
+    gallery: "Gallery",
+    contact: "Contact",
+    neighborhood: "Neighborhood",
+    "floor-plans": "Floor Plans",
+    "open-house": "Open House",
+  };
+
+  const breadcrumbItems: Array<{ "@type": string; position: number; name: string; item: string }> = [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Mount Vernon Lofts",
+      "item": baseUrl
+    }
+  ];
+
+  if (pageType !== "homepage") {
+    breadcrumbItems.push({
+      "@type": "ListItem",
+      "position": 2,
+      "name": pageTitles[pageType] ?? "Page",
+      "item": finalCanonicalUrl
+    });
+  }
+
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Houston Condos for Sale",
-        "item": baseUrl
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Montrose Condos",
-        "item": baseUrl
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Mount Vernon Lofts",
-        "item": finalCanonicalUrl
-      }
-    ]
+    "itemListElement": breadcrumbItems
   };
 
   return (

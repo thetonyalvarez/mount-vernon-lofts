@@ -166,9 +166,9 @@ export function generateStructuredData(pageType: string, canonicalUrl: string) {
       ...baseStructuredData,
       "@type": ["WebPage", "RealEstateListing"],
       "mainEntity": {
-        "@type": "Residence",
+        "@type": "ApartmentComplex",
         "name": `${SITE_NAME} Residences`,
-        "numberOfRooms": 42
+        "numberOfAccommodationUnits": 42
       }
     },
   };

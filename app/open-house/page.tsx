@@ -8,6 +8,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animat
 import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { CONTACT_CONFIG } from "@/app/config/contact"
 import { hasActiveEvents } from "@/app/config/open-house-data"
+import { OpenHouseSchema } from "./OpenHouseSchema"
 
 export const metadata: Metadata = {
   title: "Broker Open House | Mount Vernon Lofts — Montrose Condos",
@@ -22,6 +23,7 @@ export default function OpenHousePage() {
   }
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
+      <OpenHouseSchema />
       <DataLayerEvent event="open_house_view" data={{ content_type: 'broker_open_house', content_name: 'Broker Open House Feb 2026' }} />
 
       {/* Hero Image Section */}
