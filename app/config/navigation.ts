@@ -67,6 +67,11 @@ export const footerBottomLinks: ReadonlyArray<NavLink> = [
     href: "https://content.harstatic.com/pdf/TREC_CPN.pdf",
     external: true
   },
+  {
+    label: "RESIDENT PORTAL",
+    href: "https://mountvernonlofts.residentportal.com/auth",
+    external: true
+  },
 ]
 
 // Social media links

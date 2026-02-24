@@ -171,6 +171,16 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </svg>
               </a>
             </div>
+
+            {/* Resident Portal */}
+            <a
+              href="https://mountvernonlofts.residentportal.com/auth"
+              className="inline-block text-mvl-espresso/60 hover:text-mvl-espresso transition-colors text-xs uppercase tracking-wider pt-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resident Portal
+            </a>
           </div>
         </div>
       </div>
