@@ -86,7 +86,7 @@ export const contactInfo: ContactInfo = {
     line1: "4509 MOUNT VERNON",
     line2: "HOUSTON, TX 77006",
   },
-  email: "MOUNTVERNONLOFTS@NANPROPERTIES.COM",
+  email: "INFO@MTVERNONLOFTS.COM",
   phone: "713.986.9929",
   note: "Tours available 7 days a week. Schedule yours today.",
 }

@@ -9,7 +9,7 @@ export const CONTACT_CONFIG = {
   phone: '713.986.9929',
 
   // Sales team contact
-  salesEmail: 'mountvernonlofts@nanproperties.com',
+  salesEmail: 'info@mtvernonlofts.com',
 
   // Company information
   companyName: 'Mount Vernon Lofts',
