@@ -146,6 +146,16 @@ export function getEventByDate(dateStr: string): OpenHouseEvent | null {
   }) ?? null
 }
 
+/**
+ * Get the most recent active event by type (broker or public).
+ * Returns the first active event matching the given type, or null if none.
+ */
+export function getActiveEventByType(eventType: 'public' | 'broker'): OpenHouseEvent | null {
+  return OPEN_HOUSE_EVENTS.find(
+    event => event.eventType === eventType && isEventActive(event)
+  ) ?? null
+}
+
 // Legacy export for backward compatibility (uses the next upcoming event)
 export const OPEN_HOUSE_EVENT = OPEN_HOUSE_EVENTS[0];
 export const isOpenHouseActive = hasActiveEvents;

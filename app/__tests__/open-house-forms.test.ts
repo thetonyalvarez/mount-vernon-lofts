@@ -14,7 +14,7 @@ const fileExists = (relativePath: string): boolean => {
 
 // ─── Data Model ───────────────────────────────────────────────
 
-describe("Open house data model: eventType and featuredUnits", () => {
+describe("Open house data model: eventType, featuredUnits, helpers", () => {
   it("OpenHouseEvent interface includes eventType field", () => {
     const source = readFile("app/config/open-house-data.ts")
     expect(source).toMatch(/eventType.*'public'\s*\|\s*'broker'/)
@@ -38,21 +38,22 @@ describe("Open house data model: eventType and featuredUnits", () => {
     expect(source).toContain("1-26")
   })
 
-  it("exports getEventByDate function", () => {
+  it("exports getActiveEventByType function", () => {
     const source = readFile("app/config/open-house-data.ts")
-    expect(source).toMatch(/export\s+function\s+getEventByDate/)
+    expect(source).toMatch(/export\s+function\s+getActiveEventByType/)
   })
 
-  it("getEventByDate returns event for known date", async () => {
-    const { getEventByDate } = await import("@/app/config/open-house-data")
-    const event = getEventByDate("2026-02-26")
+  it("getActiveEventByType returns broker event", async () => {
+    const { getActiveEventByType } = await import("@/app/config/open-house-data")
+    const event = getActiveEventByType("broker")
     expect(event).not.toBeNull()
-    expect(event!.id).toBe("broker-feb-2026")
+    expect(event!.eventType).toBe("broker")
   })
 
-  it("getEventByDate returns null for unknown date", async () => {
-    const { getEventByDate } = await import("@/app/config/open-house-data")
-    expect(getEventByDate("2099-01-01")).toBeNull()
+  it("getActiveEventByType returns null for type with no active events", async () => {
+    const { getActiveEventByType } = await import("@/app/config/open-house-data")
+    // Currently no public events configured
+    expect(getActiveEventByType("public")).toBeNull()
   })
 })
 
@@ -82,35 +83,45 @@ describe("Webhook types: open house form types", () => {
   })
 })
 
-// ─── Layout ───────────────────────────────────────────────────
+// ─── Evergreen Routes ───────────────────────────────────────────
 
-describe("Open house [date] layout: bare (no nav/footer)", () => {
-  it("[date]/layout.tsx exists", () => {
-    expect(fileExists("app/open-house/[date]/layout.tsx")).toBe(true)
-  })
-
-  it("[date]/layout.tsx does NOT import Navigation or Footer", () => {
-    const source = readFile("app/open-house/[date]/layout.tsx")
-    expect(source).not.toContain("Navigation")
-    expect(source).not.toContain("Footer")
-  })
-})
-
-// ─── Sign-In Form ─────────────────────────────────────────────
-
-describe("Sign-in form: page and component", () => {
-  it("sign-in page.tsx exists and imports getEventByDate", () => {
-    const source = readFile("app/open-house/[date]/sign-in/page.tsx")
-    expect(source).toContain("getEventByDate")
-  })
-
-  it("sign-in page.tsx calls notFound for missing events", () => {
-    const source = readFile("app/open-house/[date]/sign-in/page.tsx")
+describe("Evergreen open house routes: broker and public", () => {
+  it("broker-sign-in page exists and uses getActiveEventByType", () => {
+    const source = readFile("app/open-house/broker-sign-in/page.tsx")
+    expect(source).toContain("getActiveEventByType")
+    expect(source).toContain('"broker"')
     expect(source).toContain("notFound")
   })
 
-  it("SignInForm.tsx exists and contains all 6 form fields", () => {
-    const source = readFile("app/open-house/[date]/sign-in/SignInForm.tsx")
+  it("sign-in (public) page exists and uses getActiveEventByType", () => {
+    const source = readFile("app/open-house/sign-in/page.tsx")
+    expect(source).toContain("getActiveEventByType")
+    expect(source).toContain('"public"')
+    expect(source).toContain("notFound")
+  })
+
+  it("broker-feedback page exists and uses getActiveEventByType", () => {
+    const source = readFile("app/open-house/broker-feedback/page.tsx")
+    expect(source).toContain("getActiveEventByType")
+    expect(source).toContain('"broker"')
+  })
+
+  it("feedback (public) page exists and uses getActiveEventByType", () => {
+    const source = readFile("app/open-house/feedback/page.tsx")
+    expect(source).toContain("getActiveEventByType")
+    expect(source).toContain('"public"')
+  })
+
+  it("[date] dynamic segment no longer exists", () => {
+    expect(fileExists("app/open-house/[date]")).toBe(false)
+  })
+})
+
+// ─── Shared Components ──────────────────────────────────────────
+
+describe("Shared form components: SignInForm and FeedbackForm", () => {
+  it("SignInForm.tsx exists at open-house level with all fields", () => {
+    const source = readFile("app/open-house/SignInForm.tsx")
     expect(source).toContain("name")
     expect(source).toContain("brokerage")
     expect(source).toContain("email")
@@ -120,32 +131,23 @@ describe("Sign-in form: page and component", () => {
   })
 
   it("SignInForm.tsx POSTs to /api/open-house/sign-in", () => {
-    const source = readFile("app/open-house/[date]/sign-in/SignInForm.tsx")
+    const source = readFile("app/open-house/SignInForm.tsx")
     expect(source).toContain("/api/open-house/sign-in")
   })
 
   it("SignInForm.tsx sends audience-specific formType (broker vs public)", () => {
-    const source = readFile("app/open-house/[date]/sign-in/SignInForm.tsx")
+    const source = readFile("app/open-house/SignInForm.tsx")
     expect(source).toContain("broker_open_house_signin")
     expect(source).toContain("public_open_house_signin")
   })
 
   it("SignInForm.tsx conditionally shows brokerage for broker events only", () => {
-    const source = readFile("app/open-house/[date]/sign-in/SignInForm.tsx")
+    const source = readFile("app/open-house/SignInForm.tsx")
     expect(source).toContain("isBroker")
   })
-})
 
-// ─── Feedback Form ────────────────────────────────────────────
-
-describe("Feedback form: page and component", () => {
-  it("feedback page.tsx exists and imports getEventByDate", () => {
-    const source = readFile("app/open-house/[date]/feedback/page.tsx")
-    expect(source).toContain("getEventByDate")
-  })
-
-  it("FeedbackForm.tsx exists and contains all feedback fields", () => {
-    const source = readFile("app/open-house/[date]/feedback/FeedbackForm.tsx")
+  it("FeedbackForm.tsx exists at open-house level with all fields", () => {
+    const source = readFile("app/open-house/FeedbackForm.tsx")
     expect(source).toContain("standoutUnits")
     expect(source).toContain("likedMost")
     expect(source).toContain("buyerConcerns")
@@ -155,13 +157,30 @@ describe("Feedback form: page and component", () => {
   })
 
   it("FeedbackForm.tsx reads email from search params", () => {
-    const source = readFile("app/open-house/[date]/feedback/FeedbackForm.tsx")
+    const source = readFile("app/open-house/FeedbackForm.tsx")
     expect(source).toMatch(/searchParams|useSearchParams/)
   })
 
   it("FeedbackForm.tsx POSTs to /api/open-house/feedback", () => {
-    const source = readFile("app/open-house/[date]/feedback/FeedbackForm.tsx")
+    const source = readFile("app/open-house/FeedbackForm.tsx")
     expect(source).toContain("/api/open-house/feedback")
+  })
+})
+
+// ─── Bare Layout (Middleware) ───────────────────────────────────
+
+describe("Bare layout: middleware strips chrome for form pages", () => {
+  it("middleware sets x-bare-layout header for form routes", () => {
+    const source = readFile("middleware.ts")
+    expect(source).toContain("x-bare-layout")
+    expect(source).toContain("sign-in")
+    expect(source).toContain("feedback")
+  })
+
+  it("root layout checks x-bare-layout header", () => {
+    const source = readFile("app/layout.tsx")
+    expect(source).toContain("x-bare-layout")
+    expect(source).toContain("isBareLayout")
   })
 })
 

@@ -33,7 +33,7 @@ export function middleware(request: NextRequest) {
 
   // Bare layout for open house form pages (sign-in / feedback)
   // Strips nav, banner, footer, contact modal for fast QR-code load at the door
-  const isBareFormPage = /^\/open-house\/[^/]+\/(sign-in|feedback)/.test(url.pathname)
+  const isBareFormPage = /^\/open-house\/(broker-)?(sign-in|feedback)$/.test(url.pathname)
   if (isBareFormPage) {
     const requestHeaders = new Headers(request.headers)
     requestHeaders.set('x-bare-layout', 'true')
