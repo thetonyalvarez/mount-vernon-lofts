@@ -9,6 +9,8 @@ export interface OpenHouseEvent {
   readonly date: string;
   readonly startTime: string;
   readonly endTime: string;
+  readonly eventType: 'public' | 'broker';
+  readonly featuredUnits: ReadonlyArray<string>;
   readonly location: {
     readonly name: string;
     readonly address: string;
@@ -37,6 +39,8 @@ export const OPEN_HOUSE_EVENTS: ReadonlyArray<OpenHouseEvent> = [
     date: "Thursday, February 26th, 2026",
     startTime: "12:00 PM",
     endTime: "2:00 PM",
+    eventType: 'broker',
+    featuredUnits: ['1-7', '1-8', '1-11', '1-26'],
     location: {
       name: "Mount Vernon Lofts",
       address: "4509 Mount Vernon",
@@ -129,6 +133,17 @@ export function hasActiveEvents(): boolean {
  */
 export function formatEventDate(event: OpenHouseEvent): string {
   return `${event.date} | ${event.startTime} - ${event.endTime}`;
+}
+
+/**
+ * Find an event by its date (ISO format: 2026-02-26).
+ * Extracts the date portion from startsAt and compares.
+ */
+export function getEventByDate(dateStr: string): OpenHouseEvent | null {
+  return OPEN_HOUSE_EVENTS.find(event => {
+    const eventDate = event.startsAt.split('T')[0]
+    return eventDate === dateStr
+  }) ?? null
 }
 
 // Legacy export for backward compatibility (uses the next upcoming event)
