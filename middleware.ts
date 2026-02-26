@@ -31,6 +31,15 @@ export function middleware(request: NextRequest) {
   //   });
   // }
 
+  // Bare layout for open house form pages (sign-in / feedback)
+  // Strips nav, banner, footer, contact modal for fast QR-code load at the door
+  const isBareFormPage = /^\/open-house\/[^/]+\/(sign-in|feedback)/.test(url.pathname)
+  if (isBareFormPage) {
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set('x-bare-layout', 'true')
+    return NextResponse.next({ request: { headers: requestHeaders } })
+  }
+
   // Completely skip remaining middleware in development
   if (process.env.NODE_ENV === 'development') {
     return NextResponse.next();
