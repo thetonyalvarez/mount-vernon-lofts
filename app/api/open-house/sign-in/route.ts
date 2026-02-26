@@ -9,9 +9,10 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json()
-    const { formData, eventMeta } = body as {
+    const { formData, eventMeta, sourceUrl } = body as {
       formData: OpenHouseSignInData
       eventMeta: OpenHouseEventMeta
+      sourceUrl?: string
     }
 
     // Validate required fields
@@ -68,6 +69,7 @@ export async function POST(request: NextRequest) {
         contact: backupData,
         openHouseData: formData,
         eventMeta,
+        sourceUrl: sourceUrl ?? null,
         timestamp: new Date().toISOString(),
         source: "Mount Vernon Lofts Open House Sign-In",
         version: "2.0",

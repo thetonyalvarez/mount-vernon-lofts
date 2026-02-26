@@ -101,6 +101,7 @@ export function FeedbackForm({ event, prefillEmail }: FeedbackFormProps) {
             eventDate,
             formType: event.eventType === "broker" ? "broker_open_house_feedback" : "public_open_house_feedback",
           },
+          sourceUrl: window.location.href,
         }),
       })
 

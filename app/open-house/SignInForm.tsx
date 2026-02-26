@@ -52,6 +52,7 @@ export function SignInForm({ event }: SignInFormProps) {
             eventDate,
             formType: isBroker ? "broker_open_house_signin" : "public_open_house_signin",
           },
+          sourceUrl: window.location.href,
         }),
       })
 

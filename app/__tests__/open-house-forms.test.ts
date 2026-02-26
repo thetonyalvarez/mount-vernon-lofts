@@ -167,6 +167,32 @@ describe("Shared form components: SignInForm and FeedbackForm", () => {
   })
 })
 
+// ─── Source URL Tracking ────────────────────────────────────────
+
+describe("Source URL: forms pass signup page URL to webhook", () => {
+  it("SignInForm captures window.location.href as sourceUrl", () => {
+    const source = readFile("app/open-house/SignInForm.tsx")
+    expect(source).toContain("sourceUrl")
+    expect(source).toMatch(/window\.location\.href/)
+  })
+
+  it("FeedbackForm captures window.location.href as sourceUrl", () => {
+    const source = readFile("app/open-house/FeedbackForm.tsx")
+    expect(source).toContain("sourceUrl")
+    expect(source).toMatch(/window\.location\.href/)
+  })
+
+  it("sign-in API route forwards sourceUrl in webhook payload", () => {
+    const source = readFile("app/api/open-house/sign-in/route.ts")
+    expect(source).toContain("sourceUrl")
+  })
+
+  it("feedback API route forwards sourceUrl in webhook payload", () => {
+    const source = readFile("app/api/open-house/feedback/route.ts")
+    expect(source).toContain("sourceUrl")
+  })
+})
+
 // ─── Bare Layout (Middleware) ───────────────────────────────────
 
 describe("Bare layout: middleware strips chrome for form pages", () => {
