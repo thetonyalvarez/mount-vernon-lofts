@@ -135,6 +135,7 @@ export default async function RootLayout({
   // Check if we're on the maintenance page - render bare-bones layout
   const headersList = await headers();
   const isMaintenance = headersList.get('x-maintenance-mode') === 'true';
+  const isBareLayout = headersList.get('x-bare-layout') === 'true';
 
   // Maintenance mode: render completely bare layout
   if (isMaintenance) {
@@ -216,21 +217,26 @@ export default async function RootLayout({
         <EnhancedMetadata pageType="homepage" />
       </head>
       <body className="font-sans antialiased">
-        <ContactModalProvider>
-          {/* Skip Navigation Link for Accessibility */}
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-mvl-coral text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-white"
-          >
-            Skip to main content
-          </a>
-          <OpenHouseBannerWrapper />
-          <main id="main-content">
-            {children}
-          </main>
-          <Footer />
-          <ContactModal />
-        </ContactModalProvider>
+        {isBareLayout ? (
+          /* Bare layout: no nav, banner, footer, or contact modal — used for open house forms */
+          <main id="main-content">{children}</main>
+        ) : (
+          <ContactModalProvider>
+            {/* Skip Navigation Link for Accessibility */}
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-mvl-coral text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-white"
+            >
+              Skip to main content
+            </a>
+            <OpenHouseBannerWrapper />
+            <main id="main-content">
+              {children}
+            </main>
+            <Footer />
+            <ContactModal />
+          </ContactModalProvider>
+        )}
         <GoogleTagManager />
         <DeferredScripts />
         {process.env.NODE_ENV === 'development' && <GTMDebugInfo />}

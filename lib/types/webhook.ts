@@ -167,6 +167,40 @@ export function isValidWebhookPayload(data: unknown): data is WebhookPayload {
   )
 }
 
+// ─── Open House Form Types ────────────────────────────────────
+
+export type OpenHouseFormType =
+  | 'broker_open_house_signin'
+  | 'public_open_house_signin'
+  | 'broker_open_house_feedback'
+  | 'public_open_house_feedback'
+
+export interface OpenHouseSignInData {
+  name: string
+  brokerage: string
+  email: string
+  phone: string
+  visitedBefore: 'yes' | 'no'
+  hasActiveBuyer: 'yes' | 'no' | 'maybe'
+}
+
+export interface OpenHouseFeedbackData {
+  email: string
+  standoutUnits: string[]
+  likedMost: string[]
+  buyerConcerns: string[]
+  pricingComparison: 'below_market' | 'about_right' | 'above_market'
+  likelihoodToBring: number // 1-5
+  additionalComments?: string
+}
+
+export interface OpenHouseEventMeta {
+  eventId: string
+  eventType: 'public' | 'broker'
+  eventDate: string
+  formType: OpenHouseFormType
+}
+
 export function isValidContactData(data: unknown): data is FormContactData {
   if (!data || typeof data !== 'object') return false
   
