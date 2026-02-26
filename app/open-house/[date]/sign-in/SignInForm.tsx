@@ -8,6 +8,8 @@ interface SignInFormProps {
 }
 
 export function SignInForm({ event }: SignInFormProps) {
+  const isBroker = event.eventType === "broker"
+
   const [formData, setFormData] = useState({
     name: "",
     brokerage: "",
@@ -48,7 +50,7 @@ export function SignInForm({ event }: SignInFormProps) {
             eventId: event.id,
             eventType: event.eventType,
             eventDate,
-            formType: "open_house_signin",
+            formType: isBroker ? "broker_open_house_signin" : "public_open_house_signin",
           },
         }),
       })
@@ -111,16 +113,18 @@ export function SignInForm({ event }: SignInFormProps) {
           className="w-full h-14 text-lg px-4 rounded-[4px] border border-mvl-beige bg-white text-mvl-espresso placeholder:text-mvl-espresso/40 focus:outline-none focus:border-mvl-coral transition-colors"
         />
 
-        {/* Brokerage */}
-        <input
-          type="text"
-          name="brokerage"
-          placeholder="Brokerage"
-          required={event.eventType === "broker"}
-          value={formData.brokerage}
-          onChange={e => handleChange("brokerage", e.target.value)}
-          className="w-full h-14 text-lg px-4 rounded-[4px] border border-mvl-beige bg-white text-mvl-espresso placeholder:text-mvl-espresso/40 focus:outline-none focus:border-mvl-coral transition-colors"
-        />
+        {/* Brokerage — broker events only */}
+        {isBroker && (
+          <input
+            type="text"
+            name="brokerage"
+            placeholder="Brokerage"
+            required
+            value={formData.brokerage}
+            onChange={e => handleChange("brokerage", e.target.value)}
+            className="w-full h-14 text-lg px-4 rounded-[4px] border border-mvl-beige bg-white text-mvl-espresso placeholder:text-mvl-espresso/40 focus:outline-none focus:border-mvl-coral transition-colors"
+          />
+        )}
 
         {/* Email */}
         <input
@@ -147,7 +151,9 @@ export function SignInForm({ event }: SignInFormProps) {
         {/* Visited Before */}
         <fieldset>
           <legend className="text-mvl-espresso font-medium text-sm mb-2">
-            Have you visited Mount Vernon Lofts before?
+            {isBroker
+              ? "Have you toured Mount Vernon Lofts before?"
+              : "Have you visited Mount Vernon Lofts before?"}
           </legend>
           <div className="flex gap-3">
             {(["yes", "no"] as const).map(value => (
@@ -174,7 +180,8 @@ export function SignInForm({ event }: SignInFormProps) {
           </div>
         </fieldset>
 
-        {/* Has Active Buyer */}
+        {/* Has Active Buyer — broker events only */}
+        {isBroker && (
         <fieldset>
           <legend className="text-mvl-espresso font-medium text-sm mb-2">
             Do you have an active buyer for this product type?
@@ -203,6 +210,7 @@ export function SignInForm({ event }: SignInFormProps) {
             ))}
           </div>
         </fieldset>
+        )}
 
         {/* Error */}
         {error && (

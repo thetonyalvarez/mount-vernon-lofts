@@ -99,7 +99,7 @@ export function FeedbackForm({ event, prefillEmail }: FeedbackFormProps) {
             eventId: event.id,
             eventType: event.eventType,
             eventDate,
-            formType: "open_house_feedback",
+            formType: event.eventType === "broker" ? "broker_open_house_feedback" : "public_open_house_feedback",
           },
         }),
       })

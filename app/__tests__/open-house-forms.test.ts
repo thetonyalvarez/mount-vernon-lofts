@@ -69,14 +69,16 @@ describe("Webhook types: open house form types", () => {
     expect(source).toContain("OpenHouseFeedbackData")
   })
 
-  it("contains open_house_signin form type", () => {
+  it("contains broker and public sign-in form types", () => {
     const source = readFile("lib/types/webhook.ts")
-    expect(source).toContain("open_house_signin")
+    expect(source).toContain("broker_open_house_signin")
+    expect(source).toContain("public_open_house_signin")
   })
 
-  it("contains open_house_feedback form type", () => {
+  it("contains broker and public feedback form types", () => {
     const source = readFile("lib/types/webhook.ts")
-    expect(source).toContain("open_house_feedback")
+    expect(source).toContain("broker_open_house_feedback")
+    expect(source).toContain("public_open_house_feedback")
   })
 })
 
@@ -121,6 +123,17 @@ describe("Sign-in form: page and component", () => {
     const source = readFile("app/open-house/[date]/sign-in/SignInForm.tsx")
     expect(source).toContain("/api/open-house/sign-in")
   })
+
+  it("SignInForm.tsx sends audience-specific formType (broker vs public)", () => {
+    const source = readFile("app/open-house/[date]/sign-in/SignInForm.tsx")
+    expect(source).toContain("broker_open_house_signin")
+    expect(source).toContain("public_open_house_signin")
+  })
+
+  it("SignInForm.tsx conditionally shows brokerage for broker events only", () => {
+    const source = readFile("app/open-house/[date]/sign-in/SignInForm.tsx")
+    expect(source).toContain("isBroker")
+  })
 })
 
 // ─── Feedback Form ────────────────────────────────────────────
@@ -155,9 +168,9 @@ describe("Feedback form: page and component", () => {
 // ─── API Routes ───────────────────────────────────────────────
 
 describe("API routes: sign-in and feedback", () => {
-  it("sign-in route.ts exists and includes formType", () => {
+  it("sign-in route.ts exists and uses eventMeta.formType", () => {
     const source = readFile("app/api/open-house/sign-in/route.ts")
-    expect(source).toContain("open_house_signin")
+    expect(source).toContain("eventMeta.formType")
   })
 
   it("sign-in route.ts uses CONTACT_WEBHOOK_URL", () => {
@@ -165,9 +178,9 @@ describe("API routes: sign-in and feedback", () => {
     expect(source).toContain("CONTACT_WEBHOOK_URL")
   })
 
-  it("feedback route.ts exists and includes formType", () => {
+  it("feedback route.ts exists and uses eventMeta.formType", () => {
     const source = readFile("app/api/open-house/feedback/route.ts")
-    expect(source).toContain("open_house_feedback")
+    expect(source).toContain("eventMeta.formType")
   })
 
   it("feedback route.ts uses CONTACT_WEBHOOK_URL", () => {

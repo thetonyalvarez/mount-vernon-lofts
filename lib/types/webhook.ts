@@ -169,7 +169,11 @@ export function isValidWebhookPayload(data: unknown): data is WebhookPayload {
 
 // ─── Open House Form Types ────────────────────────────────────
 
-export type OpenHouseFormType = 'open_house_signin' | 'open_house_feedback'
+export type OpenHouseFormType =
+  | 'broker_open_house_signin'
+  | 'public_open_house_signin'
+  | 'broker_open_house_feedback'
+  | 'public_open_house_feedback'
 
 export interface OpenHouseSignInData {
   name: string

@@ -37,16 +37,18 @@ export async function POST(request: NextRequest) {
 
     const submissionId = `feedback_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
 
+    const eventLabel = eventMeta.eventType === "broker" ? "Broker" : "Public"
+
     // Map to FormContactData for backup compatibility
     const backupData: FormContactData = {
       name: formData.email,
       email: formData.email,
       phone: "",
-      message: `[Open House Feedback] Pricing: ${formData.pricingComparison}, Likelihood: ${formData.likelihoodToBring}/5, Units: ${formData.standoutUnits?.join(", ") ?? "None"}`,
+      message: `[${eventLabel} Open House Feedback] Pricing: ${formData.pricingComparison}, Likelihood: ${formData.likelihoodToBring}/5, Units: ${formData.standoutUnits?.join(", ") ?? "None"}`,
     }
 
     await backupManager.storeSubmission(submissionId, backupData, "pending", {
-      formType: "open_house_feedback",
+      formType: eventMeta.formType,
       eventId: eventMeta.eventId,
       eventType: eventMeta.eventType,
       openHouseFeedback: formData,
@@ -59,7 +61,7 @@ export async function POST(request: NextRequest) {
 
     if (webhookUrl) {
       const payload = {
-        formType: "open_house_feedback",
+        formType: eventMeta.formType,
         contact: backupData,
         openHouseFeedback: formData,
         eventMeta,
@@ -111,7 +113,7 @@ export async function POST(request: NextRequest) {
           submissionId,
           formData: backupData,
           timestamp: new Date().toISOString(),
-          metadata: { formType: "open_house_feedback", eventId: eventMeta.eventId },
+          metadata: { formType: eventMeta.formType, eventId: eventMeta.eventId },
         })
       }
     }
