@@ -54,6 +54,8 @@ export function FeedbackForm({ event, prefillEmail }: FeedbackFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [_renderTimestamp] = useState<number>(() => Date.now())
+  const [_honeypot, setHoneypot] = useState<string>("")
 
   const toggleCheckbox = (field: "standoutUnits" | "likedMost" | "buyerConcerns", value: string) => {
     setFormData(prev => {
@@ -102,6 +104,7 @@ export function FeedbackForm({ event, prefillEmail }: FeedbackFormProps) {
             formType: event.eventType === "broker" ? "broker_open_house_feedback" : "public_open_house_feedback",
           },
           sourceUrl: window.location.href,
+          _spamCheck: { website: _honeypot, _renderTimestamp },
         }),
       })
 
@@ -152,6 +155,18 @@ export function FeedbackForm({ event, prefillEmail }: FeedbackFormProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot — hidden from humans, filled by bots */}
+        <input
+          type="text"
+          name="website"
+          value={_honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          autoComplete="off"
+          tabIndex={-1}
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }}
+        />
+
         {/* Email (pre-filled or editable) */}
         <div>
           <label className="block text-mvl-espresso font-medium text-sm mb-1">Your email</label>

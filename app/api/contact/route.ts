@@ -4,6 +4,7 @@ import { backupManager } from "@/lib/backup-manager"
 import { emailFallback } from "@/lib/email-fallback"
 import type { WebhookPayload, WebhookResponse, WebhookError, SessionData, DeviceInfo, FormInteractionMetrics } from "@/lib/types/webhook"
 import type { FormContactData } from "@/lib/types/webhook"
+import { validateHoneypot, validateSubmissionTime, checkRateLimit, getClientIp } from "@/lib/spam-protection"
 
 export async function POST(request: NextRequest) {
   const startTime = Date.now()
@@ -11,7 +12,21 @@ export async function POST(request: NextRequest) {
   
   try {
     const body = await request.json()
-    
+
+    // --- Spam protection ---
+    const clientIp = getClientIp(request)
+    const rateLimit = checkRateLimit(clientIp)
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 })
+    }
+    const spamCheck = body._spamCheck ?? {}
+    if (validateHoneypot(spamCheck.website)) {
+      return NextResponse.json({ success: true, submissionId: `spam_${Date.now()}` })
+    }
+    if (spamCheck._renderTimestamp && validateSubmissionTime(spamCheck._renderTimestamp)) {
+      return NextResponse.json({ success: true, submissionId: `spam_${Date.now()}` })
+    }
+
     // Handle both legacy and enhanced payload formats
     let formData: FormContactData
     

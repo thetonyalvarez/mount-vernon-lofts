@@ -31,6 +31,8 @@ export function BrochureForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
   const [submissionId, setSubmissionId] = useState<string>("")
+  const [_renderTimestamp] = useState<number>(() => Date.now())
+  const [_honeypot, setHoneypot] = useState<string>("")
 
   useEffect(() => {
     const id = `brochure_${uniqueId.replace(/:/g, '_')}_${Date.now()}`
@@ -77,7 +79,7 @@ export function BrochureForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, _spamCheck: { website: _honeypot, _renderTimestamp } }),
       })
 
       if (!response.ok) {
@@ -139,6 +141,17 @@ export function BrochureForm() {
 
             <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot — hidden from humans, filled by bots */}
+                <input
+                  type="text"
+                  name="website"
+                  value={_honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  autoComplete="off"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }}
+                />
                 {submitStatus === "error" && (
                   <ScrollReveal variant={fadeInUp}>
                     <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-md">

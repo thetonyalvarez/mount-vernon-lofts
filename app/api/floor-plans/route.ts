@@ -4,6 +4,7 @@ import { CONTACT_CONFIG } from '@/app/config/contact'
 import type { EnhancedFloorPlanFormData } from '@/app/types'
 import type { WebhookPayload, SessionData, DeviceInfo, FormInteractionMetrics } from '@/lib/types/webhook'
 import nodemailer from 'nodemailer'
+import { validateHoneypot, validateSubmissionTime, checkRateLimit, getClientIp } from '@/lib/spam-protection'
 
 interface FloorPlanPayload {
   readonly formData: EnhancedFloorPlanFormData
@@ -31,9 +32,25 @@ export async function POST(request: NextRequest) {
   console.log('Floor plans form submission received')
   
   try {
-    const payload: FloorPlanPayload = await request.json()
+    const rawBody = await request.json()
+
+    // --- Spam protection ---
+    const clientIp = getClientIp(request)
+    const rateLimit = checkRateLimit(clientIp)
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+    }
+    const spamCheck = rawBody._spamCheck ?? {}
+    if (validateHoneypot(spamCheck.website)) {
+      return NextResponse.json({ success: true, message: 'Floor plans request processed successfully', submissionId: `spam_${Date.now()}` })
+    }
+    if (spamCheck._renderTimestamp && validateSubmissionTime(spamCheck._renderTimestamp)) {
+      return NextResponse.json({ success: true, message: 'Floor plans request processed successfully', submissionId: `spam_${Date.now()}` })
+    }
+
+    const payload: FloorPlanPayload = rawBody as FloorPlanPayload
     const { formData, metadata } = payload
-    
+
     // Validate required fields
     if (!formData.name || !formData.email || !formData.phone || !formData.floorPlansInterest) {
       return NextResponse.json(
