@@ -100,9 +100,6 @@ export function SignInForm({ event }: SignInFormProps) {
         <p className="text-mvl-espresso/70 text-sm">
           {event.title}
         </p>
-        <p className="text-mvl-espresso/50 text-xs mt-1">
-          {event.date} | {event.startTime} &ndash; {event.endTime}
-        </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
