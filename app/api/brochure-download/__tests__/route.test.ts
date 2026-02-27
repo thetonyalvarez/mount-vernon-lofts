@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import type { NextRequest } from 'next/server'
+import { _resetRateLimitStore } from '@/lib/spam-protection'
 
 // ---- Module mocks (hoisted) ----
 
@@ -68,6 +69,7 @@ function validPayload(overrides: Record<string, unknown> = {}) {
 
 describe('POST /api/brochure-download', () => {
   beforeEach(() => {
+    _resetRateLimitStore()
     vi.stubGlobal('fetch', vi.fn())
     vi.stubEnv('CONTACT_WEBHOOK_URL', '')
     vi.stubEnv('GMAIL_USER', '')

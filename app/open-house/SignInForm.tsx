@@ -21,6 +21,8 @@ export function SignInForm({ event }: SignInFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [_renderTimestamp] = useState<number>(() => Date.now())
+  const [_honeypot, setHoneypot] = useState<string>("")
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -53,6 +55,7 @@ export function SignInForm({ event }: SignInFormProps) {
             formType: isBroker ? "broker_open_house_signin" : "public_open_house_signin",
           },
           sourceUrl: window.location.href,
+          _spamCheck: { website: _honeypot, _renderTimestamp },
         }),
       })
 
@@ -103,6 +106,18 @@ export function SignInForm({ event }: SignInFormProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Honeypot — hidden from humans, filled by bots */}
+        <input
+          type="text"
+          name="website"
+          value={_honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          autoComplete="off"
+          tabIndex={-1}
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }}
+        />
+
         {/* Name */}
         <input
           type="text"

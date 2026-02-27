@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import type { NextRequest } from 'next/server'
+import { _resetRateLimitStore } from '@/lib/spam-protection'
 
 // ---- Module mocks (hoisted) ----
 
@@ -75,6 +76,7 @@ function buildEnhancedBody(overrides: Record<string, unknown> = {}) {
 
 describe('POST /api/contact', () => {
   beforeEach(() => {
+    _resetRateLimitStore()
     vi.stubGlobal('fetch', vi.fn())
     vi.stubEnv('CONTACT_WEBHOOK_URL', '')
     vi.stubEnv('CONTACT_WEBHOOK_URL_TEST', '')
