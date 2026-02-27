@@ -1,5 +1,4 @@
-import { notFound } from "next/navigation"
-import { getActiveEventByType } from "@/app/config/open-house-data"
+import { getLatestEventByType } from "@/app/config/open-house-data"
 import { FeedbackForm } from "../FeedbackForm"
 import type { Metadata } from "next"
 
@@ -13,10 +12,21 @@ export const metadata: Metadata = {
 
 export default async function PublicFeedbackPage({ searchParams }: PageProps) {
   const { email } = await searchParams
-  const event = getActiveEventByType("public")
+  const event = getLatestEventByType("public")
 
   if (!event) {
-    notFound()
+    return (
+      <div className="min-h-screen bg-mvl-cream flex items-center justify-center px-4">
+        <div className="text-center">
+          <h1 className="font-montserrat text-2xl font-semibold text-mvl-espresso mb-2">
+            No Public Open Houses Available
+          </h1>
+          <p className="text-mvl-espresso/70">
+            Check back soon for upcoming open houses.
+          </p>
+        </div>
+      </div>
+    )
   }
 
   return (
