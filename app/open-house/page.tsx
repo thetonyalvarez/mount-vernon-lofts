@@ -6,13 +6,18 @@ import Link from "next/link"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations"
 import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { CONTACT_CONFIG } from "@/app/config/contact"
-import { hasActiveEvents } from "@/app/config/open-house-data"
+import { getActiveEvents, hasActiveEvents } from "@/app/config/open-house-data"
+import type { OpenHouseEvent } from "@/app/config/open-house-data"
 import { OpenHouseSchema } from "./OpenHouseSchema"
 
 export const metadata: Metadata = {
-  title: "Broker Open House | Mount Vernon Lofts — Montrose Condos",
-  description: "Broker Open House at Mount Vernon Lofts, Thursday February 26, 12-2 PM. 4% buy-side commission on all contracts through March 15, 2026. 42 modern condos in Montrose starting in the $215Ks.",
+  title: "Open House | Mount Vernon Lofts — Montrose Condos",
+  description: "Open House at Mount Vernon Lofts. 42 modern condos in Montrose starting in the $215Ks. Studios and 1-bedrooms available. No RSVP needed.",
   robots: "noindex, nofollow"
+}
+
+function getEventLabel(event: OpenHouseEvent): string {
+  return event.eventType === 'broker' ? 'Broker Open House' : 'Open House'
 }
 
 function ComingSoonFallback() {
@@ -90,10 +95,15 @@ export default function OpenHousePage() {
     return <ComingSoonFallback />
   }
 
+  const activeEvents = getActiveEvents()
+  const event = activeEvents[0]
+  const label = getEventLabel(event)
+  const isBroker = event.eventType === 'broker'
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
       <OpenHouseSchema />
-      <DataLayerEvent event="open_house_view" data={{ content_type: 'broker_open_house', content_name: 'Broker Open House Feb 2026' }} />
+      <DataLayerEvent event="open_house_view" data={{ content_type: `${event.eventType}_open_house`, content_name: `${label} ${event.date}` }} />
 
       {/* Hero Image Section */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
@@ -112,16 +122,16 @@ export default function OpenHousePage() {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-mvl-coral px-4 py-2 rounded-md mb-4">
               <Calendar className="w-4 h-4 text-white" />
-              <span className="text-sm font-medium uppercase tracking-wider text-white">Broker Open House</span>
+              <span className="text-sm font-medium uppercase tracking-wider text-white">{label}</span>
             </div>
             <h1 className="font-montserrat text-white text-4xl sm:text-5xl md:text-6xl font-light leading-tight tracking-wide mb-3 drop-shadow-xl">
-              Broker Open House
+              {event.title}
             </h1>
             <p className="text-white/90 text-lg md:text-xl font-light mb-1 drop-shadow-lg">
               Mount Vernon Lofts
             </p>
             <p className="text-white text-lg md:text-xl font-medium drop-shadow-lg">
-              Thursday, February 26, 2026 | 12:00 - 2:00 PM
+              {event.date} | {event.startTime} &ndash; {event.endTime}
             </p>
           </div>
         </div>
@@ -131,17 +141,19 @@ export default function OpenHousePage() {
         <ScrollReveal>
           <StaggerContainer>
             <div className="max-w-4xl mx-auto">
-              {/* Commission Banner */}
-              <StaggerItem>
-                <div className="bg-mvl-espresso text-white rounded-lg p-8 mb-8 text-center">
-                  <h2 className="font-montserrat text-3xl md:text-4xl font-light mb-3">
-                    4% Buy-Side Commission
-                  </h2>
-                  <p className="text-mvl-beige text-lg">
-                    On all contracts executed through March 15, 2026
-                  </p>
-                </div>
-              </StaggerItem>
+              {/* Commission Banner — broker events only */}
+              {isBroker && (
+                <StaggerItem>
+                  <div className="bg-mvl-espresso text-white rounded-lg p-8 mb-8 text-center">
+                    <h2 className="font-montserrat text-3xl md:text-4xl font-light mb-3">
+                      4% Buy-Side Commission
+                    </h2>
+                    <p className="text-mvl-beige text-lg">
+                      On all contracts executed through March 15, 2026
+                    </p>
+                  </div>
+                </StaggerItem>
+              )}
 
               {/* Event Details */}
               <StaggerItem>
@@ -155,8 +167,8 @@ export default function OpenHousePage() {
                         <Calendar className="w-5 h-5 text-mvl-coral" />
                       </div>
                       <div>
-                        <p className="font-medium text-mvl-espresso">Thursday, February 26, 2026</p>
-                        <p className="text-mvl-espresso/70">12:00 PM - 2:00 PM</p>
+                        <p className="font-medium text-mvl-espresso">{event.date}</p>
+                        <p className="text-mvl-espresso/70">{event.startTime} - {event.endTime}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -164,8 +176,8 @@ export default function OpenHousePage() {
                         <MapPin className="w-5 h-5 text-mvl-coral" />
                       </div>
                       <div>
-                        <p className="font-medium text-mvl-espresso">Mount Vernon Lofts</p>
-                        <p className="text-mvl-espresso/70">4509 Mount Vernon, Houston, TX 77006</p>
+                        <p className="font-medium text-mvl-espresso">{event.location.name}</p>
+                        <p className="text-mvl-espresso/70">{event.location.fullAddress}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -174,7 +186,7 @@ export default function OpenHousePage() {
                       </div>
                       <div>
                         <p className="font-medium text-mvl-espresso">No RSVP Needed</p>
-                        <p className="text-mvl-espresso/70">Food & refreshments provided</p>
+                        <p className="text-mvl-espresso/70">{isBroker ? 'Food & refreshments provided' : 'Walk in anytime'}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -189,6 +201,27 @@ export default function OpenHousePage() {
                   </div>
                 </div>
               </StaggerItem>
+
+              {/* Upcoming Events — show if there are more active events */}
+              {activeEvents.length > 1 && (
+                <StaggerItem>
+                  <div className="bg-mvl-coral/5 border border-mvl-coral/20 rounded-lg p-6 mb-8">
+                    <h2 className="text-lg font-medium text-mvl-espresso mb-4 text-center">
+                      Upcoming Open Houses
+                    </h2>
+                    <div className="space-y-3">
+                      {activeEvents.slice(1).map(upcomingEvent => (
+                        <div key={upcomingEvent.id} className="flex items-center gap-3 justify-center">
+                          <Calendar className="w-4 h-4 text-mvl-coral flex-shrink-0" />
+                          <span className="text-mvl-espresso">
+                            {upcomingEvent.date} | {upcomingEvent.startTime} &ndash; {upcomingEvent.endTime}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </StaggerItem>
+              )}
 
               {/* Property Highlights */}
               <StaggerItem>
@@ -284,7 +317,7 @@ export default function OpenHousePage() {
                       variant="outline"
                       className="border-white text-white hover:bg-white hover:text-mvl-espresso transition-all duration-300"
                     >
-                      <a href="mailto:jeffrey.winans@nanproperties.com?subject=Broker Open House Inquiry - Mount Vernon Lofts">
+                      <a href="mailto:jeffrey.winans@nanproperties.com?subject=Open House Inquiry - Mount Vernon Lofts">
                         <Mail className="w-5 h-5 mr-2" />
                         Email Jeffrey
                       </a>

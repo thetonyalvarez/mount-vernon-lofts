@@ -107,9 +107,15 @@ describe("hasUpcomingEvents", () => {
     expect(hasUpcomingEvents()).toBe(true)
   })
 
-  it("returns false when the next event has already started", () => {
-    // After event start time
+  it("returns true when broker event started but public events are still upcoming", () => {
+    // After broker event start time, but public events (Feb 27, Mar 1) are still upcoming
     vi.setSystemTime(new Date("2026-02-26T12:30:00-06:00"))
+    expect(hasUpcomingEvents()).toBe(true)
+  })
+
+  it("returns false when all events have started", () => {
+    // After all events have started (Mar 1 12pm is the last start time)
+    vi.setSystemTime(new Date("2026-03-01T12:30:00-06:00"))
     expect(hasUpcomingEvents()).toBe(false)
   })
 
@@ -135,8 +141,16 @@ describe("getNextEvent", () => {
     expect(event?.id).toBe("broker-feb-2026")
   })
 
-  it("returns null when the event has already started", () => {
+  it("returns next public event when broker event has already started", () => {
     vi.setSystemTime(new Date("2026-02-26T12:30:00-06:00"))
+    const event = getNextEvent()
+    expect(event).not.toBeNull()
+    expect(event?.id).toBe("public-feb27-2026")
+  })
+
+  it("returns null when all events have started", () => {
+    // After the last event (Mar 1) has started
+    vi.setSystemTime(new Date("2026-03-01T12:30:00-06:00"))
     expect(getNextEvent()).toBeNull()
   })
 

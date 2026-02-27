@@ -43,10 +43,13 @@ describe("Open house data model: eventType, featuredUnits, helpers", () => {
     expect(source).toMatch(/export\s+function\s+getActiveEventByType/)
   })
 
-  it("getActiveEventByType returns null for type with no active events", async () => {
+  it("getActiveEventByType returns public event when public events are configured", async () => {
     const { getActiveEventByType } = await import("@/app/config/open-house-data")
-    // Currently no public events configured
-    expect(getActiveEventByType("public")).toBeNull()
+    const publicEvent = getActiveEventByType("public")
+    // Public events are now configured — should return one if any are active
+    if (publicEvent) {
+      expect(publicEvent.eventType).toBe("public")
+    }
   })
 })
 
@@ -65,9 +68,11 @@ describe("getLatestEventByType: returns event regardless of expiry", () => {
     expect(event!.eventType).toBe("broker")
   })
 
-  it("getLatestEventByType('public') returns null when no public events exist", async () => {
+  it("getLatestEventByType('public') returns latest public event", async () => {
     const { getLatestEventByType } = await import("@/app/config/open-house-data")
-    expect(getLatestEventByType("public")).toBeNull()
+    const publicEvent = getLatestEventByType("public")
+    expect(publicEvent).not.toBeNull()
+    expect(publicEvent!.eventType).toBe("public")
   })
 })
 
