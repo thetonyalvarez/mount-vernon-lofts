@@ -43,7 +43,7 @@ describe("OpenHouseBanner is mounted in layout via wrapper", () => {
   })
 })
 
-describe("Open House page — broker content", () => {
+describe("Open House page — dynamic event content", () => {
   it("uses hasActiveEvents guard with fallback UI instead of redirect", () => {
     const source = readFile("app/open-house/page.tsx")
     // Page should conditionally show fallback when no active events
@@ -52,18 +52,30 @@ describe("Open House page — broker content", () => {
     expect(source).toContain("ComingSoonFallback")
     // Should NOT redirect to homepage
     expect(source).not.toMatch(/redirect\s*\(\s*["']\/["']\s*\)/)
-    // Should still have real content for when events ARE active
-    expect(source).toContain("Broker Open House")
   })
 
-  it("contains Broker Open House title", () => {
+  it("renders event details dynamically from getActiveEvents", () => {
     const source = readFile("app/open-house/page.tsx")
-    expect(source).toContain("Broker Open House")
+    expect(source).toContain("getActiveEvents")
+    // Should use event data for title/date/time, not hardcoded strings
+    expect(source).toContain("event.title")
+    expect(source).toContain("event.date")
+    expect(source).toContain("event.startTime")
+    expect(source).toContain("event.endTime")
   })
 
-  it("contains 4% buy-side commission detail", () => {
+  it("conditionally shows broker commission banner only for broker events", () => {
     const source = readFile("app/open-house/page.tsx")
+    // Commission banner should be conditional on broker event type
+    expect(source).toContain("isBroker")
     expect(source).toMatch(/4%.*[Cc]ommission/)
+  })
+
+  it("has event label helper for broker vs public", () => {
+    const source = readFile("app/open-house/page.tsx")
+    expect(source).toContain("Broker Open House")
+    expect(source).toContain("Open House")
+    expect(source).toContain("getEventLabel")
   })
 
   it("contains Jeffrey Winans contact", () => {
@@ -74,5 +86,34 @@ describe("Open House page — broker content", () => {
   it("contains DataLayerEvent for tracking", () => {
     const source = readFile("app/open-house/page.tsx")
     expect(source).toContain("DataLayerEvent")
+  })
+})
+
+describe("Open House event data — Public Open Houses Feb 27 & Mar 1", () => {
+  it("contains public event for Feb 27, 2026", () => {
+    const source = readFile("app/config/open-house-data.ts")
+    expect(source).toContain('"public-feb27-2026"')
+    expect(source).toContain("2026-02-27T12:00:00-06:00")
+    expect(source).toContain("2026-02-27T17:00:00-06:00")
+  })
+
+  it("contains public event for Mar 1, 2026", () => {
+    const source = readFile("app/config/open-house-data.ts")
+    expect(source).toContain('"public-mar1-2026"')
+    expect(source).toContain("2026-03-01T12:00:00-06:00")
+    expect(source).toContain("2026-03-01T17:00:00-06:00")
+  })
+
+  it("public events have eventType 'public'", () => {
+    const source = readFile("app/config/open-house-data.ts")
+    expect(source).toContain("eventType: 'public'")
+  })
+
+  it("public events use same featured units as broker event", () => {
+    const source = readFile("app/config/open-house-data.ts")
+    // All events reference the same featured units
+    const matches = source.match(/featuredUnits:\s*\['1-7',\s*'1-8',\s*'1-11',\s*'1-26'\]/g)
+    expect(matches).not.toBeNull()
+    expect(matches!.length).toBeGreaterThanOrEqual(3) // broker + 2 public
   })
 })
