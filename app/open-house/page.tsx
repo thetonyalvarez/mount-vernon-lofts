@@ -1,5 +1,4 @@
 import { Metadata } from "next"
-import { redirect } from "next/navigation"
 import { Calendar, MapPin, Phone, Mail, Clock, ArrowLeft, Home, Car, DollarSign, Shield, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "@/components/ui/image"
@@ -16,11 +15,81 @@ export const metadata: Metadata = {
   robots: "noindex, nofollow"
 }
 
+function ComingSoonFallback() {
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
+      <div className="w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-32">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-mvl-coral/10 px-4 py-2 rounded-md mb-6">
+            <Calendar className="w-4 h-4 text-mvl-coral" />
+            <span className="text-sm font-medium text-mvl-coral">Open Houses</span>
+          </div>
+
+          <h1 className="font-montserrat text-3xl md:text-4xl font-light text-mvl-espresso mb-4">
+            Open Houses Coming Soon
+          </h1>
+          <p className="text-mvl-espresso/70 text-lg mb-10 max-w-xl mx-auto">
+            We&apos;re planning our next open house at Mount Vernon Lofts.
+            Contact us to schedule a private tour in the meantime.
+          </p>
+
+          {/* Contact Info */}
+          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h2 className="text-xl font-medium text-mvl-espresso mb-4">
+              Schedule a Tour
+            </h2>
+            <p className="text-mvl-espresso/70 mb-6">
+              Jeffrey Winans | Nan &amp; Company Properties
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-mvl-coral hover:bg-mvl-coral-dark text-white transition-all duration-300"
+              >
+                <a href="tel:7139869929">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call 713.986.9929
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-mvl-espresso text-mvl-espresso hover:bg-mvl-espresso hover:text-white transition-all duration-300"
+              >
+                <a href="mailto:jeffrey.winans@nanproperties.com?subject=Tour Request - Mount Vernon Lofts">
+                  <Mail className="w-5 h-5 mr-2" />
+                  Email Jeffrey
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Back to Homepage */}
+          <Button
+            asChild
+            variant="outline"
+            className="border-mvl-coral text-mvl-coral hover:bg-mvl-coral hover:text-white"
+          >
+            <Link href="/">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Homepage
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </main>
+  )
+}
+
 export default function OpenHousePage() {
-  // After the event expires, redirect to homepage
+  // Show fallback when no active events — don't redirect
   if (!hasActiveEvents()) {
-    redirect("/")
+    return <ComingSoonFallback />
   }
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
       <OpenHouseSchema />

@@ -156,6 +156,19 @@ export function getActiveEventByType(eventType: 'public' | 'broker'): OpenHouseE
   ) ?? null
 }
 
+/**
+ * Get the latest event by type regardless of active/expired status.
+ * Returns the most recent event matching the given type, or null if none exist.
+ * Used by form pages that should remain accessible even after an event ends
+ * (e.g., broker feedback forms linked from post-event follow-up emails).
+ */
+export function getLatestEventByType(eventType: 'public' | 'broker'): OpenHouseEvent | null {
+  const matching = OPEN_HOUSE_EVENTS.filter(event => event.eventType === eventType)
+  if (matching.length === 0) return null
+  // Return the most recent event (last in array — events are added chronologically)
+  return matching[matching.length - 1]
+}
+
 // Legacy export for backward compatibility (uses the next upcoming event)
 export const OPEN_HOUSE_EVENT = OPEN_HOUSE_EVENTS[0];
 export const isOpenHouseActive = hasActiveEvents;

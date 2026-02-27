@@ -44,12 +44,15 @@ describe("OpenHouseBanner is mounted in layout via wrapper", () => {
 })
 
 describe("Open House page — broker content", () => {
-  it("uses hasActiveEvents guard instead of unconditional redirect", () => {
+  it("uses hasActiveEvents guard with fallback UI instead of redirect", () => {
     const source = readFile("app/open-house/page.tsx")
-    // Page should conditionally redirect only when no active events
+    // Page should conditionally show fallback when no active events
     expect(source).toContain("hasActiveEvents")
-    expect(source).toContain('redirect("/")')
-    // Should NOT be an unconditional redirect-only page (must have real content)
+    // Should show a 'coming soon' fallback instead of redirecting
+    expect(source).toContain("ComingSoonFallback")
+    // Should NOT redirect to homepage
+    expect(source).not.toMatch(/redirect\s*\(\s*["']\/["']\s*\)/)
+    // Should still have real content for when events ARE active
     expect(source).toContain("Broker Open House")
   })
 

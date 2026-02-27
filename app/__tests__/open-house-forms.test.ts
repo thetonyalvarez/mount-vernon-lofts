@@ -43,17 +43,31 @@ describe("Open house data model: eventType, featuredUnits, helpers", () => {
     expect(source).toMatch(/export\s+function\s+getActiveEventByType/)
   })
 
-  it("getActiveEventByType returns broker event", async () => {
-    const { getActiveEventByType } = await import("@/app/config/open-house-data")
-    const event = getActiveEventByType("broker")
-    expect(event).not.toBeNull()
-    expect(event!.eventType).toBe("broker")
-  })
-
   it("getActiveEventByType returns null for type with no active events", async () => {
     const { getActiveEventByType } = await import("@/app/config/open-house-data")
     // Currently no public events configured
     expect(getActiveEventByType("public")).toBeNull()
+  })
+})
+
+// ─── getLatestEventByType (time-independent) ──────────────────
+
+describe("getLatestEventByType: returns event regardless of expiry", () => {
+  it("exports getLatestEventByType function", () => {
+    const source = readFile("app/config/open-house-data.ts")
+    expect(source).toMatch(/export\s+function\s+getLatestEventByType/)
+  })
+
+  it("getLatestEventByType('broker') returns broker event even when expired", async () => {
+    const { getLatestEventByType } = await import("@/app/config/open-house-data")
+    const event = getLatestEventByType("broker")
+    expect(event).not.toBeNull()
+    expect(event!.eventType).toBe("broker")
+  })
+
+  it("getLatestEventByType('public') returns null when no public events exist", async () => {
+    const { getLatestEventByType } = await import("@/app/config/open-house-data")
+    expect(getLatestEventByType("public")).toBeNull()
   })
 })
 
@@ -83,37 +97,79 @@ describe("Webhook types: open house form types", () => {
   })
 })
 
-// ─── Evergreen Routes ───────────────────────────────────────────
+// ─── Evergreen Form Routes (always accessible) ──────────────────
 
-describe("Evergreen open house routes: broker and public", () => {
-  it("broker-sign-in page exists and uses getActiveEventByType", () => {
+describe("Evergreen form routes: always accessible regardless of event time", () => {
+  it("broker-sign-in uses getLatestEventByType, not getActiveEventByType", () => {
     const source = readFile("app/open-house/broker-sign-in/page.tsx")
-    expect(source).toContain("getActiveEventByType")
+    expect(source).toContain("getLatestEventByType")
+    expect(source).not.toContain("getActiveEventByType")
     expect(source).toContain('"broker"')
-    expect(source).toContain("notFound")
   })
 
-  it("sign-in (public) page exists and uses getActiveEventByType", () => {
-    const source = readFile("app/open-house/sign-in/page.tsx")
-    expect(source).toContain("getActiveEventByType")
-    expect(source).toContain('"public"')
-    expect(source).toContain("notFound")
+  it("broker-sign-in does NOT call notFound for expired events", () => {
+    const source = readFile("app/open-house/broker-sign-in/page.tsx")
+    expect(source).not.toContain("notFound")
   })
 
-  it("broker-feedback page exists and uses getActiveEventByType", () => {
+  it("broker-feedback uses getLatestEventByType, not getActiveEventByType", () => {
     const source = readFile("app/open-house/broker-feedback/page.tsx")
-    expect(source).toContain("getActiveEventByType")
+    expect(source).toContain("getLatestEventByType")
+    expect(source).not.toContain("getActiveEventByType")
     expect(source).toContain('"broker"')
   })
 
-  it("feedback (public) page exists and uses getActiveEventByType", () => {
-    const source = readFile("app/open-house/feedback/page.tsx")
-    expect(source).toContain("getActiveEventByType")
+  it("broker-feedback does NOT call notFound for expired events", () => {
+    const source = readFile("app/open-house/broker-feedback/page.tsx")
+    expect(source).not.toContain("notFound")
+  })
+
+  it("sign-in (public) uses getLatestEventByType, not getActiveEventByType", () => {
+    const source = readFile("app/open-house/sign-in/page.tsx")
+    expect(source).toContain("getLatestEventByType")
+    expect(source).not.toContain("getActiveEventByType")
     expect(source).toContain('"public"')
+  })
+
+  it("sign-in (public) does NOT call notFound for expired events", () => {
+    const source = readFile("app/open-house/sign-in/page.tsx")
+    expect(source).not.toContain("notFound")
+  })
+
+  it("feedback (public) uses getLatestEventByType, not getActiveEventByType", () => {
+    const source = readFile("app/open-house/feedback/page.tsx")
+    expect(source).toContain("getLatestEventByType")
+    expect(source).not.toContain("getActiveEventByType")
+    expect(source).toContain('"public"')
+  })
+
+  it("feedback (public) does NOT call notFound for expired events", () => {
+    const source = readFile("app/open-house/feedback/page.tsx")
+    expect(source).not.toContain("notFound")
   })
 
   it("[date] dynamic segment no longer exists", () => {
     expect(fileExists("app/open-house/[date]")).toBe(false)
+  })
+})
+
+// ─── Open House Landing Page Fallback ─────────────────────────
+
+describe("Open house landing page: fallback when no active events", () => {
+  it("does NOT redirect to homepage when no active events", () => {
+    const source = readFile("app/open-house/page.tsx")
+    expect(source).not.toMatch(/redirect\s*\(\s*["']\/["']\s*\)/)
+  })
+
+  it("shows 'coming soon' fallback content", () => {
+    const source = readFile("app/open-house/page.tsx")
+    expect(source).toMatch(/[Cc]oming\s+[Ss]oon/)
+  })
+
+  it("fallback includes contact information", () => {
+    const source = readFile("app/open-house/page.tsx")
+    // Should have phone or email contact info in the fallback
+    expect(source).toContain("schedule")
   })
 })
 
