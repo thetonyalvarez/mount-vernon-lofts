@@ -110,4 +110,11 @@ describe('Robots.txt', () => {
   it('returns Content-Type text/plain', () => {
     expect(source).toContain("'Content-Type': 'text/plain'")
   })
+
+  it('does NOT block SEO analysis crawlers', () => {
+    const blockedCrawlers = ['SemrushBot', 'AhrefsBot', 'MJ12bot']
+    for (const crawler of blockedCrawlers) {
+      expect(source, `Should not block ${crawler}`).not.toContain(`User-agent: ${crawler}`)
+    }
+  })
 })

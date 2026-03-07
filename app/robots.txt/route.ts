@@ -66,17 +66,7 @@ Crawl-delay: 1
 User-agent: Bingbot
 Allow: /
 Disallow: /*?index=*
-Crawl-delay: 1
-
-# Block problematic crawlers
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /`;
+Crawl-delay: 1`;
 
   return new Response(robotsTxt, {
     headers: {
