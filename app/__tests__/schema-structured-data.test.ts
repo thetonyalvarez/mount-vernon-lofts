@@ -194,6 +194,61 @@ describe("Schema: Homepage ApartmentComplex structured data", () => {
   })
 })
 
+describe("Schema: FAQPage is NOT in global EnhancedMetadata", () => {
+  it("EnhancedMetadata does NOT contain FAQPage schema", () => {
+    const source = readFile("app/components/metadata/EnhancedMetadata.tsx")
+    expect(source).not.toContain('"FAQPage"')
+  })
+
+  it("homepage page.tsx contains FAQPage schema", () => {
+    const source = readFile("app/page.tsx")
+    expect(source).toContain('"FAQPage"')
+  })
+
+  it("homepage page.tsx contains the 3 FAQ questions", () => {
+    const source = readFile("app/page.tsx")
+    expect(source).toContain("How much do condos cost at Mount Vernon Lofts?")
+    expect(source).toContain("Where is Mount Vernon Lofts located?")
+    expect(source).toContain("How many units are available at Mount Vernon Lofts?")
+  })
+
+  it("root layout does NOT contain FAQPage schema", () => {
+    const source = readFile("app/layout.tsx")
+    expect(source).not.toContain('"FAQPage"')
+  })
+
+  it("no shared/global component contains FAQPage schema", () => {
+    // Guard against FAQPage leaking into global components that render on every page
+    const globalFiles = [
+      "app/components/metadata/EnhancedMetadata.tsx",
+      "app/layout.tsx",
+      "lib/metadata-utils.ts",
+    ]
+
+    for (const file of globalFiles) {
+      const source = readFile(file)
+      expect(source, `${file} should NOT contain FAQPage`).not.toContain('"FAQPage"')
+    }
+  })
+
+  it("only homepage and first-time-buyer have FAQPage schema among page files", () => {
+    // Pages that should NOT have their own FAQPage schema
+    const pageFiles = [
+      "app/amenities/page.tsx",
+      "app/neighborhood/page.tsx",
+      "app/gallery/page.tsx",
+      "app/residences/page.tsx",
+      "app/floor-plans/page.tsx",
+      "app/brochure/page.tsx",
+    ]
+
+    for (const file of pageFiles) {
+      const source = readFile(file)
+      expect(source, `${file} should NOT contain FAQPage`).not.toContain('"FAQPage"')
+    }
+  })
+})
+
 describe("metadata-utils.ts uses correct schema types", () => {
   it("uses ApartmentComplex instead of Residence", () => {
     const source = readFile("lib/metadata-utils.ts")
