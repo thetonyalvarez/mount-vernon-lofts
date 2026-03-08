@@ -15,7 +15,13 @@ export function GuideMvlSection() {
               Mount Vernon Lofts is a 42-unit condo building at 4509 Mount Vernon in the heart of Montrose. Built in 2018 with concrete foundation and modern building systems, it offers studios (612–705 SF) and one-bedrooms (717–799 SF) starting in the $215Ks.
             </p>
             <p className="text-mvl-espresso/80 leading-relaxed mb-4">
-              The building checks many of the boxes outlined in this guide: 2018 construction, covered parking included, in-unit washer/dryer, $300/month HOA that includes water, reserves above Fannie Mae requirements, professional management, and short-term rentals prohibited. It qualifies for conventional financing with as little as 3% down for first-time buyers.
+              The building checks many of the boxes outlined in this guide: 2018 construction with concrete foundation, one covered parking space per unit, in-unit washer/dryer, granite countertops, and individual HVAC systems. The HOA is $300/month and includes water, with reserves above the Fannie Mae 10% requirement. Professional management by Equity keeps the building well-maintained, and short-term rentals are prohibited — creating a stable, owner-focused community.
+            </p>
+            <p className="text-mvl-espresso/80 leading-relaxed mb-4">
+              From a financing perspective, MVL qualifies for conventional loans with as little as 3% down for first-time buyers. The building&#39;s strong owner-occupancy ratio and healthy HOA financials make the lending process straightforward. Most buyers close in 30 to 45 days.
+            </p>
+            <p className="text-mvl-espresso/80 leading-relaxed mb-4">
+              The building is pet-friendly, with a gated property entrance, recreational lounge, and outdoor common areas. The location puts you within walking distance of Montrose&#39;s best restaurants, coffee shops, and the Menil Collection — with a 15-minute drive to both downtown and the Medical Center.
             </p>
             <p className="text-mvl-espresso/80 leading-relaxed mb-6">
               If you&#39;re considering condos in Montrose, Mount Vernon Lofts is worth a visit. Units are available now, and tours can be scheduled 7 days a week.

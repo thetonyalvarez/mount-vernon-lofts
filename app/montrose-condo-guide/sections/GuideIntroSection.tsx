@@ -11,13 +11,16 @@ export function GuideIntroSection() {
               Why Montrose Is One of Houston&#39;s Top Condo Markets
             </h2>
             <p className="text-mvl-espresso/80 leading-relaxed mb-4">
-              Montrose has long been one of Houston&#39;s most sought-after inner loop neighborhoods. Known for its walkable streets, independent restaurants, galleries, and proximity to both downtown and the Texas Medical Center, it attracts buyers who want urban living without the sprawl.
+              Montrose has long been one of Houston&#39;s most sought-after inner loop neighborhoods. Known for its walkable streets, independent restaurants, galleries, and proximity to both downtown and the Texas Medical Center, it attracts buyers who want urban living without the sprawl. The neighborhood&#39;s mix of historic bungalows, modern townhomes, and condo buildings gives it a character that newer developments outside the loop can&#39;t replicate.
             </p>
             <p className="text-mvl-espresso/80 leading-relaxed mb-4">
-              For condo buyers, Montrose offers something most Houston neighborhoods don&#39;t: a genuine walk-to-everything lifestyle. Residents can reach coffee shops, dining, museums, and parks on foot — a rarity in a city built around cars.
+              For condo buyers, Montrose offers something most Houston neighborhoods don&#39;t: a genuine walk-to-everything lifestyle. Residents can reach coffee shops, dining, museums, and parks on foot — a rarity in a city built around cars. That walkability, combined with strong demand from young professionals and Medical Center workers, has made Montrose one of the most active condo markets inside the loop.
+            </p>
+            <p className="text-mvl-espresso/80 leading-relaxed mb-4">
+              Whether you&#39;re a first-time buyer looking to stop renting, a Medical Center employee tired of commuting from the suburbs, or a parent buying near Rice or the University of Houston, the Montrose condo market deserves a close look.
             </p>
             <p className="text-mvl-espresso/80 leading-relaxed">
-              Whether you&#39;re a first-time buyer looking to stop renting or an investor seeking strong rental demand, the Montrose condo market deserves a close look. This guide covers what you need to know before buying.
+              This guide covers everything you need to know: current pricing and market trends, what makes Montrose walkable, what to look for in a condo building, how financing works for condos, and where Mount Vernon Lofts fits into the picture.
             </p>
           </div>
 
