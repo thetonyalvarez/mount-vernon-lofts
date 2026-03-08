@@ -261,7 +261,7 @@ export default function OpenHousePage() {
             <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
               {[
                 "Granite countertops",
-                "European-style cabinetry",
+                "Classic shaker cabinetry",
                 "In-unit washer/dryer",
                 "Smart thermostat",
                 "Natural light throughout",

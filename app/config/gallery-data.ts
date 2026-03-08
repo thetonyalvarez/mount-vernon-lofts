@@ -139,7 +139,7 @@ export const galleryImages: Readonly<GalleryImage[]> = [
     alt: 'Kitchen close-up showing granite countertops',
     category: 'one-bedrooms',
     title: 'Kitchen Close-Up',
-    description: 'Granite countertops and European-style cabinetry'
+    description: 'Granite countertops and classic shaker cabinetry'
   },
   {
     id: '1bed-6',

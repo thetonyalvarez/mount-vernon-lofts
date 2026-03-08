@@ -163,7 +163,7 @@ describe("Schema: Homepage ApartmentComplex structured data", () => {
     const source = readFile("app/components/metadata/EnhancedMetadata.tsx")
     expect(source).toContain('"ApartmentComplex"')
     expect(source).toContain('"Granite Countertops"')
-    expect(source).toContain('"European-Style Cabinetry"')
+    expect(source).toContain('"Classic Shaker Cabinetry"')
     expect(source).toContain('"Recreational Lounge"')
   })
 

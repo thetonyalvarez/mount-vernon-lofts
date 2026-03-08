@@ -49,7 +49,7 @@ Generic/Salesy → Real/Direct:
 "Luxurious living" → "Modern condo, walkable neighborhood"
 "Amazing views" → "You can see [specific thing] from your living room"
 "Nice amenities" → "In-unit W/D, covered parking, gym"
-"High-end finishes" → "Granite counters, European-style cabinetry, in-unit W/D"
+"High-end finishes" → "Granite counters, classic shaker cabinetry, in-unit W/D"
 "Prime location" → "Walking distance to restaurants, shops, and the medical center"
 ```
 
@@ -67,7 +67,7 @@ NEVER USE:
 
 Replace with specificity:
 "Exclusive living" → "42 condos in Montrose"
-"Curated selection" → "Modern finishes: granite counters, European-style cabinetry, tile backsplash"
+"Curated selection" → "Modern finishes: granite counters, classic shaker cabinetry"
 "Premier amenities" → "In-unit washer/dryer, covered parking, fitness room"
 ```
 

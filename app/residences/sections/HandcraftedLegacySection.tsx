@@ -17,7 +17,7 @@ export function HandcraftedLegacySection() {
               </h2>
               <div className="space-y-6">
                 <p className="text-lg md:text-xl text-mvl-espresso/80 leading-relaxed">
-                  Built in 2018 with modern materials and construction standards, Mount Vernon Lofts features quality finishes throughout -- granite countertops, European-style cabinetry, and in-unit washer and dryer in every unit.
+                  Built in 2018 with modern materials and construction standards, Mount Vernon Lofts features quality finishes throughout -- granite countertops, classic shaker cabinetry, and in-unit washer and dryer in every unit.
                 </p>
                 <p className="text-lg md:text-xl text-mvl-espresso/80 leading-relaxed">
                   This is your first home done right -- a modern building where you can build equity and put down roots in one of Houston&apos;s best neighborhoods.

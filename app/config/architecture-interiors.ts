@@ -16,9 +16,9 @@ export const interiorFeatures: InteriorFeature[] = [
   },
   {
     title: "Modern Finishes",
-    description: "Granite countertops, European-style cabinetry, tile backsplash, and in-unit washer and dryer. Built in 2018, all systems and appliances are modern — move-in ready, no renovations needed.",
+    description: "Granite countertops, classic shaker cabinetry, and in-unit washer and dryer. Built in 2018, all systems and appliances are modern — move-in ready, no renovations needed.",
     image: "/images/gallery/interiors/kitchen-2.jpg",
-    alt: "Modern kitchen with granite countertops and European-style cabinetry",
+    alt: "Modern kitchen with granite countertops and classic shaker cabinetry",
   },
   {
     title: "2018 Construction",
