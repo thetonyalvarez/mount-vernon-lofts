@@ -67,10 +67,10 @@ describe('Sitemap', () => {
     expect(source).toContain("https://mtvernonlofts.com")
   })
 
-  it('has exactly 15 URL entries', () => {
+  it('has exactly 16 URL entries', () => {
     // Count the number of objects in the urls array by counting 'url:' occurrences
     const urlEntries = (source.match(/url:\s*[`'"]?\$?\{?baseUrl/g) ?? []).length
-    expect(urlEntries).toBe(15)
+    expect(urlEntries).toBe(16)
   })
 
   it('exports dynamic = force-dynamic to prevent static pre-rendering', () => {

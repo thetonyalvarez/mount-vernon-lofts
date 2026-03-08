@@ -47,6 +47,12 @@ export async function GET() {
       priority: 0.7
     },
     {
+      url: `${baseUrl}/montrose-condo-guide`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8
+    },
+    {
       url: `${baseUrl}/amenities`,
       lastModified: currentDate,
       changeFrequency: 'monthly',

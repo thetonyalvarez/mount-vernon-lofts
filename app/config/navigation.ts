@@ -52,6 +52,7 @@ export const footerNavLinks: ReadonlyArray<NavLink> = [
   { label: "FLOOR PLANS", href: "/floor-plans" },
   { label: "NEIGHBORHOOD", href: "/neighborhood" },
   { label: "GALLERY", href: "/gallery" },
+  { label: "BUYING GUIDE", href: "/montrose-condo-guide" },
 ]
 
 // Footer bottom links
