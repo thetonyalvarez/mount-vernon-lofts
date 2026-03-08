@@ -42,6 +42,7 @@ export const mainNavLinks: ReadonlyArray<NavLink> = [
   { label: "Floor Plans", href: "/floor-plans" },
   { label: "Neighborhood", href: "/neighborhood" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Why MVL", href: "/why-mvl" },
   { label: "Contact", href: "/inquire" },
 ]
 
@@ -52,6 +53,7 @@ export const footerNavLinks: ReadonlyArray<NavLink> = [
   { label: "FLOOR PLANS", href: "/floor-plans" },
   { label: "NEIGHBORHOOD", href: "/neighborhood" },
   { label: "GALLERY", href: "/gallery" },
+  { label: "WHY MVL", href: "/why-mvl" },
 ]
 
 // Footer bottom links
