@@ -114,6 +114,86 @@ describe("Missing canonical URLs", () => {
   })
 })
 
+describe("Schema: Residences page structured data", () => {
+  it("ResidencesSchema component file exists", () => {
+    const schemaFile = path.join(process.cwd(), "app/residences/ResidencesSchema.tsx")
+    expect(fs.existsSync(schemaFile)).toBe(true)
+  })
+
+  it("ResidencesSchema contains RealEstateListing type", () => {
+    const source = readFile("app/residences/ResidencesSchema.tsx")
+    expect(source).toContain('"RealEstateListing"')
+  })
+
+  it("ResidencesSchema contains Accommodation entries for all 6 floor plan types", () => {
+    const source = readFile("app/residences/ResidencesSchema.tsx")
+    expect(source).toContain('"Accommodation"')
+    for (const planId of ["studio-s1", "studio-s2", "1bed-a1", "1bed-a2", "1bed-a3", "1bed-a4"]) {
+      expect(source, `Missing Accommodation for ${planId}`).toContain(planId)
+    }
+  })
+
+  it("ResidencesSchema contains AggregateOffer with price range", () => {
+    const source = readFile("app/residences/ResidencesSchema.tsx")
+    expect(source).toContain('"AggregateOffer"')
+    expect(source).toContain('"lowPrice"')
+    expect(source).toContain('"highPrice"')
+  })
+
+  it("ResidencesSchema contains BreadcrumbList", () => {
+    const source = readFile("app/residences/ResidencesSchema.tsx")
+    expect(source).toContain('"BreadcrumbList"')
+    expect(source).toContain("Residences")
+  })
+
+  it("ResidencesSchema contains RealEstateAgent", () => {
+    const source = readFile("app/residences/ResidencesSchema.tsx")
+    expect(source).toContain('"RealEstateAgent"')
+    expect(source).toContain("Nan & Company Properties")
+  })
+
+  it("residences page renders ResidencesSchema", () => {
+    const source = readFile("app/residences/page.tsx")
+    expect(source).toContain("ResidencesSchema")
+  })
+})
+
+describe("Schema: Homepage ApartmentComplex structured data", () => {
+  it("EnhancedMetadata contains comprehensive ApartmentComplex with amenities", () => {
+    const source = readFile("app/components/metadata/EnhancedMetadata.tsx")
+    expect(source).toContain('"ApartmentComplex"')
+    expect(source).toContain('"Granite Countertops"')
+    expect(source).toContain('"European-Style Cabinetry"')
+    expect(source).toContain('"Recreational Lounge"')
+  })
+
+  it("EnhancedMetadata contains Person schema for sales agent", () => {
+    const source = readFile("app/components/metadata/EnhancedMetadata.tsx")
+    expect(source).toContain('"Person"')
+    expect(source).toContain("Jeffrey Winans")
+  })
+
+  it("EnhancedMetadata ApartmentComplex includes containsPlace with unit types", () => {
+    const source = readFile("app/components/metadata/EnhancedMetadata.tsx")
+    expect(source).toContain('"containsPlace"')
+    expect(source).toContain("Studio S1")
+    expect(source).toContain("1-Bedroom A4")
+  })
+
+  it("EnhancedMetadata ApartmentComplex includes additionalProperty", () => {
+    const source = readFile("app/components/metadata/EnhancedMetadata.tsx")
+    expect(source).toContain('"additionalProperty"')
+    expect(source).toContain("HOA Fee")
+    expect(source).toContain("Year Built")
+  })
+
+  it("EnhancedMetadata ApartmentComplex includes sameAs social links", () => {
+    const source = readFile("app/components/metadata/EnhancedMetadata.tsx")
+    expect(source).toContain('"sameAs"')
+    expect(source).toContain("instagram.com/mountvernonlofts")
+  })
+})
+
 describe("metadata-utils.ts uses correct schema types", () => {
   it("uses ApartmentComplex instead of Residence", () => {
     const source = readFile("lib/metadata-utils.ts")
