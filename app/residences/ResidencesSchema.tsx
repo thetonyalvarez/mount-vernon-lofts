@@ -45,7 +45,7 @@ export function ResidencesSchema() {
       },
       {
         "@type": "Accommodation",
-        "@id": `${baseUrl}/residences#studio-s1`,
+        "@id": `${baseUrl}/residences/studio-s1`,
         "name": "Studio S1 — Mount Vernon Lofts",
         "accommodationCategory": "Studio Condominium",
         "floorSize": {
@@ -74,7 +74,7 @@ export function ResidencesSchema() {
           "price": "215124",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": `${baseUrl}/residences`
+          "url": `${baseUrl}/residences/studio-s1`
         },
         "containedInPlace": {
           "@id": `${baseUrl}/#property`
@@ -82,7 +82,7 @@ export function ResidencesSchema() {
       },
       {
         "@type": "Accommodation",
-        "@id": `${baseUrl}/residences#studio-s2`,
+        "@id": `${baseUrl}/residences/studio-s2`,
         "name": "Studio S2 — Mount Vernon Lofts",
         "accommodationCategory": "Studio Condominium",
         "floorSize": {
@@ -111,7 +111,7 @@ export function ResidencesSchema() {
           "price": "237585",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": `${baseUrl}/residences`
+          "url": `${baseUrl}/residences/studio-s2`
         },
         "containedInPlace": {
           "@id": `${baseUrl}/#property`
@@ -119,7 +119,7 @@ export function ResidencesSchema() {
       },
       {
         "@type": "Accommodation",
-        "@id": `${baseUrl}/residences#1bed-a1`,
+        "@id": `${baseUrl}/residences/1bed-a1`,
         "name": "1-Bedroom A1 — Mount Vernon Lofts",
         "accommodationCategory": "One-Bedroom Condominium",
         "floorSize": {
@@ -148,7 +148,7 @@ export function ResidencesSchema() {
           "price": "252033",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": `${baseUrl}/residences`
+          "url": `${baseUrl}/residences/1bed-a1`
         },
         "containedInPlace": {
           "@id": `${baseUrl}/#property`
@@ -156,7 +156,7 @@ export function ResidencesSchema() {
       },
       {
         "@type": "Accommodation",
-        "@id": `${baseUrl}/residences#1bed-a2`,
+        "@id": `${baseUrl}/residences/1bed-a2`,
         "name": "1-Bedroom A2 — Mount Vernon Lofts",
         "accommodationCategory": "One-Bedroom Condominium",
         "floorSize": {
@@ -185,7 +185,7 @@ export function ResidencesSchema() {
           "price": "252736",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": `${baseUrl}/residences`
+          "url": `${baseUrl}/residences/1bed-a2`
         },
         "containedInPlace": {
           "@id": `${baseUrl}/#property`
@@ -193,7 +193,7 @@ export function ResidencesSchema() {
       },
       {
         "@type": "Accommodation",
-        "@id": `${baseUrl}/residences#1bed-a3`,
+        "@id": `${baseUrl}/residences/1bed-a3`,
         "name": "1-Bedroom A3 — Mount Vernon Lofts",
         "accommodationCategory": "One-Bedroom Condominium",
         "floorSize": {
@@ -222,7 +222,7 @@ export function ResidencesSchema() {
           "price": "271522",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": `${baseUrl}/residences`
+          "url": `${baseUrl}/residences/1bed-a3`
         },
         "containedInPlace": {
           "@id": `${baseUrl}/#property`
@@ -230,7 +230,7 @@ export function ResidencesSchema() {
       },
       {
         "@type": "Accommodation",
-        "@id": `${baseUrl}/residences#1bed-a4`,
+        "@id": `${baseUrl}/residences/1bed-a4`,
         "name": "1-Bedroom A4 — Mount Vernon Lofts",
         "accommodationCategory": "One-Bedroom Condominium",
         "floorSize": {
@@ -259,7 +259,7 @@ export function ResidencesSchema() {
           "price": "278851",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": `${baseUrl}/residences`
+          "url": `${baseUrl}/residences/1bed-a4`
         },
         "containedInPlace": {
           "@id": `${baseUrl}/#property`

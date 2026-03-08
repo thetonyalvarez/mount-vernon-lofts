@@ -15,6 +15,12 @@ const EXPECTED_SITEMAP_PATHS = [
   '/amenities',
   '/architecture',
   '/team',
+  '/residences/studio-s1',
+  '/residences/studio-s2',
+  '/residences/1bed-a1',
+  '/residences/1bed-a2',
+  '/residences/1bed-a3',
+  '/residences/1bed-a4',
 ]
 
 const EXCLUDED_PATHS = [
@@ -28,7 +34,7 @@ const EXCLUDED_PATHS = [
 describe('Sitemap', () => {
   const source = fs.readFileSync(SITEMAP_FILE, 'utf-8')
 
-  it('includes all 9 expected page URLs', () => {
+  it('includes all 15 expected page URLs', () => {
     for (const pagePath of EXPECTED_SITEMAP_PATHS) {
       const urlPattern = pagePath === '/'
         ? /url:\s*baseUrl\b(?!\s*\+\s*[`'"]\/)/  // baseUrl alone (homepage)
@@ -61,10 +67,10 @@ describe('Sitemap', () => {
     expect(source).toContain("https://mtvernonlofts.com")
   })
 
-  it('has exactly 9 URL entries', () => {
+  it('has exactly 15 URL entries', () => {
     // Count the number of objects in the urls array by counting 'url:' occurrences
     const urlEntries = (source.match(/url:\s*[`'"]?\$?\{?baseUrl/g) ?? []).length
-    expect(urlEntries).toBe(9)
+    expect(urlEntries).toBe(15)
   })
 
   it('exports dynamic = force-dynamic to prevent static pre-rendering', () => {

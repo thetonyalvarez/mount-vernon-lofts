@@ -64,6 +64,42 @@ export async function GET() {
       changeFrequency: 'monthly',
       priority: 0.5
     },
+    {
+      url: `${baseUrl}/residences/studio-s1`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/residences/studio-s2`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/residences/1bed-a1`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/residences/1bed-a2`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/residences/1bed-a3`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/residences/1bed-a4`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8
+    },
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
