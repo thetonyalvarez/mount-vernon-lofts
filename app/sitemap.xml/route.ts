@@ -59,6 +59,12 @@ export async function GET() {
       priority: 0.8
     },
     {
+      url: `${baseUrl}/first-time-buyer`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9
+    },
+    {
       url: `${baseUrl}/amenities`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
