@@ -7,6 +7,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 const NEXT_CONFIG_FILE = path.resolve(__dirname, '../../next.config.ts')
+const VERCEL_JSON_FILE = path.resolve(__dirname, '../../vercel.json')
 const HERO_FILE = path.resolve(__dirname, '../residences/[slug]/sections/UnitHeroSection.tsx')
 const FLOOR_PLAN_DATA_FILE = path.resolve(__dirname, '../config/floor-plan-data.ts')
 const COMPARE_SECTION_FILE = path.resolve(__dirname, '../residences/[slug]/sections/CompareLayoutsSection.tsx')
@@ -15,18 +16,23 @@ const GALLERY_SECTION_FILE = path.resolve(__dirname, '../residences/[slug]/secti
 
 describe('Matterport CSP', () => {
   const configSource = fs.readFileSync(NEXT_CONFIG_FILE, 'utf-8')
+  const vercelSource = fs.readFileSync(VERCEL_JSON_FILE, 'utf-8')
 
-  it('allows my.matterport.com in frame-src directive', () => {
-    // Matterport iframes need to be allowed in CSP frame-src
+  it('next.config.ts allows my.matterport.com in frame-src directive', () => {
     expect(configSource).toContain('my.matterport.com')
   })
 
-  it('frame-src includes matterport domain', () => {
-    // Extract frame-src directive
+  it('next.config.ts frame-src includes matterport domain', () => {
     const frameSrcMatch = configSource.match(/frame-src\s+([^;]+);/)
     expect(frameSrcMatch).not.toBeNull()
     const frameSrc = frameSrcMatch![1]
     expect(frameSrc).toMatch(/matterport/)
+  })
+
+  it('vercel.json frame-src includes matterport domains', () => {
+    // vercel.json headers override next.config.ts — both must have Matterport
+    expect(vercelSource).toContain('my.matterport.com')
+    expect(vercelSource).toContain('*.matterport.com')
   })
 })
 
