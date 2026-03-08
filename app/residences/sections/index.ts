@@ -1,4 +1,5 @@
 export { default as TheExperienceSection } from "./TheExperienceSection"
+export { ExploreLayoutsSection } from "./ExploreLayoutsSection"
 export { FeaturesFinishesSection } from "./FeaturesFinishesSection"
 export { PanoramicPerspectivesSection } from "./PanoramicPerspectivesSection"
 export { HandcraftedLegacySection } from "./HandcraftedLegacySection"

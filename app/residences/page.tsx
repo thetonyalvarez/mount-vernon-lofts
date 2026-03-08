@@ -4,6 +4,7 @@ import { DataLayerEvent } from "@/app/components/analytics/DataLayerEvent"
 import { ResidencesSchema } from "./ResidencesSchema"
 import {
   TheExperienceSection,
+  ExploreLayoutsSection,
   FeaturesFinishesSection,
   PanoramicPerspectivesSection,
   HandcraftedLegacySection
@@ -44,6 +45,7 @@ export default function ResidencesPage() {
         textColor="white"
       />
       <TheExperienceSection />
+      <ExploreLayoutsSection />
       <FeaturesFinishesSection />
       <PanoramicPerspectivesSection />
       <HandcraftedLegacySection />
