@@ -22,12 +22,12 @@ const UNIT_SLUGS = [
 ]
 
 const SEO_TITLES = [
-  "Studio S1 — 612 SF Condo from $215K | Mount Vernon Lofts, Montrose",
-  "Studio S2 — 705 SF Condo from $237K | Mount Vernon Lofts, Montrose",
-  "1-Bed A1 — 717 SF Condo from $252K | Mount Vernon Lofts, Montrose",
-  "1-Bed A2 — 719 SF Condo from $252K | Mount Vernon Lofts, Montrose",
-  "1-Bed A3 — 778 SF Condo from $271K | Mount Vernon Lofts, Montrose",
-  "1-Bed A4 — 799 SF Condo from $278K | Mount Vernon Lofts, Montrose",
+  "Studio S1 — 612 SF Condo in Montrose | Mount Vernon Lofts",
+  "Studio S2 — 705 SF Condo in Montrose | Mount Vernon Lofts",
+  "1-Bed A1 — 717 SF Condo in Montrose | Mount Vernon Lofts",
+  "1-Bed A2 — 719 SF Condo in Montrose | Mount Vernon Lofts",
+  "1-Bed A3 — 778 SF Condo in Montrose | Mount Vernon Lofts",
+  "1-Bed A4 — 799 SF Condo in Montrose | Mount Vernon Lofts",
 ]
 
 const PRICES = ["215124", "237585", "252033", "252736", "271522", "278851"]

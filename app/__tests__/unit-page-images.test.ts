@@ -1,6 +1,7 @@
 /**
- * Tests for unit type page images and embeds
- * Verifies: hero image, Matterport CSP, floor plan paths, compare layout images
+ * Tests for unit type page images, embeds, and pricing restrictions
+ * Verifies: hero image, Matterport CSP, floor plan paths, compare layout images,
+ * no list prices or $/SF in user-facing content
  */
 import { describe, it, expect } from 'vitest'
 import * as fs from 'fs'
@@ -8,11 +9,21 @@ import * as path from 'path'
 
 const NEXT_CONFIG_FILE = path.resolve(__dirname, '../../next.config.ts')
 const VERCEL_JSON_FILE = path.resolve(__dirname, '../../vercel.json')
+const UNIT_TYPE_DATA_FILE = path.resolve(__dirname, '../config/unit-type-data.ts')
 const HERO_FILE = path.resolve(__dirname, '../residences/[slug]/sections/UnitHeroSection.tsx')
 const FLOOR_PLAN_DATA_FILE = path.resolve(__dirname, '../config/floor-plan-data.ts')
 const COMPARE_SECTION_FILE = path.resolve(__dirname, '../residences/[slug]/sections/CompareLayoutsSection.tsx')
 const FLOOR_PLAN_SECTION_FILE = path.resolve(__dirname, '../residences/[slug]/sections/FloorPlanSection.tsx')
 const GALLERY_SECTION_FILE = path.resolve(__dirname, '../residences/[slug]/sections/UnitGallerySection.tsx')
+const SCHEMA_FILE = path.resolve(__dirname, '../residences/[slug]/sections/UnitSchema.tsx')
+
+// List prices that must NOT appear in body copy, SEO, headlines, or rendered UI
+const BANNED_PRICES = [
+  '$215,124', '$237,585', '$252,033', '$252,736', '$271,522', '$278,851',
+  '$215K', '$237K', '$252K', '$271K', '$278K',
+]
+// Price-per-SF patterns that must NOT appear in body copy or rendered UI
+const BANNED_PSF = ['$351/SF', '$337/SF', '$352/SF', '$349/SF', '$351 per square foot']
 
 describe('Matterport CSP', () => {
   const configSource = fs.readFileSync(NEXT_CONFIG_FILE, 'utf-8')
@@ -96,4 +107,55 @@ describe('Section components use Image from @/components/ui/image', () => {
       expect(source).toMatch(/import\s+.*Image.*from\s+['"]@\/components\/ui\/image['"]/)
     })
   }
+})
+
+describe('No list prices or $/SF in user-facing content', () => {
+  const unitDataSource = fs.readFileSync(UNIT_TYPE_DATA_FILE, 'utf-8')
+
+  // Extract only body copy paragraphs, headlines, and SEO fields — NOT data fields like priceFormatted
+  const bodyParagraphs = unitDataSource.match(/paragraphs:\s*\[([\s\S]*?)\]/g) ?? []
+  const headlines = unitDataSource.match(/headline:\s*'([^']+)'/g) ?? []
+  const seoTitles = unitDataSource.match(/title:\s*'([^']+)'/g) ?? []
+  const seoDescriptions = unitDataSource.match(/description:\s*'([^']+)'/g) ?? []
+  const ogTitles = unitDataSource.match(/ogTitle:\s*'([^']+)'/g) ?? []
+  const ogDescriptions = unitDataSource.match(/ogDescription:\s*'([^']+)'/g) ?? []
+
+  const allContent = [
+    ...bodyParagraphs,
+    ...headlines,
+    ...seoTitles,
+    ...seoDescriptions,
+    ...ogTitles,
+    ...ogDescriptions,
+  ].join('\n')
+
+  for (const price of BANNED_PRICES) {
+    it(`body/SEO content does not contain list price "${price}"`, () => {
+      expect(allContent, `Found banned price ${price} in body/SEO content`).not.toContain(price)
+    })
+  }
+
+  for (const psf of BANNED_PSF) {
+    it(`body/SEO content does not contain price-per-SF "${psf}"`, () => {
+      expect(allContent, `Found banned $/SF ${psf} in body/SEO content`).not.toContain(psf)
+    })
+  }
+
+  it('hero section does not render priceFormatted', () => {
+    const heroSource = fs.readFileSync(HERO_FILE, 'utf-8')
+    expect(heroSource).not.toContain('priceFormatted')
+    expect(heroSource).not.toContain('pricePerSF')
+  })
+
+  it('compare layouts section does not render priceFormatted', () => {
+    const compareSource = fs.readFileSync(COMPARE_SECTION_FILE, 'utf-8')
+    expect(compareSource).not.toContain('priceFormatted')
+    expect(compareSource).not.toContain('pricePerSF')
+  })
+
+  it('schema does not include price or priceCurrency', () => {
+    const schemaSource = fs.readFileSync(SCHEMA_FILE, 'utf-8')
+    expect(schemaSource).not.toContain('priceCurrency')
+    expect(schemaSource).not.toMatch(/price:\s*String/)
+  })
 })

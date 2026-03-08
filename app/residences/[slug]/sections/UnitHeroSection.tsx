@@ -59,11 +59,6 @@ export function UnitHeroSection({ unitType }: UnitHeroSectionProps) {
           </div>
           <div className="w-px h-5 bg-white/30 hidden md:block" />
           <div className="flex items-center gap-2">
-            <span className="text-white/60 text-sm">From</span>
-            <span className="font-semibold text-lg">{unitType.priceFormatted}</span>
-          </div>
-          <div className="w-px h-5 bg-white/30 hidden md:block" />
-          <div className="flex items-center gap-2">
             <span className={`w-2.5 h-2.5 rounded-full ${availabilityColor}`} />
             <span className="font-medium text-sm">{unitType.availabilityText}</span>
           </div>

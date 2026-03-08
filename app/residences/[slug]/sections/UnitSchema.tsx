@@ -13,7 +13,7 @@ export function UnitSchema({ unitType }: UnitSchemaProps) {
       '@type': 'Accommodation',
       '@id': `${pageUrl}#unit`,
       name: `${unitType.schema.breadcrumbName} — Mount Vernon Lofts`,
-      description: `${unitType.sqft} sq ft ${unitType.unitType.toLowerCase()} condo in Montrose, Houston. ${unitType.features.unit[0]}. Starting at ${unitType.priceFormatted}.`,
+      description: `${unitType.sqft} sq ft ${unitType.unitType.toLowerCase()} condo in Montrose, Houston. ${unitType.features.unit[0]}. Schedule a tour today.`,
       url: pageUrl,
       accommodationCategory: unitType.schema.accommodationCategory,
       floorSize: {
@@ -35,8 +35,6 @@ export function UnitSchema({ unitType }: UnitSchemaProps) {
       ],
       offers: {
         '@type': 'Offer',
-        price: String(unitType.price),
-        priceCurrency: 'USD',
         availability: unitType.schemaAvailability,
         url: pageUrl,
       },

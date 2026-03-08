@@ -51,9 +51,6 @@ export function CompareLayoutsSection({ currentSlug }: CompareLayoutsSectionProp
                   <p className="text-sm text-mvl-espresso/70 mb-2">
                     {unit.sqft} SF | {unit.bedrooms === 0 ? 'Studio' : `${unit.bedrooms} Bed`} / {unit.bathrooms} Bath
                   </p>
-                  <p className="text-sm font-semibold text-mvl-coral mb-2">
-                    From {unit.priceFormatted}
-                  </p>
                   <div className="flex items-center gap-1.5">
                     <span className={`w-2 h-2 rounded-full ${availabilityColor}`} />
                     <span className="text-xs text-mvl-espresso/60">{unit.availabilityText}</span>
