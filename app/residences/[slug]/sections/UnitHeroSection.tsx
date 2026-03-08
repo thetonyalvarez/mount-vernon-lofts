@@ -1,3 +1,4 @@
+import Image from '@/components/ui/image'
 import { getFloorPlanById } from '@/app/config/floor-plan-data'
 import type { UnitTypePageData } from '@/app/config/unit-type-data'
 
@@ -7,7 +8,8 @@ interface UnitHeroSectionProps {
 
 export function UnitHeroSection({ unitType }: UnitHeroSectionProps) {
   const floorPlan = getFloorPlanById(unitType.floorPlanId)
-  const backgroundUrl = unitType.photos[0]?.src ?? '/images/unit-26_studio/26-1.jpg'
+  const heroSrc = unitType.photos[0]?.src ?? '/images/unit-26_studio/26-1.jpg'
+  const heroAlt = unitType.photos[0]?.alt ?? `${unitType.unitType} ${unitType.layoutName} at Mount Vernon Lofts`
 
   const availabilityColor =
     unitType.availabilityStatus === 'available'
@@ -15,14 +17,17 @@ export function UnitHeroSection({ unitType }: UnitHeroSectionProps) {
       : 'bg-amber-500'
 
   return (
-    <section
-      className="relative min-h-[70vh] flex items-end"
-      style={{
-        backgroundImage: `url(${backgroundUrl})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+      {/* Hero background — uses Image component for S3 URL transformation */}
+      <Image
+        src={heroSrc}
+        alt={heroAlt}
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+      />
+
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 

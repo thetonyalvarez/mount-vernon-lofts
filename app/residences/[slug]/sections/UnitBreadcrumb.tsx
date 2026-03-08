@@ -37,7 +37,7 @@ export function UnitBreadcrumb({ unitType }: UnitBreadcrumbProps) {
     <>
       <nav
         aria-label="Breadcrumb"
-        className="bg-mvl-cream border-b border-mvl-beige"
+        className="bg-mvl-cream border-b border-mvl-beige pt-20"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-3">
           <ol className="flex items-center gap-1.5 text-sm text-mvl-espresso/60">

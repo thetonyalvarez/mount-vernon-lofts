@@ -11,13 +11,15 @@ import type { NavigationProps } from "../../types"
 import { useContactModal } from "@/lib/contact-modal-context"
 import { trackNavigation } from "@/app/components/analytics"
 
-/** Routes without dark hero sections that need the dark navbar immediately */
+/** Routes without dark hero sections that need the dark navbar immediately.
+ *  Matched with startsWith — use trailing slash for prefix matches (e.g. '/residences/' catches all unit pages). */
 const LIGHT_BACKGROUND_ROUTES = [
   '/floor-plans',
   '/open-house',
   '/thank-you',
   '/thank-you-floor-plans',
   '/thank-you-brochure',
+  '/residences/',
 ]
 
 export default function Navigation({ onMenuToggle, bannerVisible: _bannerVisible = false, bannerInView = false }: NavigationProps) {
@@ -25,7 +27,7 @@ export default function Navigation({ onMenuToggle, bannerVisible: _bannerVisible
   const { openModal } = useContactModal()
   const pathname = usePathname()
 
-  const needsDarkNav = LIGHT_BACKGROUND_ROUTES.some(route => pathname === route)
+  const needsDarkNav = LIGHT_BACKGROUND_ROUTES.some(route => pathname.startsWith(route) || pathname === route)
   const showDarkNav = isScrolled || needsDarkNav
 
   useEffect(() => {
