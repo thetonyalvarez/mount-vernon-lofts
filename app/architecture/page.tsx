@@ -7,7 +7,7 @@ import {
 } from "./sections"
 
 export const metadata: Metadata = {
-  title: "Building & Design | Mount Vernon Lofts — Montrose Condos",
+  title: "Modern 2018 Building | Mount Vernon Lofts — Montrose Condos",
   description: "Explore the modern building design of Mount Vernon Lofts. A 2018-built condo building in Montrose with clean lines and thoughtful finishes.",
   keywords: "modern condo building houston, montrose condo design, mount vernon lofts building, houston condo architecture, 2018 built condos houston",
   openGraph: {

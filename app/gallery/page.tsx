@@ -4,7 +4,7 @@ import { DataLayerEvent } from '@/app/components/analytics/DataLayerEvent'
 import { GalleryHeroSection, GalleryGrid } from './sections'
 
 export const metadata: Metadata = {
-  title: 'Photo Gallery | Mount Vernon Lofts — Montrose Condos',
+  title: 'Photos: Montrose Condos | Mount Vernon Lofts Interior & Views',
   description: 'Browse photos of Mount Vernon Lofts condos in Montrose, Houston. See real interiors, building details, and the walkable Montrose neighborhood.',
   keywords: 'montrose condos photos, houston condos gallery, mount vernon lofts images, montrose real estate photos, houston condo interiors',
   openGraph: {

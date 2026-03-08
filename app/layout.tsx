@@ -72,7 +72,7 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Mount Vernon Lofts | Modern Condos in Montrose, Houston",
+  title: "Montrose Condos from $215K | Mount Vernon Lofts — Houston",
   description: "Modern condos in Montrose, Houston starting in the $215Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Built 2018, pet-friendly, covered parking. Schedule a tour today.",
   keywords: "montrose condos, houston condos for sale, first-time buyer houston, montrose real estate, condos near medical center, inner loop condos houston, affordable condos montrose, mount vernon lofts",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://mtvernonlofts.com'),

@@ -9,7 +9,7 @@ import {
 } from "./sections"
 
 export const metadata: Metadata = {
-  title: "Montrose Neighborhood | Mount Vernon Lofts — Montrose Condos",
+  title: "Living in Montrose, Houston | Walk Score, Dining & Culture",
   description: "Discover life in Houston's Montrose neighborhood. Walkable streets, local coffee shops, restaurants, museums, and parks just steps from Mount Vernon Lofts.",
   keywords: "montrose houston neighborhood, walkable neighborhood houston, montrose real estate, houston inner loop living, montrose condos, museum district houston",
   openGraph: {
