@@ -24,7 +24,6 @@ export function MatterportTourSection({ unitType }: MatterportTourSectionProps) 
             width="100%"
             height="100%"
             frameBorder="0"
-            allowFullScreen
             allow="autoplay; fullscreen; web-share; xr-spatial-tracking"
             loading="lazy"
             title={`3D Virtual Tour — ${unitType.unitType} ${unitType.layoutName} at Mount Vernon Lofts`}
