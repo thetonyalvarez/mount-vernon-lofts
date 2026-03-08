@@ -257,12 +257,12 @@ describe("Sitemap includes unit pages", () => {
     }
   })
 
-  it("has exactly 17 URL entries", () => {
+  it("has exactly 18 URL entries", () => {
     const source = readFile("app/sitemap.xml/route.ts")
     const urlEntries = (
       source.match(/url:\s*[`'"]?\$?\{?baseUrl/g) ?? []
     ).length
-    expect(urlEntries).toBe(17)
+    expect(urlEntries).toBe(18)
   })
 
   it("unit pages have priority 0.8", () => {
