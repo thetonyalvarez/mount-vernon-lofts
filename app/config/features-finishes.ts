@@ -27,8 +27,8 @@ export const featuresFinishesData: FeatureCategory[] = [
     description: "Modern kitchens and bathrooms with quality materials and finishes.",
     image: "/images/unit-8_1-bed/8-3.jpg",
     features: [
-      "Granite countertops with tile backsplash",
-      "European-style cabinetry",
+      "Granite countertops",
+      "Classic shaker cabinetry",
       "Dishwasher and garbage disposal",
       "Smart thermostat and ceiling fans",
       "In-unit washer and dryer",

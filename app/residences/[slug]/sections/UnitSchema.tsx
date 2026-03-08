@@ -30,7 +30,7 @@ export function UnitSchema({ unitType }: UnitSchemaProps) {
         { '@type': 'LocationFeatureSpecification', name: unitType.bedrooms === 0 ? 'Open Floor Plan' : 'Separate Bedroom', value: true },
         { '@type': 'LocationFeatureSpecification', name: 'Individual HVAC', value: true },
         { '@type': 'LocationFeatureSpecification', name: 'Granite Countertops', value: true },
-        { '@type': 'LocationFeatureSpecification', name: 'European-Style Cabinetry', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Classic Shaker Cabinetry', value: true },
         { '@type': 'LocationFeatureSpecification', name: 'Pet-Friendly', value: true },
       ],
       offers: {
