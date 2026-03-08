@@ -39,7 +39,7 @@ export const floorPlanTypes: ReadonlyArray<FloorPlanType> = [
     sqft: 612,
     bedrooms: 0,
     bathrooms: 1,
-    image: '/floor-plans/Studio S1 - 612 sq ft.jpg',
+    image: '/floor-plans/studio-s1-612sf.jpg',
     unitCount: 32,
     features: [
       'Open-concept layout',
@@ -56,7 +56,7 @@ export const floorPlanTypes: ReadonlyArray<FloorPlanType> = [
     sqft: 705,
     bedrooms: 0,
     bathrooms: 1,
-    image: '/floor-plans/Studio S2 - 705 sq ft.jpg',
+    image: '/floor-plans/studio-s2-705sf.jpg',
     unitCount: 2,
     features: [
       'Expanded open layout',
@@ -73,7 +73,7 @@ export const floorPlanTypes: ReadonlyArray<FloorPlanType> = [
     sqft: 717,
     bedrooms: 1,
     bathrooms: 1,
-    image: '/floor-plans/1-Bed A1 - 717 sq ft.jpg',
+    image: '/floor-plans/1bed-a1-717sf.jpg',
     unitCount: 2,
     features: [
       'Separate bedroom',
@@ -90,7 +90,7 @@ export const floorPlanTypes: ReadonlyArray<FloorPlanType> = [
     sqft: 719,
     bedrooms: 1,
     bathrooms: 1,
-    image: '/floor-plans/1-Bed A2 - 719 sq ft.jpg',
+    image: '/floor-plans/1bed-a2-719sf.jpg',
     unitCount: 2,
     features: [
       'Separate bedroom',
@@ -107,7 +107,7 @@ export const floorPlanTypes: ReadonlyArray<FloorPlanType> = [
     sqft: 778,
     bedrooms: 1,
     bathrooms: 1,
-    image: '/floor-plans/1-Bed A3 - 778 sq ft.jpg',
+    image: '/floor-plans/1bed-a3-778sf.jpg',
     unitCount: 2,
     features: [
       'Spacious 1-bedroom layout',
@@ -124,7 +124,7 @@ export const floorPlanTypes: ReadonlyArray<FloorPlanType> = [
     sqft: 799,
     bedrooms: 1,
     bathrooms: 1,
-    image: '/floor-plans/1-Bed A4 - 799 sq ft.jpg',
+    image: '/floor-plans/1bed-a4-799sf.jpg',
     unitCount: 2,
     features: [
       'Largest 1-bedroom layout',

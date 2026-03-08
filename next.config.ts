@@ -39,7 +39,7 @@ const securityHeaders = [
       img-src 'self' data: https: blob:;
       media-src 'self' https://*.tawk.to;
       connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.s3.amazonaws.com https://vercel.live https://*.tawk.to wss://*.tawk.to https://*.pusher.com wss://*.pusher.com https://connect.facebook.net https://*.facebook.com https://*.fbcdn.net https://graph.facebook.com;
-      frame-src 'self' https://www.googletagmanager.com https://www.google.com https://*.google.com https://maps.google.com https://vercel.live https://*.tawk.to;
+      frame-src 'self' https://www.googletagmanager.com https://www.google.com https://*.google.com https://maps.google.com https://vercel.live https://*.tawk.to https://my.matterport.com https://*.matterport.com;
     `.replace(/\s{2,}/g, ' ').trim()
   }
 ];
