@@ -23,6 +23,11 @@ Allow: /gallery
 Allow: /amenities
 Allow: /architecture
 Allow: /team
+Allow: /neighborhood/restaurants
+Allow: /neighborhood/parks
+Allow: /neighborhood/museums
+Allow: /neighborhood/coffee
+Allow: /neighborhood/transit
 
 # Block query parameters that cause duplicate content
 Disallow: /*?index=*

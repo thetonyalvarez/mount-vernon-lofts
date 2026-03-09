@@ -24,6 +24,11 @@ const EXPECTED_SITEMAP_PATHS = [
   '/why-mvl',
   '/montrose-condo-guide',
   '/first-time-buyer',
+  '/neighborhood/restaurants',
+  '/neighborhood/parks',
+  '/neighborhood/museums',
+  '/neighborhood/coffee',
+  '/neighborhood/transit',
 ]
 
 const EXCLUDED_PATHS = [
@@ -37,7 +42,7 @@ const EXCLUDED_PATHS = [
 describe('Sitemap', () => {
   const source = fs.readFileSync(SITEMAP_FILE, 'utf-8')
 
-  it('includes all 18 expected page URLs', () => {
+  it('includes all 23 expected page URLs', () => {
     for (const pagePath of EXPECTED_SITEMAP_PATHS) {
       const urlPattern = pagePath === '/'
         ? /url:\s*baseUrl\b(?!\s*\+\s*[`'"]\/)/  // baseUrl alone (homepage)
@@ -70,10 +75,10 @@ describe('Sitemap', () => {
     expect(source).toContain("https://mtvernonlofts.com")
   })
 
-  it('has exactly 18 URL entries', () => {
+  it('has exactly 23 URL entries', () => {
     // Count the number of objects in the urls array by counting 'url:' occurrences
     const urlEntries = (source.match(/url:\s*[`'"]?\$?\{?baseUrl/g) ?? []).length
-    expect(urlEntries).toBe(18)
+    expect(urlEntries).toBe(23)
   })
 
   it('exports dynamic = force-dynamic to prevent static pre-rendering', () => {
@@ -106,7 +111,7 @@ describe('Robots.txt', () => {
   })
 
   it('allows all expected public pages', () => {
-    const publicPages = ['/residences', '/floor-plans', '/neighborhood', '/gallery', '/brochure', '/amenities', '/architecture', '/team']
+    const publicPages = ['/residences', '/floor-plans', '/neighborhood', '/gallery', '/brochure', '/amenities', '/architecture', '/team', '/neighborhood/restaurants', '/neighborhood/parks', '/neighborhood/museums', '/neighborhood/coffee', '/neighborhood/transit']
     for (const page of publicPages) {
       expect(source, `Missing Allow for ${page}`).toContain(`Allow: ${page}`)
     }

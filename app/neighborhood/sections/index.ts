@@ -1,4 +1,5 @@
 export { NeighborhoodIntroSection } from "./NeighborhoodIntroSection"
 export { DayInMontroseSection } from "./DayInMontroseSection"
 export { NeighborhoodMapSection } from "./NeighborhoodMapSection"
+export { NeighborhoodSubpagesSection } from "./NeighborhoodSubpagesSection"
 export { NeighborhoodCTASection } from "./NeighborhoodCTASection"

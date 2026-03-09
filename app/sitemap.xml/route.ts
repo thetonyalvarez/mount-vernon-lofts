@@ -118,6 +118,36 @@ export async function GET() {
       changeFrequency: 'weekly',
       priority: 0.8
     },
+    {
+      url: `${baseUrl}/neighborhood/restaurants`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/neighborhood/parks`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/neighborhood/museums`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/neighborhood/coffee`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/neighborhood/transit`,
+      lastModified: currentDate,
+      changeFrequency: 'quarterly',
+      priority: 0.8
+    },
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

@@ -5,6 +5,7 @@ import {
   NeighborhoodIntroSection,
   DayInMontroseSection,
   NeighborhoodMapSection,
+  NeighborhoodSubpagesSection,
   NeighborhoodCTASection
 } from "./sections"
 
@@ -44,6 +45,7 @@ export default function NeighborhoodPage() {
       <NeighborhoodIntroSection />
       <DayInMontroseSection />
       <NeighborhoodMapSection />
+      <NeighborhoodSubpagesSection />
       <NeighborhoodCTASection />
     </main>
   )
