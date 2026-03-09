@@ -145,7 +145,7 @@ export async function GET() {
     {
       url: `${baseUrl}/neighborhood/transit`,
       lastModified: currentDate,
-      changeFrequency: 'quarterly',
+      changeFrequency: 'monthly',
       priority: 0.8
     },
   ];
