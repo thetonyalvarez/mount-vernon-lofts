@@ -46,13 +46,3 @@ describe("GTM container ID in .env.local", () => {
     expect(envContent).not.toContain("GTM-57T84H85")
   })
 })
-
-describe("No duplicate GTM mount", () => {
-  it("DeferredScripts.tsx does not import or render GoogleTagManager", () => {
-    const filePath = path.resolve(__dirname, "../../../../components/DeferredScripts.tsx")
-    const source = fs.readFileSync(filePath, "utf-8")
-
-    // Should NOT contain any GoogleTagManager reference
-    expect(source).not.toContain("GoogleTagManager")
-  })
-})
