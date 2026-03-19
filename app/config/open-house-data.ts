@@ -30,7 +30,7 @@
  *      location: { ...LOCATION },
  *      startsAt: "2026-04-02T12:00:00-05:00",
  *      expiresAt: "2026-04-02T14:00:00-05:00",
- *      description: "Broker Open House with 4% buy-side commission...",
+ *      description: "Broker Open House at Mount Vernon Lofts...",
  *    }
  *
  * HELPER FUNCTIONS:
@@ -110,7 +110,7 @@ export const RECURRING_SCHEDULE: RecurringSchedule = {
   effectiveFrom: "2026-03-19",
   effectiveUntil: null, // indefinite
   title: "Open House at Mount Vernon Lofts",
-  description: "Public Open House at Mount Vernon Lofts. 42 modern condos in Montrose — studios from $175K, 1-bedrooms from $252K. No RSVP needed. Open daily.",
+  description: "Public Open House at Mount Vernon Lofts. 42 modern condos in Montrose. Studios and 1-bedrooms available. No RSVP needed. Open daily.",
   featuredUnits: ['1-7', '1-8', '1-11', '1-26'],
 };
 
