@@ -267,7 +267,6 @@ export default function OpenHousePage() {
                 "Natural light throughout",
                 "Covered parking included",
                 "Controlled access entry",
-                "Financing as low as 10% down",
               ].map((feature) => (
                 <div key={feature} className="flex items-center gap-2 text-mvl-espresso/80">
                   <div className="w-1.5 h-1.5 rounded-full bg-mvl-coral flex-shrink-0" />
