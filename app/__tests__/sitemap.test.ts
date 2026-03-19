@@ -30,10 +30,10 @@ const EXPECTED_SITEMAP_PATHS = [
   '/neighborhood/coffee',
   '/neighborhood/transit',
   '/press',
+  '/open-house',
 ]
 
 const EXCLUDED_PATHS = [
-  '/open-house',
   '/maintenance',
   '/thank-you',
   '/thank-you-floor-plans',
@@ -43,7 +43,7 @@ const EXCLUDED_PATHS = [
 describe('Sitemap', () => {
   const source = fs.readFileSync(SITEMAP_FILE, 'utf-8')
 
-  it('includes all 24 expected page URLs', () => {
+  it('includes all 25 expected page URLs', () => {
     for (const pagePath of EXPECTED_SITEMAP_PATHS) {
       const urlPattern = pagePath === '/'
         ? /url:\s*baseUrl\b(?!\s*\+\s*[`'"]\/)/  // baseUrl alone (homepage)
