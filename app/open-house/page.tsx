@@ -189,7 +189,7 @@ export default function OpenHousePage() {
                 </div>
                 <div>
                   <p className="font-medium text-mvl-espresso">Walk Through Available Units</p>
-                  <p className="text-mvl-espresso/70">Studios and 1-bedrooms ready for immediate closing</p>
+                  <p className="text-mvl-espresso/70">Studios and 1-bedrooms available</p>
                 </div>
               </div>
             </div>
