@@ -66,6 +66,12 @@ export async function GET() {
     //   priority: 0.9
     // },
     {
+      url: `${baseUrl}/open-house`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.8
+    },
+    {
       url: `${baseUrl}/amenities`,
       lastModified: currentDate,
       changeFrequency: 'monthly',

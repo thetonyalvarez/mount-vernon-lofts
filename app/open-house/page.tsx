@@ -12,7 +12,6 @@ import { OpenHouseSchema } from "./OpenHouseSchema"
 export const metadata: Metadata = {
   title: "Open House | Mount Vernon Lofts — Montrose Condos",
   description: "Open House at Mount Vernon Lofts. 42 modern condos in Montrose. Studios and 1-bedrooms available. No RSVP needed.",
-  robots: "noindex, nofollow"
 }
 
 function getEventLabel(event: OpenHouseEvent): string {

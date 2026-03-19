@@ -48,7 +48,8 @@ function buildEventSchema(event: OpenHouseEvent) {
 }
 
 export function OpenHouseSchema() {
-  const activeEvents = getActiveEvents();
+  // Limit to 3 events to avoid spammy-looking schema for daily recurring events
+  const activeEvents = getActiveEvents().slice(0, 3);
   if (activeEvents.length === 0) return null;
 
   return (
