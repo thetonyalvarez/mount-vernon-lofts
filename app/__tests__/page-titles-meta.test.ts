@@ -16,7 +16,7 @@ const readFile = (relativePath: string): string => {
 describe("SEO-optimized page titles", () => {
   it("homepage title leads with keyword, not brand", () => {
     const source = readFile("app/layout.tsx")
-    expect(source).toContain('title: "Montrose Condos from $215K | Mount Vernon Lofts')
+    expect(source).toContain('title: "Montrose Condos from $175K | Mount Vernon Lofts')
   })
 
   it("residences title leads with unit types", () => {
@@ -46,7 +46,7 @@ describe("SEO-optimized page titles", () => {
 
   it("all indexed page titles are under 60 characters", () => {
     const titles = [
-      "Montrose Condos from $215K | Mount Vernon Lofts \u2014 Houston",
+      "Montrose Condos from $175K | Mount Vernon Lofts \u2014 Houston",
       "Studios & 1-Bed Condos for Sale in Montrose | Mount Vernon Lofts",
       "Condo Floor Plans: 612\u2013799 SF | Mount Vernon Lofts, Montrose",
       "Modern 2018 Building | Mount Vernon Lofts \u2014 Montrose Condos",

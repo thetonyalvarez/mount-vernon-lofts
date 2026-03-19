@@ -179,7 +179,7 @@ export const coffeeData = {
     icon: "\u2615",
     headline: "YOUR MORNING COFFEE, ON FOOT",
     body: "Three coffee shops within a 10-minute walk of Mount Vernon Lofts. Start your morning without getting in the car.",
-    pricingLine: "Studios from the $215Ks | 1-beds from the $250Ks",
+    pricingLine: "Studios from the $175Ks | 1-beds from the $250Ks",
     scoreLine: "Walk Score: 74 (Very Walkable)",
   } as const satisfies SubpageMVLCallout,
 } as const

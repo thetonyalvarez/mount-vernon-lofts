@@ -33,7 +33,7 @@ export function BuyerRentVsBuySection() {
             <div className="grid grid-cols-3 bg-mvl-espresso text-white text-sm font-montserrat font-semibold">
               <div className="p-3 md:p-4">Monthly Cost</div>
               <div className="p-3 md:p-4">Renting in Montrose</div>
-              <div className="p-3 md:p-4">Owning a $215K Condo</div>
+              <div className="p-3 md:p-4">Owning a $175K Condo</div>
             </div>
             {/* Rows */}
             {comparisonRows.map((row, i) => (
@@ -69,7 +69,7 @@ export function BuyerRentVsBuySection() {
           </p>
 
           <p className="text-mvl-espresso/80 leading-relaxed mb-4">
-            <span className="font-semibold text-mvl-espresso">Tax benefits.</span> The homestead exemption, mortgage interest deduction (if you itemize), and the 10% appraisal cap protect you from cost surprises in ways renters don&#39;t have. See our <Link href="#homestead" className="text-mvl-coral hover:underline">homestead exemption section</Link> for how this works on a $215K condo.
+            <span className="font-semibold text-mvl-espresso">Tax benefits.</span> The homestead exemption, mortgage interest deduction (if you itemize), and the 10% appraisal cap protect you from cost surprises in ways renters don&#39;t have. See our <Link href="#homestead" className="text-mvl-coral hover:underline">homestead exemption section</Link> for how this works on a $175K condo.
           </p>
 
           <p className="text-mvl-espresso/80 leading-relaxed mb-4">

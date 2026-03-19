@@ -13,7 +13,7 @@ export function ResidencesSchema() {
         "@type": "RealEstateListing",
         "@id": `${baseUrl}/residences#listing`,
         "name": "Mount Vernon Lofts — Modern Condos for Sale in Montrose, Houston",
-        "description": "42 modern condos in Houston's Montrose neighborhood. Studios from $215K, 1-bedrooms from $252K. Built in 2018 with granite countertops, in-unit washer/dryer, covered parking, and low $300/month HOA. Walkable to restaurants, museums, and coffee shops in one of Houston's most desirable inner loop neighborhoods.",
+        "description": "42 modern condos in Houston's Montrose neighborhood. Studios from $175K, 1-bedrooms from $252K. Built in 2018 with granite countertops, in-unit washer/dryer, covered parking, and low $300/month HOA. Walkable to restaurants, museums, and coffee shops in one of Houston's most desirable inner loop neighborhoods.",
         "url": `${baseUrl}/residences`,
         "datePosted": "2026-02-01",
         "image": [
@@ -35,7 +35,7 @@ export function ResidencesSchema() {
         },
         "offers": {
           "@type": "AggregateOffer",
-          "lowPrice": "215124",
+          "lowPrice": "175000",
           "highPrice": "278851",
           "priceCurrency": "USD",
           "offerCount": "42",
@@ -71,7 +71,7 @@ export function ResidencesSchema() {
         ],
         "offers": {
           "@type": "Offer",
-          "price": "215124",
+          "price": "175000",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": `${baseUrl}/residences/studio-s1`

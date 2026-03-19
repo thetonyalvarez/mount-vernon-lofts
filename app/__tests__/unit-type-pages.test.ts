@@ -30,7 +30,7 @@ const SEO_TITLES = [
   "1-Bed A4 — 799 SF Condo in Montrose | Mount Vernon Lofts",
 ]
 
-const PRICES = ["215124", "237585", "252033", "252736", "271522", "278851"]
+const PRICES = ["175000", "237585", "252033", "252736", "271522", "278851"]
 
 describe("Unit type data file", () => {
   it("exists at app/config/unit-type-data.ts", () => {
@@ -262,7 +262,7 @@ describe("Sitemap includes unit pages", () => {
     const urlEntries = (
       source.match(/url:\s*[`'"]?\$?\{?baseUrl/g) ?? []
     ).length
-    expect(urlEntries).toBeGreaterThanOrEqual(23)
+    expect(urlEntries).toBeGreaterThanOrEqual(22)
   })
 
   it("unit pages have priority 0.8", () => {

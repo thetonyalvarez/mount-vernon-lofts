@@ -58,12 +58,13 @@ export async function GET() {
       changeFrequency: 'monthly',
       priority: 0.8
     },
-    {
-      url: `${baseUrl}/first-time-buyer`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.9
-    },
+    // /first-time-buyer temporarily removed — content under review
+    // {
+    //   url: `${baseUrl}/first-time-buyer`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.9
+    // },
     {
       url: `${baseUrl}/amenities`,
       lastModified: currentDate,

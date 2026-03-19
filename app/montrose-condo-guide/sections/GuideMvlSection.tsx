@@ -12,7 +12,7 @@ export function GuideMvlSection() {
               How Mount Vernon Lofts Fits In
             </h2>
             <p className="text-mvl-espresso/80 leading-relaxed mb-4">
-              Mount Vernon Lofts is a 42-unit condo building at 4509 Mount Vernon in the heart of Montrose. Built in 2018 with concrete foundation and modern building systems, it offers studios (612–705 SF) and one-bedrooms (717–799 SF) starting in the $215Ks.
+              Mount Vernon Lofts is a 42-unit condo building at 4509 Mount Vernon in the heart of Montrose. Built in 2018 with concrete foundation and modern building systems, it offers studios (612–705 SF) and one-bedrooms (717–799 SF) starting in the $175Ks.
             </p>
             <p className="text-mvl-espresso/80 leading-relaxed mb-4">
               The building checks many of the boxes outlined in this guide: 2018 construction with concrete foundation, one covered parking space per unit, in-unit washer/dryer, granite countertops, and individual HVAC systems. The HOA is $300/month and includes water, with reserves above the Fannie Mae 10% requirement. Professional management by Equity keeps the building well-maintained, and short-term rentals are prohibited — creating a stable, owner-focused community.

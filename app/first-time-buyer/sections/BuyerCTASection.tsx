@@ -8,7 +8,7 @@ export function BuyerCTASection() {
           Ready to Take the First Step?
         </h2>
         <p className="text-mvl-espresso/70 mb-8 max-w-2xl mx-auto">
-          Mount Vernon Lofts offers studios and one-bedrooms in Montrose starting in the $215Ks — built for first-time buyers who want to own in one of Houston&#39;s most walkable neighborhoods.
+          Mount Vernon Lofts offers studios and one-bedrooms in Montrose starting in the $175Ks — built for first-time buyers who want to own in one of Houston&#39;s most walkable neighborhoods.
         </p>
         <div className="flex flex-wrap justify-center gap-4 mb-6">
           <Link

@@ -1,7 +1,7 @@
 const stats = [
   { value: "$1,410/mo", label: "Average studio rent in Montrose", source: "RentCafe, March 2026" },
   { value: "Up to $50,000", label: "Down payment assistance available", source: "City of Houston HAP" },
-  { value: "~$111/mo", label: "Homestead exemption savings", source: "On a $215K condo" },
+  { value: "~$111/mo", label: "Homestead exemption savings", source: "On a $175K condo" },
 ]
 
 export function BuyerStatStrip() {

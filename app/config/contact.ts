@@ -11,6 +11,15 @@ export const CONTACT_CONFIG = {
   // Sales team contact
   salesEmail: 'info@mtvernonlofts.com',
 
+  // On-site staffing schedule (7-day coverage)
+  staffing: {
+    schedule: 'Tours available 7 days a week',
+    agents: [
+      { name: 'Jeffrey', days: 'Wed–Sun' },
+      { name: 'Tamara', days: 'Mon–Tue' },
+    ],
+  },
+
   // Company information
   companyName: 'Mount Vernon Lofts',
   tagline: 'Montrose ownership, finally within reach.',

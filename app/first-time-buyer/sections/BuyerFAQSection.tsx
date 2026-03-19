@@ -5,7 +5,7 @@ import { useState } from 'react'
 const faqItems = [
   {
     question: "How much do I need for a down payment on a condo in Houston?",
-    answer: "It depends on the loan type and the building. Non-QM loans typically require 10% down. FHA loans require 3.5%, and some conventional loans start at 3\u20135%. On a $215,000 condo, that ranges from approximately $7,500 to $21,500. Houston buyers may also qualify for down payment assistance programs that reduce this further \u2014 the City of Houston\u2019s HAP program offers up to $50,000 in forgivable assistance.",
+    answer: "It depends on the loan type and the building. Non-QM loans typically require 10% down. FHA loans require 3.5%, and some conventional loans start at 3\u20135%. On a $175,000 condo, that ranges from approximately $6,125 to $17,500. Houston buyers may also qualify for down payment assistance programs that reduce this further \u2014 the City of Houston\u2019s HAP program offers up to $50,000 in forgivable assistance.",
   },
   {
     question: "What Houston programs help first-time home buyers?",
@@ -21,7 +21,7 @@ const faqItems = [
   },
   {
     question: "What is the homestead exemption in Texas?",
-    answer: "If you buy a home and make it your primary residence, Texas exempts $140,000 of your property\u2019s appraised value from school district taxes. At Houston\u2019s approximate 1.77% combined tax rate, this can save over $1,000 per year on a $215,000 condo. You must apply \u2014 file Form 50-114 with the Harris County Appraisal District between January 1 and April 30.",
+    answer: "If you buy a home and make it your primary residence, Texas exempts $140,000 of your property\u2019s appraised value from school district taxes. At Houston\u2019s approximate 1.77% combined tax rate, this can save over $1,000 per year on a $175,000 condo. You must apply \u2014 file Form 50-114 with the Harris County Appraisal District between January 1 and April 30.",
   },
   {
     question: "Do I need a real estate agent to buy a condo?",

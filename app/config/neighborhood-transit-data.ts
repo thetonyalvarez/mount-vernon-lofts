@@ -167,7 +167,7 @@ export const transitData = {
     icon: "\uD83D\uDE8C",
     headline: "TRANSIT-ACCESSIBLE CONDO IN MONTROSE",
     body: "Mount Vernon Lofts has a Transit Score of 61 — one of the highest for any Houston address. Three bus routes within 0.4 miles. METRORail within 0.8 miles. Walk Score 74.",
-    pricingLine: "Studios from the $215Ks | 1-beds from the $250Ks",
+    pricingLine: "Studios from the $175Ks | 1-beds from the $250Ks",
     scoreLine: "Transit Score: 61 | Walk Score: 74 | Bike Score: 73",
   } as const satisfies SubpageMVLCallout,
 } as const

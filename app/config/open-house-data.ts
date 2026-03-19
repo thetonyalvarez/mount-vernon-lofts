@@ -55,7 +55,7 @@ export const OPEN_HOUSE_EVENTS: ReadonlyArray<OpenHouseEvent> = [
     },
     startsAt: "2026-02-26T12:00:00-06:00",
     expiresAt: "2026-02-26T14:00:00-06:00",
-    description: "Broker Open House with 4% buy-side commission on all contracts through March 15, 2026. 42 condos — studios from $215K, 1-bedrooms from $252K. Food & refreshments provided. No RSVP needed.",
+    description: "Broker Open House with 4% buy-side commission on all contracts through March 15, 2026. 42 condos — studios from $175K, 1-bedrooms from $252K. Food & refreshments provided. No RSVP needed.",
   },
   {
     id: "public-feb27-2026",
@@ -79,7 +79,7 @@ export const OPEN_HOUSE_EVENTS: ReadonlyArray<OpenHouseEvent> = [
     },
     startsAt: "2026-02-27T12:00:00-06:00",
     expiresAt: "2026-02-27T17:00:00-06:00",
-    description: "Public Open House at Mount Vernon Lofts. 42 modern condos in Montrose — studios from $215K, 1-bedrooms from $252K. No RSVP needed.",
+    description: "Public Open House at Mount Vernon Lofts. 42 modern condos in Montrose — studios from $175K, 1-bedrooms from $252K. No RSVP needed.",
   },
   {
     id: "public-mar1-2026",
@@ -103,7 +103,7 @@ export const OPEN_HOUSE_EVENTS: ReadonlyArray<OpenHouseEvent> = [
     },
     startsAt: "2026-03-01T12:00:00-06:00",
     expiresAt: "2026-03-01T17:00:00-06:00",
-    description: "Public Open House at Mount Vernon Lofts. 42 modern condos in Montrose — studios from $215K, 1-bedrooms from $252K. No RSVP needed.",
+    description: "Public Open House at Mount Vernon Lofts. 42 modern condos in Montrose — studios from $175K, 1-bedrooms from $252K. No RSVP needed.",
   },
   // Add future events here
 ] as const;

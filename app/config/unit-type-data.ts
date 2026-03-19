@@ -27,6 +27,7 @@ export interface UnitTypePageData {
   readonly unitCount: number
   readonly availabilityStatus: 'available' | 'waitlist'
   readonly availabilityText: string
+  readonly marketingLabel: string | null
   readonly floors: string
   readonly schemaAvailability: string
   readonly matterportUrl: string | null
@@ -79,12 +80,13 @@ export const unitTypePages: ReadonlyArray<UnitTypePageData> = [
     sqft: 612,
     bedrooms: 0,
     bathrooms: 1,
-    price: 215124,
-    priceFormatted: '$215,124',
-    pricePerSF: '$351/SF',
+    price: 175000,
+    priceFormatted: '$175,000',
+    pricePerSF: '$286/SF',
     unitCount: 32,
     availabilityStatus: 'available',
     availabilityText: 'Available — 2 units',
+    marketingLabel: 'Investor Special — first 2 units at this price',
     floors: '2nd & 3rd',
     schemaAvailability: 'https://schema.org/InStock',
     matterportUrl: 'https://my.matterport.com/show/?m=8oRQg3EZnp8&play=1&qs=1&brand=0&title=0',
@@ -120,9 +122,9 @@ export const unitTypePages: ReadonlyArray<UnitTypePageData> = [
     bodyContent: {
       headline: 'The Studio That Makes Montrose Ownership Possible',
       paragraphs: [
-        'The S1 is the most attainable entry point to homeownership in one of Houston\'s most sought-after neighborhoods. At 612 square feet with an open floor plan, this studio maximizes every inch — natural light fills the space through large windows, and the kitchen-to-living flow makes the layout feel larger than its footprint suggests. The S1 puts Montrose ownership within reach for first-time buyers, young professionals, and anyone tired of paying rent with nothing to show for it.',
+        'The S1 is the most attainable entry point to homeownership in one of Houston\'s most sought-after neighborhoods. At 612 square feet with an open floor plan, this studio maximizes every inch — natural light fills the space through large windows, and the kitchen-to-living flow makes the layout feel larger than its footprint suggests. The first 2 S1 units are available as an Investor Special at $175,000 — the most attainable path to Montrose ownership for first-time buyers, young professionals, and investors.',
         'Every S1 comes move-in ready with granite countertops, classic shaker cabinetry, and an in-unit washer and dryer — no shared laundry rooms, no trips to the laundromat. Each unit includes one covered parking space and its own individual HVAC system. The building was constructed in 2018 with concrete foundation and modern systems throughout, so you\'re buying into a newer building without the maintenance surprises of older Houston condos.',
-        'With 32 S1 studios across two residential floors, this is the most available layout at Mount Vernon Lofts — but that availability won\'t last. The S1 is priced below the Montrose median and is one of the most attainable paths to ownership in this zip code. HOA fees are $300 per month and include water, keeping monthly costs predictable and low.',
+        'With 32 S1 studios across two residential floors, this is the most available layout at Mount Vernon Lofts — but this Investor Special pricing on the first 2 units won\'t last. At $175,000, the S1 is priced well below the Montrose median and is one of the most attainable paths to ownership in this zip code. HOA fees are $300 per month and include water, keeping monthly costs predictable and low.',
       ],
     },
     seo: {
@@ -156,6 +158,7 @@ export const unitTypePages: ReadonlyArray<UnitTypePageData> = [
     unitCount: 2,
     availabilityStatus: 'waitlist',
     availabilityText: 'Waitlist',
+    marketingLabel: null,
     floors: '2nd & 3rd',
     schemaAvailability: 'https://schema.org/PreOrder',
     matterportUrl: null,
@@ -227,6 +230,7 @@ export const unitTypePages: ReadonlyArray<UnitTypePageData> = [
     unitCount: 2,
     availabilityStatus: 'available',
     availabilityText: 'Available — 1 unit',
+    marketingLabel: null,
     floors: '2nd & 3rd',
     schemaAvailability: 'https://schema.org/InStock',
     matterportUrl: null,
@@ -298,6 +302,7 @@ export const unitTypePages: ReadonlyArray<UnitTypePageData> = [
     unitCount: 2,
     availabilityStatus: 'waitlist',
     availabilityText: 'Waitlist',
+    marketingLabel: null,
     floors: '2nd & 3rd',
     schemaAvailability: 'https://schema.org/PreOrder',
     matterportUrl: null,
@@ -369,6 +374,7 @@ export const unitTypePages: ReadonlyArray<UnitTypePageData> = [
     unitCount: 2,
     availabilityStatus: 'waitlist',
     availabilityText: 'Waitlist',
+    marketingLabel: null,
     floors: '2nd & 3rd',
     schemaAvailability: 'https://schema.org/PreOrder',
     matterportUrl: 'https://my.matterport.com/show/?m=zaDtQodnWRH&play=1&qs=1&brand=0&title=0',
@@ -440,6 +446,7 @@ export const unitTypePages: ReadonlyArray<UnitTypePageData> = [
     unitCount: 2,
     availabilityStatus: 'available',
     availabilityText: 'Available — 1 unit',
+    marketingLabel: null,
     floors: '2nd & 3rd',
     schemaAvailability: 'https://schema.org/InStock',
     matterportUrl: 'https://my.matterport.com/show/?m=3yQPMPJaXyN&play=1&qs=1&brand=0&title=0',

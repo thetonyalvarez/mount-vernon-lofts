@@ -25,7 +25,7 @@ const DEFAULT_IMAGE = `${BASE_URL}/images/gallery/exteriors/exterior-1.jpg`;
 export function generateMetadata(options: MetadataOptions): Metadata {
   const {
     title = `${SITE_NAME} | Modern Condos in Montrose, Houston`,
-    description = "Modern condos in Montrose, Houston starting in the $215Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Built 2018, pet-friendly, covered parking. Schedule a tour today.",
+    description = "Modern condos in Montrose, Houston starting in the $175Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Built 2018, pet-friendly, covered parking. Schedule a tour today.",
     canonicalPath = '',
     images = [{
       url: DEFAULT_IMAGE,
@@ -40,7 +40,7 @@ export function generateMetadata(options: MetadataOptions): Metadata {
 
   // Generate platform-optimized titles
   const openGraphTitle = pageType === 'homepage'
-    ? `${SITE_NAME} | Montrose Condos Starting in the $215Ks`
+    ? `${SITE_NAME} | Montrose Condos Starting in the $175Ks`
     : title;
 
   const twitterTitle = title.length > 70
@@ -121,7 +121,7 @@ function getKeywordsForPageType(pageType: string): string {
 
 function getOpenGraphDescription(description: string, pageType: string): string {
   if (pageType === 'homepage') {
-    return "42 modern condos in Houston's Montrose neighborhood starting in the $215Ks. Built 2018, walkable to restaurants and coffee shops. Schedule a tour.";
+    return "42 modern condos in Houston's Montrose neighborhood starting in the $175Ks. Built 2018, walkable to restaurants and coffee shops. Schedule a tour.";
   }
 
   // Optimize for social sharing - shorter and more compelling
@@ -134,7 +134,7 @@ function getTwitterDescription(description: string, pageType: string): string {
   const maxLength = 200;
 
   if (pageType === 'homepage') {
-    return "Modern condos in Montrose, Houston starting in the $215Ks. Schedule a tour today.";
+    return "Modern condos in Montrose, Houston starting in the $175Ks. Schedule a tour today.";
   }
 
   return description.length > maxLength
@@ -193,20 +193,20 @@ export function getPlatformOptimizedMetadata(platform: 'linkedin' | 'whatsapp' |
   const optimizations = {
     linkedin: {
       openGraph: {
-        title: `${SITE_NAME}: Attainable Montrose Condos Starting in the $215Ks`,
+        title: `${SITE_NAME}: Attainable Montrose Condos Starting in the $175Ks`,
         description: "42 modern condos in one of Houston's most walkable neighborhoods. Studios and 1-bedrooms for first-time buyers. Schedule a tour."
       }
     },
     whatsapp: {
       openGraph: {
-        title: `${SITE_NAME}: Montrose Condos Starting in the $215Ks`,
-        description: "Modern condos in Montrose, Houston starting in the $215Ks. Schedule a tour today."
+        title: `${SITE_NAME}: Montrose Condos Starting in the $175Ks`,
+        description: "Modern condos in Montrose, Houston starting in the $175Ks. Schedule a tour today."
       }
     },
     instagram: {
       openGraph: {
         title: SITE_NAME,
-        description: "Modern condos in Montrose, Houston starting in the $215Ks"
+        description: "Modern condos in Montrose, Houston starting in the $175Ks"
       }
     }
   };
