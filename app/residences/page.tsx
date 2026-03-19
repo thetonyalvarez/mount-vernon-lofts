@@ -12,11 +12,11 @@ import {
 
 export const metadata: Metadata = {
   title: "Studios & 1-Bed Condos for Sale in Montrose | Mount Vernon Lofts",
-  description: "Explore studios and 1-bedroom condos at Mount Vernon Lofts in Montrose, Houston. Modern units starting in the $215Ks in one of Houston's most walkable neighborhoods. Schedule a tour today.",
+  description: "Explore studios and 1-bedroom condos at Mount Vernon Lofts in Montrose, Houston. Modern units starting in the $175Ks in one of Houston's most walkable neighborhoods. Schedule a tour today.",
   keywords: "montrose condos, houston condos for sale, first-time buyer houston, montrose real estate, condos near medical center, studios houston",
   openGraph: {
     title: "Studios & 1-Bed Condos for Sale in Montrose | Mount Vernon Lofts",
-    description: "Modern studios and 1-bedroom condos in Houston's Montrose neighborhood starting in the $215Ks.",
+    description: "Modern studios and 1-bedroom condos in Houston's Montrose neighborhood starting in the $175Ks.",
     images: [{
       url: '/images/unit-9_1-bed/9-3.jpg',
       width: 1200,

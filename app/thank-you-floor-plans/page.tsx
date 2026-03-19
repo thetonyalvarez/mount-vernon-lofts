@@ -187,7 +187,7 @@ export default function ThankYouFloorPlansPage() {
                   </h3>
                   <p className="text-mvl-beige text-lg max-w-2xl mx-auto">
                     Mount Vernon Lofts offers 42 modern condos in one of Houston&apos;s most walkable neighborhoods.
-                    Starting in the $215Ks -- units are available now for immediate closing.
+                    Starting in the $175Ks -- units are available now for immediate closing.
                   </p>
                 </div>
               </StaggerItem>

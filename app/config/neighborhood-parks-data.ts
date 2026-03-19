@@ -257,7 +257,7 @@ const mvlCallout: SubpageMVLCallout = {
   icon: "\u{1F415}",
   headline: "PET-FRIENDLY CONDO, 0.3 MI FROM OFF-LEASH DOG PARK",
   body: "Mount Vernon Lofts is pet-friendly -- dogs allowed, 2 per handler in common areas. And you're a 6-minute walk from Ervan Chew Dog Park's fenced off-leash area.",
-  pricingLine: "Studios from the $215Ks | 1-beds from the $250Ks",
+  pricingLine: "Studios from the $175Ks | 1-beds from the $250Ks",
   scoreLine: "Walk Score: 74 | Bike Score: 73",
 } as const
 

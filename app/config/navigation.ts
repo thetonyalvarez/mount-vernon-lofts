@@ -29,7 +29,7 @@ export const projectData = {
   ownership: "Fee Simple",
   yearBuilt: 2018,
   range: {
-    price: "Starting in the $215Ks",
+    price: "Starting in the $175Ks",
     bedrooms: "Studios & 1-Bedrooms",
     bathrooms: "1",
     interiorSqFt: "612-799",

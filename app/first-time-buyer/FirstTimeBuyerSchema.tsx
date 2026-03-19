@@ -50,7 +50,7 @@ export function FirstTimeBuyerSchema() {
         "name": "How much do I need for a down payment on a condo in Houston?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It depends on the loan type and the building. Non-QM loans typically require 10% down. FHA loans require 3.5%, and some conventional loans start at 3-5%. On a $215,000 condo, that ranges from approximately $7,500 to $21,500. Houston's Homebuyer Assistance Program offers up to $50,000 in forgivable assistance for qualifying buyers."
+          "text": "It depends on the loan type and the building. Non-QM loans typically require 10% down. FHA loans require 3.5%, and some conventional loans start at 3-5%. On a $175,000 condo, that ranges from approximately $6,125 to $17,500. Houston's Homebuyer Assistance Program offers up to $50,000 in forgivable assistance for qualifying buyers."
         }
       },
       {
@@ -82,7 +82,7 @@ export function FirstTimeBuyerSchema() {
         "name": "What is the homestead exemption in Texas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "If you buy a home and make it your primary residence, Texas exempts $140,000 of your property's appraised value from school district taxes. At Houston's approximate 1.77% combined tax rate, this can save over $1,000 per year on a $215,000 condo. You must file Form 50-114 with HCAD between January 1 and April 30."
+          "text": "If you buy a home and make it your primary residence, Texas exempts $140,000 of your property's appraised value from school district taxes. At Houston's approximate 1.77% combined tax rate, this can save over $1,000 per year on a $175,000 condo. You must file Form 50-114 with HCAD between January 1 and April 30."
         }
       },
       {

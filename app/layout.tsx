@@ -72,13 +72,13 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Montrose Condos from $215K | Mount Vernon Lofts — Houston",
-  description: "Modern condos in Montrose, Houston starting in the $215Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Built 2018, pet-friendly, covered parking. Schedule a tour today.",
+  title: "Montrose Condos from $175K | Mount Vernon Lofts — Houston",
+  description: "Modern condos in Montrose, Houston starting in the $175Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Built 2018, pet-friendly, covered parking. Schedule a tour today.",
   keywords: "montrose condos, houston condos for sale, first-time buyer houston, montrose real estate, condos near medical center, inner loop condos houston, affordable condos montrose, mount vernon lofts",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://mtvernonlofts.com'),
   openGraph: {
-    title: "Mount Vernon Lofts | Montrose Condos Starting in the $215Ks",
-    description: "42 modern condos in Houston's Montrose neighborhood starting in the $215Ks. Built 2018, walkable to restaurants and coffee shops. Schedule a tour.",
+    title: "Mount Vernon Lofts | Montrose Condos Starting in the $175Ks",
+    description: "42 modern condos in Houston's Montrose neighborhood starting in the $175Ks. Built 2018, walkable to restaurants and coffee shops. Schedule a tour.",
     type: "website",
     locale: "en_US",
     siteName: "Mount Vernon Lofts",
@@ -95,8 +95,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Mount Vernon Lofts | Montrose Condos Starting in the $215Ks",
-    description: "Modern condos in Montrose, Houston starting in the $215Ks. Schedule a tour today.",
+    title: "Mount Vernon Lofts | Montrose Condos Starting in the $175Ks",
+    description: "Modern condos in Montrose, Houston starting in the $175Ks. Schedule a tour today.",
     images: ['https://mount-vernon-lofts.s3.amazonaws.com/images/gallery/exteriors/exterior-1.jpg'],
   },
   alternates: {

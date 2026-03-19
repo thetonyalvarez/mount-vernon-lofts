@@ -29,7 +29,7 @@ const homepageFAQSchema = JSON.stringify({
       "name": "How much do condos cost at Mount Vernon Lofts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Condos start in the $215Ks. HOA is $300/month and includes water. Mount Vernon Lofts is designed for first-time buyers looking for attainable ownership in Montrose."
+        "text": "Condos start in the $175Ks. HOA is $300/month and includes water. Mount Vernon Lofts is designed for first-time buyers looking for attainable ownership in Montrose."
       }
     },
     {

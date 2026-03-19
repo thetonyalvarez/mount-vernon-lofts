@@ -1,5 +1,5 @@
 const comparisonRows = [
-  { factor: "Median price in Montrose", condo: "Starting in the $215Ks (studios)", house: "$701,000 (neighborhood median)" },
+  { factor: "Median price in Montrose", condo: "Starting in the $175Ks (studios)", house: "$701,000 (neighborhood median)" },
   { factor: "Maintenance", condo: "HOA handles exterior, roof, common areas, landscaping", house: "Owner handles everything" },
   { factor: "Monthly costs beyond mortgage", condo: "HOA ($200–$500 typical)", house: "Self-funded maintenance reserve ($200–$400/month recommended)" },
   { factor: "Insurance", condo: "HO6 — unit interior only (~$40–$80/month)", house: "Full HO1/HO3 (~$200–$400/month in Houston)" },
@@ -22,7 +22,7 @@ export function BuyerCondoVsHouseSection() {
           </p>
 
           <p className="text-mvl-espresso/80 leading-relaxed mb-8">
-            The $701,000 median home price in Montrose isn&#39;t a typo. That&#39;s what single-family homes cost in this neighborhood. For a first-time buyer making $60K–$80K, a detached home in Montrose is out of reach. A condo starting in the $215Ks is not.
+            The $701,000 median home price in Montrose isn&#39;t a typo. That&#39;s what single-family homes cost in this neighborhood. For a first-time buyer making $60K–$80K, a detached home in Montrose is out of reach. A condo starting in the $175Ks is not.
           </p>
         </div>
 

@@ -13,7 +13,7 @@ interface EnhancedMetadataProps {
 
 export function EnhancedMetadata({
   title = "Mount Vernon Lofts | Modern Condos in Montrose, Houston",
-  description = "Modern condos in Montrose, Houston starting in the $215Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Built 2018, pet-friendly, covered parking. Schedule a tour today.",
+  description = "Modern condos in Montrose, Houston starting in the $175Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Built 2018, pet-friendly, covered parking. Schedule a tour today.",
   canonicalUrl,
   imageUrl,
   pageType = 'homepage'
@@ -32,7 +32,7 @@ export function EnhancedMetadata({
         "@id": `${baseUrl}/#website`,
         "url": baseUrl,
         "name": "Mount Vernon Lofts",
-        "description": "Modern condos in Montrose, Houston starting in the $215Ks",
+        "description": "Modern condos in Montrose, Houston starting in the $175Ks",
         "publisher": {
           "@id": `${baseUrl}/#organization`
         },
@@ -103,11 +103,11 @@ export function EnhancedMetadata({
           "@id": `${baseUrl}/#property`,
           "name": "Mount Vernon Lofts",
           "alternateName": "MVL Montrose",
-          "description": "42 modern condos for sale in Houston's Montrose neighborhood. Studios and 1-bedrooms from 612 to 799 square feet, starting at $215K. Built in 2018 with granite countertops, classic shaker cabinetry, in-unit washer/dryer, and covered parking. Low $300/month HOA includes water. Pet-friendly. Walkable to restaurants, museums, parks, and coffee shops.",
+          "description": "42 modern condos for sale in Houston's Montrose neighborhood. Studios and 1-bedrooms from 612 to 799 square feet, starting at $175K. Built in 2018 with granite countertops, classic shaker cabinetry, in-unit washer/dryer, and covered parking. Low $300/month HOA includes water. Pet-friendly. Walkable to restaurants, museums, parks, and coffee shops.",
           "url": baseUrl,
           "telephone": "+1-713-986-9929",
           "email": "info@mtvernonlofts.com",
-          "priceRange": "$215K\u2013$279K",
+          "priceRange": "$175K\u2013$279K",
           "numberOfAccommodationUnits": 42,
           "petsAllowed": "Dogs allowed \u2014 up to 2 dogs per handler in common areas. $75 one-time registration fee per pet. Breed restrictions apply (no aggressive breeds). Vaccinations and licensing required.",
           "tourBookingPage": `${baseUrl}/#contact`,
@@ -310,8 +310,8 @@ export function EnhancedMetadata({
       <meta name="twitter:image:alt" content="Mount Vernon Lofts modern condos in Montrose, Houston" />
 
       {/* WhatsApp and messaging app optimization */}
-      <meta property="og:title" content={`${title.split('|')[0].trim()}: Montrose Condos Starting in the $215Ks`} />
-      <meta property="og:description" content="Modern condos in Montrose, Houston starting in the $215Ks. Schedule a tour today." />
+      <meta property="og:title" content={`${title.split('|')[0].trim()}: Montrose Condos Starting in the $175Ks`} />
+      <meta property="og:description" content="Modern condos in Montrose, Houston starting in the $175Ks. Schedule a tour today." />
 
       {/* LinkedIn optimization */}
       <meta property="og:site_name" content="Mount Vernon Lofts" />

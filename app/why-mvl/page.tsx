@@ -10,11 +10,11 @@ import {
 
 export const metadata: Metadata = {
   title: "Why Buy at Mount Vernon Lofts | Montrose Condos Houston",
-  description: "Modern condos in Montrose starting in the $215Ks. 2018 construction, $300/month HOA, conventional financing ready. See why first-time buyers are choosing Mount Vernon Lofts.",
+  description: "Modern condos in Montrose starting in the $175Ks. 2018 construction, $300/month HOA, conventional financing ready. See why first-time buyers are choosing Mount Vernon Lofts.",
   keywords: "mount vernon lofts reviews, mount vernon lofts houston, montrose condos worth it, new condos montrose 2026, first-time buyer houston condos, rent vs own montrose",
   openGraph: {
     title: "Why Buy at Mount Vernon Lofts | Montrose Condos",
-    description: "Own in Montrose under $220K. 2018 construction, walkable neighborhood, $300/month HOA includes water. Schedule a tour today.",
+    description: "Own in Montrose starting in the $175Ks. 2018 construction, walkable neighborhood, $300/month HOA includes water. Schedule a tour today.",
     images: [{
       url: '/images/neighborhood/skyline.jpg',
       width: 1200,

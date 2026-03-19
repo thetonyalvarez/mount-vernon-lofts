@@ -26,7 +26,7 @@ export function BuyerCostsSection() {
           </p>
 
           <p className="text-mvl-espresso/80 leading-relaxed mb-8">
-            Here&#39;s a realistic breakdown based on a $215,000 condo:
+            Here&#39;s a realistic breakdown based on a $175,000 condo:
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export function BuyerCostsSection() {
           </p>
 
           <p className="text-mvl-espresso/80 leading-relaxed mb-4">
-            A common misconception: you need 20% down. Most first-time buyers do not put 20% down. The national average for first-time buyers is 6–8%. The 20% figure avoids private mortgage insurance (PMI), but PMI on a $215K condo adds roughly $50–$100 per month — often worth paying to get into the market sooner rather than spending years saving for a larger down payment while rents continue to rise.
+            A common misconception: you need 20% down. Most first-time buyers do not put 20% down. The national average for first-time buyers is 6–8%. The 20% figure avoids private mortgage insurance (PMI), but PMI on a $175K condo adds roughly $50–$100 per month — often worth paying to get into the market sooner rather than spending years saving for a larger down payment while rents continue to rise.
           </p>
 
           <p className="text-xs text-mvl-espresso/50 mt-4">

@@ -81,7 +81,7 @@ export function BuyerDPASection() {
             The biggest program most Houstonians don&#39;t know about. The City of Houston offers up to $50,000 in down payment and closing cost assistance through a no-interest, forgivable loan. If you live in the home for five years, you owe nothing back. If you sell or move before five years, you repay a prorated portion.
           </p>
           <p className="text-mvl-espresso/80 leading-relaxed mb-3">
-            On a $215,000 condo, $50,000 in assistance would cover a 10% down payment ($21,500) plus most closing costs — potentially reducing the cash you need to close to under $10,000.
+            On a $175,000 condo, $50,000 in assistance would cover a 10% down payment ($17,500) plus most closing costs — potentially reducing the cash you need to close to under $10,000.
           </p>
           <p className="text-mvl-espresso/80 leading-relaxed mb-2 font-medium text-mvl-espresso">Requirements:</p>
           <ul className="space-y-1 text-mvl-espresso/80 mb-3 ml-4">
@@ -121,7 +121,7 @@ export function BuyerDPASection() {
             TSAHC Home Sweet Texas Home Loan Program
           </h3>
           <p className="text-mvl-espresso/80 leading-relaxed mb-3">
-            A statewide program that pairs down payment assistance with 30-year fixed-rate mortgages (FHA, VA, USDA, or Conventional). Assistance up to 5% of the loan amount — on a $215,000 purchase, that&#39;s up to $10,750. Two options: a grant with no repayment required, or a forgivable second lien that&#39;s forgiven after three years if you stay in the home.
+            A statewide program that pairs down payment assistance with 30-year fixed-rate mortgages (FHA, VA, USDA, or Conventional). Assistance up to 5% of the loan amount — on a $175,000 purchase, that&#39;s up to $8,750. Two options: a grant with no repayment required, or a forgivable second lien that&#39;s forgiven after three years if you stay in the home.
           </p>
           <p className="text-mvl-espresso/80 leading-relaxed mb-2 font-medium text-mvl-espresso">Requirements:</p>
           <ul className="space-y-1 text-mvl-espresso/80 mb-3 ml-4">

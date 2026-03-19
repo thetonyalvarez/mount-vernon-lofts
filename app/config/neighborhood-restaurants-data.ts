@@ -247,7 +247,7 @@ export const restaurantsData = {
     icon: "\uD83C\uDF7D\uFE0F",
     headline: "LIVE WHERE YOU EAT",
     body: "Mount Vernon Lofts at 4509 Mount Vernon St puts you within walking distance of Michelin-recognized dining, a James Beard Award winner, and dozens of neighborhood favorites. Skip the rideshare — dinner is a short walk away.",
-    pricingLine: "Studios from the $215Ks | 1-beds from the $250Ks",
+    pricingLine: "Studios from the $175Ks | 1-beds from the $250Ks",
     scoreLine: "Walk Score: 74 (Very Walkable)",
   } as const satisfies SubpageMVLCallout,
 } as const

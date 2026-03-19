@@ -20,7 +20,7 @@ export function ExclusivitySection() {
                 <span className="block overflow-hidden">42 modern condos</span>
               </StaggerItem>
               <StaggerItem>
-                <span className="block overflow-hidden">starting in the $215Ks.</span>
+                <span className="block overflow-hidden">starting in the $175Ks.</span>
               </StaggerItem>
             </h2>
           </StaggerContainer>

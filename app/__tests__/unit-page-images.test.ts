@@ -19,11 +19,12 @@ const SCHEMA_FILE = path.resolve(__dirname, '../residences/[slug]/sections/UnitS
 
 // List prices that must NOT appear in body copy, SEO, headlines, or rendered UI
 const BANNED_PRICES = [
-  '$215,124', '$237,585', '$252,033', '$252,736', '$271,522', '$278,851',
-  '$215K', '$237K', '$252K', '$271K', '$278K',
+  '$237,585', '$252,033', '$252,736', '$271,522', '$278,851',
+  '$237K', '$252K', '$271K', '$278K',
+  // Note: $175,000 and $175K intentionally NOT banned — S1 Investor Special pricing is used in body copy
 ]
 // Price-per-SF patterns that must NOT appear in body copy or rendered UI
-const BANNED_PSF = ['$351/SF', '$337/SF', '$352/SF', '$349/SF', '$351 per square foot']
+const BANNED_PSF = ['$286/SF', '$337/SF', '$352/SF', '$349/SF', '$286 per square foot']
 
 describe('Matterport CSP', () => {
   const configSource = fs.readFileSync(NEXT_CONFIG_FILE, 'utf-8')

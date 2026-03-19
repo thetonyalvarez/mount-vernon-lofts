@@ -228,7 +228,7 @@ export const museumsMVLCallout: SubpageMVLCallout = {
   icon: "\u{1F3A8}",
   headline: "LIVE STEPS FROM WORLD-CLASS ART",
   body: "Mount Vernon Lofts sits at 4509 Mount Vernon St — within walking distance of the Menil Collection, Rothko Chapel, CAMH, and 20+ museums in Houston's Museum District.",
-  pricingLine: "Studios from the $215Ks | 1-beds from the $250Ks",
+  pricingLine: "Studios from the $175Ks | 1-beds from the $250Ks",
   scoreLine: "Walk Score: 74 (Very Walkable)",
 } as const
 

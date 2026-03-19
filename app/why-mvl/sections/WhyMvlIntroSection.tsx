@@ -11,7 +11,7 @@ export function WhyMvlIntroSection() {
               Smart Buyers Are Choosing MVL
             </h2>
             <p className="text-mvl-espresso/80 leading-relaxed mb-4">
-              Mount Vernon Lofts gives first-time buyers something rare in Houston: a modern building in a walkable neighborhood at an attainable price. While Montrose home prices push past $700K, MVL offers a real path to ownership starting in the $215Ks.
+              Mount Vernon Lofts gives first-time buyers something rare in Houston: a modern building in a walkable neighborhood at an attainable price. While Montrose home prices push past $700K, MVL offers a real path to ownership starting in the $175Ks.
             </p>
             <p className="text-mvl-espresso/80 leading-relaxed">
               Built in 2018 with concrete foundation and modern building systems, these are not renovated apartments or aging conversions. This is a 42-unit, owner-focused community with predictable costs, conventional financing, and the Montrose lifestyle right outside your door.

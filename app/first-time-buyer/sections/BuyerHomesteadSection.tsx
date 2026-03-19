@@ -25,7 +25,7 @@ export function BuyerHomesteadSection() {
           </p>
 
           <p className="text-mvl-espresso/80 leading-relaxed mb-8">
-            The biggest piece: $140,000 exempted from school district taxes. On a $215,000 condo, that reduces your school tax base to $75,000.
+            The biggest piece: $140,000 exempted from school district taxes. On a $175,000 condo, that reduces your school tax base to $35,000.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export function BuyerHomesteadSection() {
         {/* Savings Table */}
         <div className="max-w-3xl mb-8">
           <p className="font-montserrat font-semibold text-mvl-espresso mb-3">
-            Sample Savings on a $215,000 Condo
+            Sample Savings on a $175,000 Condo
           </p>
           <div className="rounded overflow-hidden">
             <div className="grid grid-cols-3 bg-mvl-espresso text-white text-sm font-montserrat font-semibold">

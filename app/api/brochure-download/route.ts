@@ -474,7 +474,7 @@ function generateBrochureDeliveryHTML(data: BrochureEmailNotificationData): stri
                   </ul>
               </div>
 
-              <p>Mount Vernon Lofts offers 42 modern condos in Houston's Montrose neighborhood. Starting in the $215Ks — with high ceilings, natural light, covered parking, and walkable access to everything Montrose has to offer.</p>
+              <p>Mount Vernon Lofts offers 42 modern condos in Houston's Montrose neighborhood. Starting in the $175Ks — with high ceilings, natural light, covered parking, and walkable access to everything Montrose has to offer.</p>
 
               <div class="cta-section">
                   <h3>Ready for the Next Step?</h3>
@@ -511,7 +511,7 @@ Thank you for your interest in Mount Vernon Lofts. Your brochure is ready for do
 DOWNLOAD YOUR BROCHURE:
 ${CONTACT_CONFIG.floorPlansPdfUrl}
 
-Mount Vernon Lofts offers 42 modern condos in Houston's Montrose neighborhood. Starting in the $215Ks — with high ceilings, natural light, covered parking, and walkable access to everything Montrose has to offer.
+Mount Vernon Lofts offers 42 modern condos in Houston's Montrose neighborhood. Starting in the $175Ks — with high ceilings, natural light, covered parking, and walkable access to everything Montrose has to offer.
 
 READY FOR THE NEXT STEP?
 Our team is available to answer questions, provide additional information, or schedule a tour.
