@@ -11,7 +11,7 @@ import { OpenHouseSchema } from "./OpenHouseSchema"
 
 export const metadata: Metadata = {
   title: "Open House | Mount Vernon Lofts — Montrose Condos",
-  description: "Open House at Mount Vernon Lofts. 42 modern condos in Montrose starting in the $175Ks. Studios and 1-bedrooms available. No RSVP needed.",
+  description: "Open House at Mount Vernon Lofts. 42 modern condos in Montrose. Studios and 1-bedrooms available. No RSVP needed.",
   robots: "noindex, nofollow"
 }
 
@@ -189,7 +189,7 @@ export default function OpenHousePage() {
                 </div>
                 <div>
                   <p className="font-medium text-mvl-espresso">Walk Through Available Units</p>
-                  <p className="text-mvl-espresso/70">Studios and 1-bedrooms ready for immediate closing</p>
+                  <p className="text-mvl-espresso/70">Studios and 1-bedrooms available</p>
                 </div>
               </div>
             </div>
@@ -227,8 +227,8 @@ export default function OpenHousePage() {
               </div>
               <div className="bg-white rounded-md p-4 text-center">
                 <DollarSign className="w-6 h-6 text-mvl-coral mx-auto mb-2" />
-                <p className="font-medium text-mvl-espresso">Studios from $175K</p>
-                <p className="text-sm text-mvl-espresso/70">1-Bedrooms from $252K</p>
+                <p className="font-medium text-mvl-espresso">Studios & 1-Bedrooms</p>
+                <p className="text-sm text-mvl-espresso/70">Multiple floor plans available</p>
               </div>
               <div className="bg-white rounded-md p-4 text-center">
                 <Shield className="w-6 h-6 text-mvl-coral mx-auto mb-2" />
