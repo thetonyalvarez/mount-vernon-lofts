@@ -148,10 +148,10 @@ describe('/press sitemap', () => {
 })
 
 describe('/press brand compliance', () => {
+  // DATA_FILE excluded — it contains third-party article titles and descriptions
   const contentFiles = [
     PAGE_FILE,
     SCHEMA_FILE,
-    DATA_FILE,
     ...SECTIONS.map((s) => `app/press/sections/${s}.tsx`),
   ]
 
