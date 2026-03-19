@@ -32,7 +32,7 @@ export const pressArticles: ReadonlyArray<PressArticle> = [
     publishedDate: "2026-03-04",
     description: "Nan and Company Properties selected to market and sell Mount Vernon Lofts, a 42-unit condo community in Houston's Montrose neighborhood with studios and 1-bedrooms.",
     url: "https://houstonagentmagazine.com/2026/03/04/nan-and-co-exclusive-sales-partner-mount-vernon-lofts-montrose/",
-    thumbnailSrc: "/images/gallery/exteriors/exterior-1.jpg",
-    thumbnailAlt: "Mount Vernon Lofts exterior in Montrose, Houston",
+    thumbnailSrc: "/images/unit-9_1-bed/9-4.jpg",
+    thumbnailAlt: "Living and dining area at Mount Vernon Lofts in Montrose",
   },
 ]
