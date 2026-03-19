@@ -139,6 +139,17 @@ const nextConfig: NextConfig = {
         destination: '/team',
         permanent: true,
       },
+      // Block /first-time-buyer — content under review, redirect to homepage
+      {
+        source: '/first-time-buyer/:path*',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/first-time-buyer',
+        destination: '/',
+        permanent: false,
+      },
       // Search Console Issue #4: Handle query parameters that should be ignored (like ?index=1)
       {
         source: '/:path*',

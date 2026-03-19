@@ -262,7 +262,7 @@ describe("Sitemap includes unit pages", () => {
     const urlEntries = (
       source.match(/url:\s*[`'"]?\$?\{?baseUrl/g) ?? []
     ).length
-    expect(urlEntries).toBeGreaterThanOrEqual(23)
+    expect(urlEntries).toBeGreaterThanOrEqual(22)
   })
 
   it("unit pages have priority 0.8", () => {
