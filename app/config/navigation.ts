@@ -56,6 +56,7 @@ export const footerNavLinks: ReadonlyArray<NavLink> = [
   { label: "BUYING GUIDE", href: "/montrose-condo-guide" },
   // { label: "FIRST-TIME BUYERS", href: "/first-time-buyer" }, // Temporarily removed — content under review
   { label: "WHY MVL", href: "/why-mvl" },
+  { label: "IN THE PRESS", href: "/press" },
 ]
 
 // Footer bottom links
