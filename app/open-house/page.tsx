@@ -19,7 +19,33 @@ function getEventLabel(event: OpenHouseEvent): string {
   return event.eventType === 'broker' ? 'Broker Open House' : 'Open House'
 }
 
+/**
+ * Get the on-duty agent based on the current day of the week.
+ * Mon-Tue: Tamara Mohl | Wed-Sun: Jeffrey Winans
+ */
+function getTodaysAgent() {
+  const day = new Date().getDay() // 0=Sun, 1=Mon, ..., 6=Sat
+  if (day === 1 || day === 2) {
+    return {
+      name: 'Tamara Mohl',
+      firstName: 'Tamara',
+      phone: '713.986.9929',
+      phoneTel: '7139869929',
+      email: 'tamara.mohl@nanproperties.com',
+    }
+  }
+  return {
+    name: 'Jeffrey Winans',
+    firstName: 'Jeffrey',
+    phone: '713.986.9929',
+    phoneTel: '7139869929',
+    email: 'jeffrey.winans@nanproperties.com',
+  }
+}
+
 function ComingSoonFallback() {
+  const agent = getTodaysAgent()
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
       <div className="w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-32">
@@ -43,7 +69,7 @@ function ComingSoonFallback() {
               Schedule a Tour
             </h2>
             <p className="text-mvl-espresso/70 mb-6">
-              Jeffrey Winans | Nan &amp; Company Properties
+              {agent.name} | Nan &amp; Company Properties
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -52,9 +78,9 @@ function ComingSoonFallback() {
                 size="lg"
                 className="bg-mvl-coral hover:bg-mvl-coral-dark text-white transition-all duration-300"
               >
-                <a href="tel:7139869929">
+                <a href={`tel:${agent.phoneTel}`}>
                   <Phone className="w-5 h-5 mr-2" />
-                  Call 713.986.9929
+                  Call {agent.phone}
                 </a>
               </Button>
               <Button
@@ -63,9 +89,9 @@ function ComingSoonFallback() {
                 variant="outline"
                 className="border-mvl-espresso text-mvl-espresso hover:bg-mvl-espresso hover:text-white transition-all duration-300"
               >
-                <a href="mailto:jeffrey.winans@nanproperties.com?subject=Tour Request - Mount Vernon Lofts">
+                <a href={`mailto:${agent.email}?subject=Tour Request - Mount Vernon Lofts`}>
                   <Mail className="w-5 h-5 mr-2" />
-                  Email Jeffrey
+                  Email {agent.firstName}
                 </a>
               </Button>
             </div>
@@ -98,6 +124,7 @@ export default function OpenHousePage() {
   const event = activeEvents[0]
   const label = getEventLabel(event)
   const isBroker = event.eventType === 'broker'
+  const agent = getTodaysAgent()
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-mvl-warm-white to-white">
@@ -282,7 +309,7 @@ export default function OpenHousePage() {
               Contact
             </h2>
             <p className="text-mvl-beige text-center mb-6">
-              Jeffrey Winans | Nan & Company Properties
+              {agent.name} | Nan & Company Properties
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
@@ -291,9 +318,9 @@ export default function OpenHousePage() {
                 size="lg"
                 className="bg-mvl-coral hover:bg-mvl-coral-dark text-white transition-all duration-300"
               >
-                <a href="tel:7139869929">
+                <a href={`tel:${agent.phoneTel}`}>
                   <Phone className="w-5 h-5 mr-2" />
-                  Call 713.986.9929
+                  Call {agent.phone}
                 </a>
               </Button>
               <Button
@@ -302,9 +329,9 @@ export default function OpenHousePage() {
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-mvl-espresso transition-all duration-300"
               >
-                <a href="mailto:jeffrey.winans@nanproperties.com?subject=Open House Inquiry - Mount Vernon Lofts">
+                <a href={`mailto:${agent.email}?subject=Open House Inquiry - Mount Vernon Lofts`}>
                   <Mail className="w-5 h-5 mr-2" />
-                  Email Jeffrey
+                  Email {agent.firstName}
                 </a>
               </Button>
             </div>
