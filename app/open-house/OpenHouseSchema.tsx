@@ -40,7 +40,13 @@ function buildEventSchema(event: OpenHouseEvent) {
       "price": "0",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
-      "url": `${baseUrl}/open-house`
+      "url": `${baseUrl}/open-house`,
+      "validFrom": event.startsAt
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": "Mount Vernon Lofts",
+      "url": baseUrl
     },
     "image": `${baseUrl}/images/unit-9_1-bed/9-4.jpg`,
     "isAccessibleForFree": true
