@@ -18,6 +18,13 @@ const buttonVariants = cva(
           "bg-mvl-beige text-mvl-espresso hover:bg-mvl-warm-white",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // MVL sharp-rectangular outline (nav Inquire): 2px border, rounded-none, uppercase.
+        // Border color follows text color — set text-* in className to control both.
+        sharp:
+          "border-2 border-current bg-transparent rounded-none font-semibold uppercase tracking-wide",
+        // MVL pill outline (footer Inquire): 1px border, rounded-full, Montserrat uppercase.
+        pill:
+          "border border-current bg-transparent rounded-full font-montserrat font-normal uppercase tracking-widest",
       },
       size: {
         default: "h-10 px-4 py-2",

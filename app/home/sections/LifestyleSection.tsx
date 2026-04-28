@@ -1,8 +1,8 @@
 import Image from "@/components/ui/image"
-import Link from "next/link"
 import { ScrollReveal, ParallaxImage } from "@/components/animations"
-import { fadeInUp, scaleIn } from "@/lib/animations"
-import { motion } from "framer-motion"
+import { scaleIn } from "@/lib/animations"
+import { SectionEyebrow } from "@/app/components/SectionEyebrow"
+import { ArrowCTA } from "@/app/components/ArrowCTA"
 
 export function LifestyleSection() {
   return (
@@ -10,25 +10,7 @@ export function LifestyleSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 relative z-10">
         <div className="lg:w-1/2 flex flex-col justify-center h-full space-y-8 lg:space-y-10 lg:pr-24">
           <ScrollReveal>
-            <div className="flex items-center space-x-6 mb-2">
-              <motion.div
-                className="flex-1 h-px bg-mvl-coral max-w-12"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                style={{ transformOrigin: "right" }}
-              />
-              <span className="text-sm font-medium uppercase tracking-widest text-mvl-coral">
-                Lifestyle
-              </span>
-              <motion.div
-                className="flex-1 h-px bg-mvl-coral max-w-12"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                style={{ transformOrigin: "left" }}
-              />
-            </div>
+            <SectionEyebrow label="Lifestyle" />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-montserrat text-mvl-coral leading-tight font-light">
@@ -41,17 +23,7 @@ export function LifestyleSection() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
-            <Link href="/neighborhood" className="flex items-center space-x-6 pt-6 group">
-              <span className="text-mvl-espresso font-medium uppercase tracking-wider text-sm">
-                Experience the Lifestyle
-              </span>
-              <div className="flex-1 h-px bg-mvl-espresso max-w-20"></div>
-              <div className="w-8 h-8 rounded-full border border-mvl-espresso flex items-center justify-center group-hover:bg-mvl-espresso group-hover:text-white transition-colors">
-                <svg className="w-4 h-4 text-mvl-espresso group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
+            <ArrowCTA href="/neighborhood">Experience the Lifestyle</ArrowCTA>
           </ScrollReveal>
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "@/components/ui/image"
+import { Button } from "@/components/ui/button"
 import {
   footerNavLinks,
   footerBottomLinks,
@@ -12,7 +13,6 @@ import { footerGridItems } from "@/app/config/footer-grid"
 import { getImageUrl } from "@/lib/get-image-url"
 import { useContactModal } from "@/lib/contact-modal-context"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations"
-import { fadeInUp } from "@/lib/animations"
 
 export function Footer() {
   const { openModal } = useContactModal()
@@ -111,13 +111,14 @@ export function Footer() {
                 </div>
                 <div className="text-xs text-gray-300 mt-2">{contactInfo.note}</div>
               </div>
-              <button
+              <Button
                 id="footer-contact-button"
+                variant="pill"
                 onClick={() => openModal('footer_inquire_button', 'contact_modal_footer')}
-                className="border border-white rounded-full px-6 sm:px-8 py-2 text-base sm:text-lg font-montserrat tracking-widest uppercase hover:bg-white hover:text-mvl-espresso-dark transition-colors"
+                className="h-auto px-6 sm:px-8 py-2 text-base sm:text-lg text-white hover:bg-white hover:text-mvl-espresso-dark"
               >
                 INQUIRE
-              </button>
+              </Button>
               </div>
             </ScrollReveal>
           </div>
