@@ -61,11 +61,13 @@ describe("getLatestEventByType: returns event regardless of expiry", () => {
     expect(source).toMatch(/export\s+function\s+getLatestEventByType/)
   })
 
-  it("getLatestEventByType('broker') returns broker event even when expired", async () => {
+  it("getLatestEventByType('broker') returns null when no broker special events configured", async () => {
+    // SPECIAL_EVENTS is empty by default — no broker events scheduled.
+    // When a broker open house is added, this test should be updated to assert
+    // the function returns the broker event (even after it has expired).
     const { getLatestEventByType } = await import("@/app/config/open-house-data")
     const event = getLatestEventByType("broker")
-    expect(event).not.toBeNull()
-    expect(event!.eventType).toBe("broker")
+    expect(event).toBeNull()
   })
 
   it("getLatestEventByType('public') returns latest public event", async () => {

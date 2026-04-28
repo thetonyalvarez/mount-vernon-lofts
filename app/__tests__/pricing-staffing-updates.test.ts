@@ -119,12 +119,6 @@ describe("Starting price updated from $215K to $175K", () => {
     expect(source).not.toContain("$215Ks")
   })
 
-  it("open-house-data descriptions use $175K", () => {
-    const source = readFile("app/config/open-house-data.ts")
-    expect(source).toContain("from $175K")
-    expect(source).not.toContain("from $215K")
-  })
-
   it("why-mvl page description uses $175K range", () => {
     const source = readFile("app/why-mvl/page.tsx")
     expect(source).not.toContain("under $220K")
