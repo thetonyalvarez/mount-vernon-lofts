@@ -53,7 +53,7 @@ import { HeroSection } from "@/app/components/HeroSection"
 ```tsx
 <HeroSection
   title="Urban Condo Living"
-  subtitle="Montrose ownership starting in the $215Ks"
+  subtitle="Montrose ownership starting in the $175Ks"
   fallbackImage="/images/hero.jpg"
 />
 ```

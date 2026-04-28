@@ -94,17 +94,17 @@ export default function Navigation({ onMenuToggle, bannerVisible: _bannerVisible
       {/* Right: Inquire Button */}
       <div className="flex items-center">
         <Button
-          variant="outline"
+          variant="sharp"
           onClick={() => {
             trackNavigation('header', 'Inquire Button', 'contact_modal')
             openModal('header_inquire_button', 'contact_modal_header')
           }}
           className={clsx(
-            "border-2 bg-transparent px-3 sm:px-6 py-1.5 sm:py-2 rounded-none text-sm sm:text-base font-semibold uppercase tracking-wide",
+            "px-3 sm:px-6 py-1.5 sm:py-2 text-sm sm:text-base",
             "transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
             showDarkNav
-              ? "border-mvl-espresso text-mvl-espresso hover:bg-mvl-espresso hover:text-white"
-              : "border-white text-white hover:bg-white hover:text-black"
+              ? "text-mvl-espresso hover:bg-mvl-espresso hover:text-white"
+              : "text-white hover:bg-white hover:text-black"
           )}
         >
           <span className="hidden sm:inline">Inquire</span>

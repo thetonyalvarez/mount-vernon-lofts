@@ -6,7 +6,7 @@ import { PressSchema } from './PressSchema'
 export const metadata: Metadata = {
   title: 'In The Press | Mount Vernon Lofts — Montrose Condos',
   description:
-    'Read press coverage and media mentions of Mount Vernon Lofts, modern condos in Houston\'s Montrose neighborhood starting in the $215Ks.',
+    'Read press coverage and media mentions of Mount Vernon Lofts, modern condos in Houston\'s Montrose neighborhood starting in the $175Ks.',
   keywords:
     'mount vernon lofts press, montrose condos news, houston condos media, mount vernon lofts articles, montrose real estate news',
   openGraph: {

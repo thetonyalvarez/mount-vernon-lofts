@@ -1,8 +1,8 @@
 import Image from "@/components/ui/image"
-import Link from "next/link"
 import { ScrollReveal, ParallaxImage } from "@/components/animations"
-import { fadeInUp, scaleIn } from "@/lib/animations"
-import { motion } from "framer-motion"
+import { scaleIn } from "@/lib/animations"
+import { SectionEyebrow } from "@/app/components/SectionEyebrow"
+import { ArrowCTA } from "@/app/components/ArrowCTA"
 
 export function AmenitiesSection() {
   return (
@@ -22,25 +22,7 @@ export function AmenitiesSection() {
       <div id="home-amenities-section" className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 relative z-10">
         <div id="home-amenities-section-content" className="lg:w-1/2 flex flex-col justify-center h-full space-y-8 lg:space-y-10 lg:pl-24 lg:ml-auto">
           <ScrollReveal>
-            <div id="home-amenities-section-title" className="flex items-center space-x-6 mb-2">
-              <motion.div
-                className="flex-1 h-px bg-mvl-coral max-w-12"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                style={{ transformOrigin: "left" }}
-              />
-              <span id="home-amenities-section-overline-text" className="text-sm font-medium uppercase tracking-widest text-mvl-coral">
-                Amenities
-              </span>
-              <motion.div
-                className="flex-1 h-px bg-mvl-coral max-w-12"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                style={{ transformOrigin: "right" }}
-              />
-            </div>
+            <SectionEyebrow label="Amenities" direction="outward" />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 id="home-amenities-section-title-text" className="text-4xl lg:text-5xl xl:text-6xl font-montserrat text-mvl-coral leading-tight font-light">
@@ -53,17 +35,7 @@ export function AmenitiesSection() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
-            <Link id="home-amenities-section-link" href="/amenities" className="flex items-center space-x-6 pt-6 group">
-              <span id="home-amenities-section-link-text" className="text-mvl-espresso font-medium uppercase tracking-wider text-sm">
-                See Building Features
-              </span>
-              <div className="flex-1 h-px bg-mvl-espresso max-w-20"></div>
-              <div className="w-8 h-8 rounded-full border border-mvl-espresso flex items-center justify-center group-hover:bg-mvl-espresso group-hover:text-white transition-colors">
-                <svg className="w-4 h-4 text-mvl-espresso group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
+            <ArrowCTA id="home-amenities-section-link" href="/amenities">See Building Features</ArrowCTA>
           </ScrollReveal>
         </div>
       </div>
