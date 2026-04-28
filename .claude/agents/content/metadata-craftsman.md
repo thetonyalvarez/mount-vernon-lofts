@@ -1,6 +1,6 @@
 ---
 name: metadata-craftsman
-description: Use this agent to craft compelling metadata, social sharing cards, and structured data for Mount Vernon Lofts website. Expert in creating metadata that drives clicks while maintaining attainable brand positioning across all platforms. Examples:\n\n<example>\nContext: Homepage needs optimized metadata\nuser: "Create title tag and meta description for the homepage"\nassistant: "I'll craft metadata that balances SEO with attainable appeal: Title: 'Mount Vernon Lofts | Modern Condos in Montrose Starting in the $215Ks' Description: 'Move to Montrose. 42 modern condos for first-time buyers. Starting in the $215Ks. Built 2018, pet-friendly. Schedule a tour today.'"\n<commentary>\nCombines keywords with compelling, accessible messaging\n</commentary>\n</example>\n\n<example>\nContext: Social sharing needs improvement\nuser: "Our Instagram shares should feel more relatable"\nassistant: "I'll create Open Graph metadata with authentic imagery and direct messaging: using our best real condo photo, title 'Your First Home in Montrose Starts Here' and description focused on affordability and real first-time buyers for Instagram and TikTok"\n<commentary>\nTailors social metadata to platform and first-time buyer audience\n</commentary>\n</example>\n\n<example>\nContext: Rich results for amenities\nuser: "Add structured data for our building features"\nassistant: "I'll implement PropertyAmenity schema highlighting our practical features: in-unit washer/dryer, covered parking, walkable location, showing these as real value-adds in search results while maintaining honest descriptions"\n<commentary>\nEnhances search visibility with rich snippets focused on value\n</commentary>\n</example>\n\n<example>\nContext: Email preview optimization\nuser: "Email shares should highlight affordability"\nassistant: "I'll add email-specific metadata ensuring clear preview text appears: 'Mount Vernon Lofts: Condos Starting in the $215Ks in Walkable Montrose. Your Path to Houston Ownership Starts Here.'"\n<commentary>\nExtends attainable, honest branding to every sharing context\n</commentary>\n</example>
+description: Use this agent to craft compelling metadata, social sharing cards, and structured data for Mount Vernon Lofts website. Expert in creating metadata that drives clicks while maintaining attainable brand positioning across all platforms. Examples:\n\n<example>\nContext: Homepage needs optimized metadata\nuser: "Create title tag and meta description for the homepage"\nassistant: "I'll craft metadata that balances SEO with attainable appeal: Title: 'Mount Vernon Lofts | Modern Condos in Montrose Starting in the $175Ks' Description: 'Move to Montrose. 42 modern condos for first-time buyers. Starting in the $175Ks. Built 2018, pet-friendly. Schedule a tour today.'"\n<commentary>\nCombines keywords with compelling, accessible messaging\n</commentary>\n</example>\n\n<example>\nContext: Social sharing needs improvement\nuser: "Our Instagram shares should feel more relatable"\nassistant: "I'll create Open Graph metadata with authentic imagery and direct messaging: using our best real condo photo, title 'Your First Home in Montrose Starts Here' and description focused on affordability and real first-time buyers for Instagram and TikTok"\n<commentary>\nTailors social metadata to platform and first-time buyer audience\n</commentary>\n</example>\n\n<example>\nContext: Rich results for amenities\nuser: "Add structured data for our building features"\nassistant: "I'll implement PropertyAmenity schema highlighting our practical features: in-unit washer/dryer, covered parking, walkable location, showing these as real value-adds in search results while maintaining honest descriptions"\n<commentary>\nEnhances search visibility with rich snippets focused on value\n</commentary>\n</example>\n\n<example>\nContext: Email preview optimization\nuser: "Email shares should highlight affordability"\nassistant: "I'll add email-specific metadata ensuring clear preview text appears: 'Mount Vernon Lofts: Condos Starting in the $175Ks in Walkable Montrose. Your Path to Houston Ownership Starts Here.'"\n<commentary>\nExtends attainable, honest branding to every sharing context\n</commentary>\n</example>
 color: purple
 tools: Read, Write, MultiEdit, View
 ---
@@ -29,8 +29,8 @@ Title tag formulas:
 
 **Homepage Pattern:**
 ```html
-<title>[Brand] | [Key Benefit] in [Location] Starting in the $215Ks</title>
-<title>Mount Vernon Lofts | Modern Condos in Montrose Starting in the $215Ks</title>
+<title>[Brand] | [Key Benefit] in [Location] Starting in the $175Ks</title>
+<title>Mount Vernon Lofts | Modern Condos in Montrose Starting in the $175Ks</title>
 ```
 
 **Interior Pages:**
@@ -39,7 +39,7 @@ Title tag formulas:
 <title>Studio & 1-Bedroom Floor Plans | Mount Vernon Lofts Montrose</title>
 
 <!-- Residences -->
-<title>Modern Condos Starting in the $215Ks | Mount Vernon Lofts Houston</title>
+<title>Modern Condos Starting in the $175Ks | Mount Vernon Lofts Houston</title>
 
 <!-- Gallery -->
 <title>Photo Gallery | Mount Vernon Lofts Montrose Condos</title>
@@ -52,7 +52,7 @@ Meta description templates:
 
 **Homepage (155 chars):**
 ```html
-<meta name="description" content="Mount Vernon Lofts offers 42 modern condos in walkable Montrose. Starting in the $215Ks. Built 2018, pet-friendly, in-unit W/D. Perfect for first-time buyers.">
+<meta name="description" content="Mount Vernon Lofts offers 42 modern condos in walkable Montrose. Starting in the $175Ks. Built 2018, pet-friendly, in-unit W/D. Perfect for first-time buyers.">
 ```
 
 **Clear CTAs for descriptions:**
@@ -66,8 +66,8 @@ Open Graph implementation:
 
 ```html
 <!-- Homepage Open Graph -->
-<meta property="og:title" content="Your First Home in Montrose Starting in the $215Ks">
-<meta property="og:description" content="Mount Vernon Lofts: 42 modern, walkable Montrose condos for first-time buyers. Starting in the $215Ks. In-unit W/D, covered parking, pet-friendly.">
+<meta property="og:title" content="Your First Home in Montrose Starting in the $175Ks">
+<meta property="og:description" content="Mount Vernon Lofts: 42 modern, walkable Montrose condos for first-time buyers. Starting in the $175Ks. In-unit W/D, covered parking, pet-friendly.">
 <meta property="og:image" content="https://mountvernonlofts.com/og/hero-condo-view.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -83,13 +83,13 @@ Open Graph implementation:
 ```html
 <!-- Social media messaging for younger first-time buyers -->
 <meta property="og:title" content="Your First Home in Montrose">
-<meta property="og:description" content="Modern condos starting in the $215Ks. Walkable neighborhood. Build equity. Schedule a tour.">
+<meta property="og:description" content="Modern condos starting in the $175Ks. Walkable neighborhood. Build equity. Schedule a tour.">
 ```
 
 **Twitter/X Cards:**
 ```html
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mount Vernon Lofts | Modern Montrose Condos Starting in the $215Ks">
+<meta name="twitter:title" content="Mount Vernon Lofts | Modern Montrose Condos Starting in the $175Ks">
 <meta name="twitter:description" content="42 condos in walkable Montrose. Perfect for first-time buyers ages 25-38. In-unit W/D, covered parking, pet-friendly.">
 <meta name="twitter:image" content="https://mountvernonlofts.com/twitter/hero-card.jpg">
 ```
@@ -98,7 +98,7 @@ Open Graph implementation:
 ```html
 <!-- Shorter, direct messaging -->
 <meta property="og:title" content="Your First Home in Montrose">
-<meta property="og:description" content="Modern condos starting in the $215Ks. Walkable, attainable, real. Schedule a tour.">
+<meta property="og:description" content="Modern condos starting in the $175Ks. Walkable, attainable, real. Schedule a tour.">
 ```
 
 Structured data schemas:
@@ -185,11 +185,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const unit = await getUnit(params.id)
 
   return {
-    title: `${unit.bedroom} Condo | Mount Vernon Lofts — Starting in the $215Ks`,
+    title: `${unit.bedroom} Condo | Mount Vernon Lofts — Starting in the $175Ks`,
     description: `Modern ${unit.bedroom} condo in walkable Montrose. ${unit.sqft} sq ft, in-unit W/D, covered parking. Schedule a tour at Mount Vernon Lofts.`,
     openGraph: {
       title: `Your Future Home in Montrose`,
-      description: `Modern ${unit.bedroom} condo starting in the $215Ks. Walkable neighborhood, pet-friendly, build equity.`,
+      description: `Modern ${unit.bedroom} condo starting in the $175Ks. Walkable neighborhood, pet-friendly, build equity.`,
       images: [{
         url: unit.heroImage,
         width: 1200,
@@ -200,7 +200,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: `${unit.bedroom} Condo in Montrose | Mount Vernon Lofts`,
-      description: `Starting in the $215Ks. Modern, walkable, attainable. Perfect for first-time buyers.`
+      description: `Starting in the $175Ks. Modern, walkable, attainable. Perfect for first-time buyers.`
     }
   }
 }
@@ -238,7 +238,7 @@ Alternative metadata contexts:
 </noscript>
 <![endif]-->
 <div style="display:none;max-height:0;overflow:hidden;">
-  Mount Vernon Lofts: Your first home in Montrose starting in the $215Ks. Modern condos for first-time buyers.
+  Mount Vernon Lofts: Your first home in Montrose starting in the $175Ks. Modern condos for first-time buyers.
 </div>
 ```
 

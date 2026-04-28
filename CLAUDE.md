@@ -130,7 +130,7 @@ const MVL_DATA = {
     studios: { count: 34, sqftRange: "612-705" },
     oneBedroom: { count: 8, sqftRange: "717-799" }
   },
-  pricing: "Starting in the $215Ks", // Generalized — do NOT break out per-type pricing
+  pricing: "Starting in the $175Ks", // Generalized — do NOT break out per-type pricing
   hoaFee: 300, // includes water
   hoaReserves: "16.7%", // well above Fannie Mae 10% requirement
   parking: "1 covered space per unit",
@@ -166,7 +166,7 @@ const MVL_DATA = {
 
 ## SEO & Metadata
 - Title pattern: `[Page Name] | Mount Vernon Lofts — Montrose Condos`
-- Homepage meta: "Modern condos in Montrose, Houston starting in the $215Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Schedule a tour today."
+- Homepage meta: "Modern condos in Montrose, Houston starting in the $175Ks. Studios and 1-bedrooms in one of Houston's most walkable neighborhoods. Schedule a tour today."
 - Target keywords: montrose condos, houston condos for sale, first-time buyer houston, montrose real estate, condos near medical center
 
 ## Disclosures (Required on Website)

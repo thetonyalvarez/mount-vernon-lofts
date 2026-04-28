@@ -122,7 +122,7 @@
 | Attribute | Do | Don't |
 |-----------|-----|-------|
 | **Confident** | "Modern condo in Montrose for under $220K. That's rare." | "We think this might be one of the more affordable options..." |
-| **Direct** | "Starting in the $215Ks." | "We're excited to offer thoughtfully designed spaces at various price points..." |
+| **Direct** | "Starting in the $175Ks." | "We're excited to offer thoughtfully designed spaces at various price points..." |
 | **Honest** | "Exterior walkways — common for Houston, not for everyone." | [Ignore limitations] |
 | **Aspirational but grounded** | "Your first home in one of Houston's best neighborhoods." | "Experience unparalleled luxury in an exclusive urban oasis." |
 
@@ -145,7 +145,7 @@ const MVL_DATA = {
     studios: { count: 34, sqftRange: "612-705" },
     oneBedroom: { count: 8, sqftRange: "717-799" }
   },
-  pricing: "Starting in the $215Ks",
+  pricing: "Starting in the $175Ks",
   hoaFee: 300,
   hoaReserves: "16.7%",
   parking: "1 covered space per unit",

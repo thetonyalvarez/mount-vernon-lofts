@@ -128,7 +128,7 @@ SEO Implementation:
 // Dynamic metadata for real estate
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
-    title: 'Mount Vernon Lofts | Montrose Condos Starting in the $215Ks',
+    title: 'Mount Vernon Lofts | Montrose Condos Starting in the $175Ks',
     description: '42 beautifully converted urban lofts in Montrose, Houston. First-time buyer friendly.',
     openGraph: {
       images: ['/og-image-mvl.jpg'],
@@ -149,7 +149,7 @@ export const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ApartmentComplex',
   name: 'Mount Vernon Lofts',
-  description: 'Urban condos in Montrose, Houston starting in the $215Ks',
+  description: 'Urban condos in Montrose, Houston starting in the $175Ks',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Houston',

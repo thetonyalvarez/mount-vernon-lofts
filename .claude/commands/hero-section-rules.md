@@ -57,7 +57,7 @@ import { HeroSection } from "@/app/components/HeroSection"
 ```tsx
 <HeroSection
   title="Urban Condo Living"
-  subtitle="Montrose ownership starting in the $215Ks. 42 modern condos for first-time buyers."
+  subtitle="Montrose ownership starting in the $175Ks. 42 modern condos for first-time buyers."
   fallbackImage="/images/residences-hero.jpg"
 />
 ```
