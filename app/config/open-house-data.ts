@@ -115,6 +115,16 @@ export const RECURRING_SCHEDULE: RecurringSchedule = {
 };
 
 /**
+ * Cancelled dates (ISO format: YYYY-MM-DD).
+ * The recurring daily event will NOT be generated for these dates.
+ * Use this to cancel a single day's open house without affecting the recurring schedule
+ * or future days. Special events on a cancelled date are unaffected (still shown).
+ */
+export const CANCELLED_DATES: ReadonlyArray<string> = [
+  "2026-04-28", // Cancelled
+];
+
+/**
  * Special one-off events (broker open houses, themed events, etc.)
  * These REPLACE the recurring daily event on the same date.
  * Add new special events here — they will automatically appear on the site.
@@ -224,6 +234,8 @@ function getAllEvents(days: number = 7): ReadonlyArray<OpenHouseEvent> {
     SPECIAL_EVENTS.map(event => getEventDateStr(event))
   );
 
+  const cancelledDates = new Set(CANCELLED_DATES);
+
   // Generate recurring events for the rolling window, skipping dates with special events
   for (let i = 0; i < days; i++) {
     const date = new Date(today);
@@ -233,6 +245,9 @@ function getAllEvents(days: number = 7): ReadonlyArray<OpenHouseEvent> {
 
     // Skip if a special event exists for this date (special replaces daily)
     if (specialEventDates.has(dateStr)) continue;
+
+    // Skip if this date has been cancelled
+    if (cancelledDates.has(dateStr)) continue;
 
     // Skip if outside the recurring schedule range
     if (!isDateInScheduleRange(date)) continue;
@@ -338,7 +353,10 @@ export function getActiveEventByType(eventType: 'public' | 'broker'): OpenHouseE
  */
 export function getLatestEventByType(eventType: 'public' | 'broker'): OpenHouseEvent | null {
   if (eventType === 'public') {
-    // For public events, generate today's event (always available with recurring schedule)
+    // For public events, generate today's event (always available with recurring schedule).
+    // Note: today's event is returned even if cancelled — form pages remain accessible
+    // for late sign-in/feedback submissions. Cancellation only hides the event from the
+    // banner and the main open-house page (handled in getAllEvents).
     const today = new Date();
     if (isDateInScheduleRange(today)) {
       return generateEventForDate(today);
