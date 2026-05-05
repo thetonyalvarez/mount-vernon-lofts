@@ -17,19 +17,19 @@ export function middleware(request: NextRequest) {
    * To disable: comment it back out
    * Related files: /app/maintenance/page.tsx, /app/maintenance/layout.tsx, /app/layout.tsx (has maintenance layout check)
    */
-  // if (!url.pathname.startsWith('/maintenance')) {
-  //   url.pathname = '/maintenance';
-  //   return NextResponse.redirect(url, 307);
-  // }
-  // if (url.pathname.startsWith('/maintenance')) {
-  //   const requestHeaders = new Headers(request.headers);
-  //   requestHeaders.set('x-maintenance-mode', 'true');
-  //   return NextResponse.next({
-  //     request: {
-  //       headers: requestHeaders,
-  //     },
-  //   });
-  // }
+  if (!url.pathname.startsWith('/maintenance')) {
+    url.pathname = '/maintenance';
+    return NextResponse.redirect(url, 307);
+  }
+  if (url.pathname.startsWith('/maintenance')) {
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set('x-maintenance-mode', 'true');
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
+  }
 
   // Bare layout for open house form pages (sign-in / feedback)
   // Strips nav, banner, footer, contact modal for fast QR-code load at the door

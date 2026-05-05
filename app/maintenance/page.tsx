@@ -1,19 +1,29 @@
 export default function MaintenancePage() {
   return (
-    <div style={{ textAlign: 'center', padding: '2rem' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        padding: '2rem',
+        backgroundColor: '#FFFCF7',
+        fontFamily: 'Inter, system-ui, sans-serif',
+        textAlign: 'center',
+      }}
+    >
       <h1
         style={{
-          fontSize: '1.5rem',
-          fontWeight: '300',
-          marginBottom: '1rem',
-          marginTop: 0,
+          fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+          fontWeight: 600,
+          color: '#2D2B29',
+          margin: 0,
+          lineHeight: 1.2,
         }}
       >
-        Site Unavailable
+        Under Maintenance
       </h1>
-      <p style={{ fontSize: '1rem', color: '#6a5540', margin: 0 }}>
-        This site is currently unavailable. Please check back later.
-      </p>
     </div>
   );
 }
